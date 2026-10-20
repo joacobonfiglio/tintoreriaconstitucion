@@ -1,0 +1,141 @@
+{
+  "acolchados": {
+    "width": 2117,
+    "height": 1152,
+    "widths": [
+      480,
+      960,
+      1600
+    ]
+  },
+  "blanqueria": {
+    "width": 396,
+    "height": 232,
+    "widths": [
+      396
+    ]
+  },
+  "camisas": {
+    "width": 1376,
+    "height": 768,
+    "widths": [
+      480,
+      960,
+      1376
+    ]
+  },
+  "clienta-celular": {
+    "width": 1376,
+    "height": 768,
+    "widths": [
+      480,
+      960,
+      1376
+    ]
+  },
+  "control-prenda": {
+    "width": 1256,
+    "height": 832,
+    "widths": [
+      480,
+      960,
+      1256
+    ]
+  },
+  "entrega": {
+    "width": 396,
+    "height": 240,
+    "widths": [
+      396
+    ]
+  },
+  "impermeable": {
+    "width": 355,
+    "height": 240,
+    "widths": [
+      355
+    ]
+  },
+  "jean": {
+    "width": 880,
+    "height": 1190,
+    "widths": [
+      480,
+      880
+    ]
+  },
+  "local": {
+    "width": 352,
+    "height": 232,
+    "widths": [
+      352
+    ]
+  },
+  "manos-tela": {
+    "width": 3226,
+    "height": 2048,
+    "widths": [
+      480,
+      960,
+      1600
+    ]
+  },
+  "maquinas": {
+    "width": 1376,
+    "height": 768,
+    "widths": [
+      480,
+      960,
+      1376
+    ]
+  },
+  "perchas": {
+    "width": 352,
+    "height": 243,
+    "widths": [
+      352
+    ]
+  },
+  "percheros": {
+    "width": 355,
+    "height": 261,
+    "widths": [
+      355
+    ]
+  },
+  "saco-lana": {
+    "width": 355,
+    "height": 232,
+    "widths": [
+      355
+    ]
+  },
+  "sala": {
+    "width": 396,
+    "height": 243,
+    "widths": [
+      396
+    ]
+  },
+  "toallas": {
+    "width": 385,
+    "height": 243,
+    "widths": [
+      385
+    ]
+  },
+  "traje": {
+    "width": 385,
+    "height": 232,
+    "widths": [
+      385
+    ]
+  },
+  "vaporizado": {
+    "width": 355,
+    "height": 243,
+    "widths": [
+      355
+    ]
+  }
+}
