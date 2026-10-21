@@ -109,11 +109,18 @@ export function Clothesline({ services }: { services: Service[] }) {
                 </span>
               </div>
               <div className="garment-body">
-                <h3>{s.name}</h3>
+                <h3>
+                  <a href={`/servicios/${s.slug}`}>{s.name}</a>
+                </h3>
                 <p>{s.short}</p>
-                <WhatsAppLink message={s.message} placement={`servicio_${s.slug}`} className="link-arrow" icon={false}>
-                  Consultar precio
-                </WhatsAppLink>
+                <div className="garment-links">
+                  <a href={`/servicios/${s.slug}`} className="link-arrow">
+                    Ver servicio
+                  </a>
+                  <WhatsAppLink message={s.message} placement={`servicio_${s.slug}`} className="link-arrow" icon={false}>
+                    Consultar precio
+                  </WhatsAppLink>
+                </div>
               </div>
             </article>
           </li>

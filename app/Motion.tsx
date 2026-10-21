@@ -9,6 +9,7 @@ type Props = {
   className?: string;
   children: ReactNode;
   id?: string;
+  href?: string;
 };
 
 // Un solo IntersectionObserver compartido para toda la página.
@@ -31,7 +32,7 @@ function getObserver() {
 }
 
 /** Aparición suave al entrar en pantalla. Sin JS o con movimiento reducido, se ve igual. */
-export function Motion({ as: Tag = 'div', variant = 'up', delay = 0, className, children, id }: Props) {
+export function Motion({ as: Tag = 'div', variant = 'up', delay = 0, className, children, id, href }: Props) {
   const ref = useRef<HTMLElement>(null);
   useEffect(() => {
     const el = ref.current;
@@ -44,6 +45,7 @@ export function Motion({ as: Tag = 'div', variant = 'up', delay = 0, className, 
     <Tag
       ref={ref}
       id={id}
+      href={href}
       data-motion={variant}
       className={className}
       style={delay ? ({ '--d': `${delay}ms` } as CSSProperties) : undefined}

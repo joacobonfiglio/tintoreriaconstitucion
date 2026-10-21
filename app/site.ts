@@ -11,7 +11,7 @@ export const SITE = {
   country: 'AR',
   tagline: 'Cuidamos tu ropa como si fuera nuestra.',
   description:
-    'Tintorería en Mar del Plata: limpieza en seco, lavado de acolchados, camisas, trajes, cortinas y prendas delicadas. Revisión prenda por prenda, aviso por WhatsApp cuando está lista.',
+    'Tintorería en Mar del Plata: limpieza en seco, acolchados, camisas, cortinas y prendas delicadas. Precio antes de dejarla y aviso por WhatsApp.',
   // TODO: número real en formato internacional sin + ni espacios (ej. 5492235551234)
   whatsapp: '5492230000000',
   phoneDisplay: '(223) 000-0000', // TODO
@@ -38,7 +38,7 @@ export const SITE = {
 } as const;
 
 export const NAV = [
-  { href: '/#servicios', label: 'Servicios' },
+  { href: '/servicios', label: 'Servicios' },
   { href: '/#como-funciona', label: 'Cómo funciona' },
   { href: '/#cuidado', label: 'Cuidado' },
   { href: '/#preguntas', label: 'Preguntas' },
@@ -150,5 +150,11 @@ export const FAQ = [
 
 export const waLink = (message: string) =>
   `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(message)}`;
+
+/** Título SEO: suma la marca solo si entra en ~60 caracteres. */
+export const seoTitle = (title: string) => {
+  const full = `${title} | ${SITE.name}`;
+  return full.length <= 62 ? full : title;
+};
 
 export const absoluteUrl = (path = '/') => new URL(path, SITE.url).toString();

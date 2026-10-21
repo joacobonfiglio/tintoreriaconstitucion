@@ -197,7 +197,7 @@ function Footer() {
           <ul className="footer-list">
             {SERVICES.map((s) => (
               <li key={s.slug}>
-                <a href={`/#${s.slug}`}>{s.name}</a>
+                <a href={`/servicios/${s.slug}`}>{s.name}</a>
               </li>
             ))}
           </ul>

@@ -17,7 +17,7 @@ export function GET() {
 
 ## Servicios
 
-${SERVICES.map((s) => `- [${s.name}](${absoluteUrl(`/#${s.slug}`)}): ${s.short}`).join('\n')}
+${SERVICES.map((s) => `- [${s.name}](${absoluteUrl(`/servicios/${s.slug}`)}): ${s.short}`).join('\n')}
 
 ## Cómo trabajamos
 
