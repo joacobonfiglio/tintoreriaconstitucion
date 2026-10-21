@@ -1,6 +1,7 @@
 import { PageHero, Process } from './Blocks';
 import { Icon } from './Icon';
 import { Img } from './Img';
+import { imageUrl } from './imageUrl';
 import { Motion } from './Motion';
 import { SERVICES, SITE, absoluteUrl } from './site';
 import type { ServiceContent } from './servicios/content';
@@ -22,7 +23,7 @@ export function ServiceLanding({ content: c }: { content: ServiceContent }) {
         serviceType: c.keyword,
         description: c.metaDescription,
         url,
-        image: absoluteUrl(`/img/${c.image}-480.webp`),
+        image: absoluteUrl(imageUrl(c.image, 1200)),
         provider: { '@id': absoluteUrl('/#negocio') },
         areaServed: { '@type': 'City', name: SITE.city },
       },

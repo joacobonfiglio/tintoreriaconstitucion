@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { ServiceLanding } from '../../ServiceLanding';
 import { SERVICE_CONTENT, getServiceContent } from '../content';
 import { seoTitle } from '../../site';
+import { imageUrl } from '../../imageUrl';
 
 export const dynamicParams = false;
 
@@ -22,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: c.metaTitle,
       description: c.metaDescription,
       url: path,
-      images: [{ url: `/img/${c.image}-480.webp`, alt: c.imageAlt }],
+      images: [{ url: imageUrl(c.image, 1200), alt: c.imageAlt }],
     },
   };
 }

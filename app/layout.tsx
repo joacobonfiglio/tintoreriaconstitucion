@@ -11,6 +11,7 @@ import { NAV, SERVICES, SITE, absoluteUrl } from './site';
 import { TrackedLink } from './TrackedLink';
 import { WhatsAppLink } from './WhatsAppLink';
 import { Waves } from './Blocks';
+import { imageUrl } from './imageUrl';
 
 const sora = Sora({
   subsets: ['latin', 'latin-ext'],
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
     url: '/',
     title: `${SITE.name} | Tintorería en Mar del Plata`,
     description: SITE.description,
-    images: [{ url: '/img/camisas-1376.webp', width: 1376, height: 768, alt: 'Camisas limpias y planchadas en percha' }],
+    images: [{ url: imageUrl('camisas', 1376), width: 1376, height: 768, alt: 'Camisas limpias y planchadas en percha' }],
   },
   twitter: { card: 'summary_large_image' },
   robots: { index: true, follow: true },
@@ -68,7 +69,7 @@ const jsonLd = {
       description: SITE.description,
       url: SITE.url,
       logo: absoluteUrl('/brand/logo.svg'),
-      image: [absoluteUrl('/img/camisas-1376.webp'), absoluteUrl('/img/control-prenda-1256.webp')],
+      image: [absoluteUrl(imageUrl('camisas')), absoluteUrl(imageUrl('control-prenda'))],
       telephone: `+${SITE.whatsapp}`,
       email: SITE.email,
       priceRange: SITE.priceRange,
