@@ -7,10 +7,11 @@ import { CookieConsent, CookieSettingsButton } from './CookieConsent';
 import { GA_ID, consentBootstrap } from './ga';
 import { Icon } from './Icon';
 import { Logo } from './Logo';
-import { NAV, SERVICES, SITE, absoluteUrl } from './site';
+import { LEGAL_PAGES, NAV, SERVICES, SITE, absoluteUrl } from './site';
 import { TrackedLink } from './TrackedLink';
 import { WhatsAppLink } from './WhatsAppLink';
 import { Waves } from './Blocks';
+import { ServicesMenu } from './ServicesMenu';
 import { imageUrl } from './imageUrl';
 
 const sora = Sora({
@@ -153,9 +154,7 @@ function Header() {
         <nav className="header-nav" aria-label="Principal">
           <ul>
             {NAV.map((n) => (
-              <li key={n.href}>
-                <a href={n.href}>{n.label}</a>
-              </li>
+              <li key={n.href}>{n.href === '/servicios' ? <ServicesMenu /> : <a href={n.href}>{n.label}</a>}</li>
             ))}
           </ul>
         </nav>
@@ -231,7 +230,16 @@ function Footer() {
         <small>
           © {year} {SITE.name} · Mar del Plata
         </small>
-        <CookieSettingsButton />
+        <ul className="footer-legal">
+          {LEGAL_PAGES.map((l) => (
+            <li key={l.href}>
+              <a href={l.href}>{l.label}</a>
+            </li>
+          ))}
+          <li>
+            <CookieSettingsButton />
+          </li>
+        </ul>
       </div>
     </footer>
   );

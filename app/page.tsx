@@ -1,5 +1,6 @@
 import { ChatPreview } from './ChatPreview';
 import { Clothesline, GuideCards, Process, Ribbon, Waves } from './Blocks';
+import { ScrollRail } from './ScrollRail';
 import { Icon } from './Icon';
 import { Img } from './Img';
 import { Isotipo } from './Logo';
@@ -148,10 +149,12 @@ export default function Home() {
           </Motion>
           <Motion as="p" className="lead" delay={100}>
             Trabajamos limpieza en seco y lavado al agua según la fibra, la etiqueta y el estado de cada prenda.
-            Deslizá para ver todo lo que hacemos.
+            Seguí bajando para recorrer todo lo que hacemos.
           </Motion>
         </div>
-        <Clothesline services={SERVICES} />
+        <ScrollRail count={SERVICES.length}>
+          <Clothesline services={SERVICES} />
+        </ScrollRail>
       </section>
 
       {/* ───────── CÓMO FUNCIONA ───────── */}

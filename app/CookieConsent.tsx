@@ -25,7 +25,8 @@ export function CookieConsent() {
   return (
     <div className="consent" role="dialog" aria-live="polite" aria-label="Preferencias de cookies">
       <p>
-        Usamos cookies de medición para saber qué secciones sirven y mejorar la web. No usamos publicidad.
+        Usamos cookies de medición para saber qué secciones sirven y mejorar la web. No usamos publicidad.{' '}
+        <a href="/politica-de-cookies">Más información</a>
       </p>
       <div className="consent-actions">
         <button type="button" className="btn btn-ghost" onClick={() => choose('denied')}>

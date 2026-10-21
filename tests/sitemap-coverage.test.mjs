@@ -8,13 +8,16 @@ import path from 'node:path';
 const read = (f) => readFile(f, 'utf8');
 const slugsIn = (src) => [...src.matchAll(/slug: '([a-z0-9-]+)'/g)].map((m) => m[1]);
 
+// Páginas con noindex (legales) no van en el sitemap.
+const isNoindex = (src) => src.includes('legalMetadata(') || /index:\s*false/.test(src);
+
 async function pages(dir, base = '') {
   const out = [];
   for (const e of await readdir(dir, { withFileTypes: true })) {
     if (e.isDirectory()) {
       if (e.name.startsWith('_') || e.name.startsWith('(') || e.name.includes('.')) continue;
       out.push(...(await pages(path.join(dir, e.name), `${base}/${e.name}`)));
-    } else if (e.name === 'page.tsx') {
+    } else if (e.name === 'page.tsx' && !isNoindex(await read(path.join(dir, e.name)))) {
       out.push(base || '/');
     }
   }
@@ -50,4 +53,11 @@ test('el sitemap cubre todas las páginas', async () => {
 test('el sitemap no lista páginas que no existen', async () => {
   const existing = await publicPages();
   for (const r of await sitemapRoutes()) assert.ok(existing.includes(r), `${r} está en el sitemap pero no existe`);
+});
+
+test('las páginas legales existen y no se indexan', async () => {
+  for (const p of ['politica-de-privacidad', 'politica-de-cookies', 'terminos-y-condiciones']) {
+    const src = await read(`app/${p}/page.tsx`);
+    assert.ok(isNoindex(src), `${p} debería tener noindex`);
+  }
 });

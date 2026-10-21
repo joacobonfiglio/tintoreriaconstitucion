@@ -37,6 +37,20 @@ export const SITE = {
   priceRange: '$$',
 } as const;
 
+// Datos del responsable para las páginas legales (la Ley 25.326 pide identificarlo).
+// Mientras estén vacíos no se muestran. TODO: razón social o nombre del titular, y CUIT.
+export const LEGAL = {
+  holder: '',
+  cuit: '',
+  updated: '21 de octubre de 2026',
+};
+
+export const LEGAL_PAGES = [
+  { href: '/politica-de-privacidad', label: 'Política de privacidad' },
+  { href: '/politica-de-cookies', label: 'Política de cookies' },
+  { href: '/terminos-y-condiciones', label: 'Términos y condiciones' },
+] as const;
+
 export const NAV = [
   { href: '/servicios', label: 'Servicios' },
   { href: '/#como-funciona', label: 'Cómo funciona' },
