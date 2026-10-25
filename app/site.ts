@@ -2,10 +2,22 @@
 // textos de contacto, JSON-LD, sitemap, llms.txt y mensajes de WhatsApp.
 // Los campos con TODO esperan el dato real del cliente; no inventar.
 
+function siteUrl() {
+  const explicit = process.env.NEXT_PUBLIC_SITE_URL;
+  if (explicit) return explicit.replace(/\/$/, '');
+  const vercel = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+  if (vercel) return `https://${vercel}`;
+  return 'https://www.tintoreriaconstitucion.com.ar'; // TODO: confirmar dominio
+}
+
+/** true en producción y en local; false en las vistas previas de Vercel (no se indexan). */
+export const IS_PRODUCTION = !process.env.VERCEL_ENV || process.env.VERCEL_ENV === 'production';
+
 export const SITE = {
   name: 'Tintorería Constitución',
   legalName: 'Tintorería Constitución', // TODO: razón social si se quiere mostrar
-  url: 'https://www.tintoreriaconstitucion.com.ar', // TODO: confirmar dominio
+  // Dominio: NEXT_PUBLIC_SITE_URL si está definido; si no, el dominio de producción que informa Vercel.
+  url: siteUrl(),
   city: 'Mar del Plata',
   region: 'Buenos Aires',
   country: 'AR',

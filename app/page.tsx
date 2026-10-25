@@ -6,6 +6,16 @@ import { Img } from './Img';
 import { Isotipo } from './Logo';
 import { Motion } from './Motion';
 import { FAQ, SERVICES, SITE } from './site';
+import { pageMetadata } from './seo';
+
+export const metadata = pageMetadata({
+  title: 'Tintorería en Mar del Plata',
+  fullTitle: `${SITE.name} | Tintorería en Mar del Plata`,
+  description: SITE.description,
+  path: '/',
+  image: 'camisas',
+  imageAlt: 'Camisas limpias y planchadas en percha',
+});
 import { TrackedLink } from './TrackedLink';
 import { WhatsAppLink } from './WhatsAppLink';
 

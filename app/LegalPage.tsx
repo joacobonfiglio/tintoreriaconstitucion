@@ -1,16 +1,12 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import { LEGAL, SITE } from './site';
+import { pageMetadata } from './seo';
 import { WhatsAppLink } from './WhatsAppLink';
 
 /** Las páginas legales no se indexan (no aportan a búsquedas) pero sus enlaces se siguen. */
 export function legalMetadata(title: string, path: string): Metadata {
-  return {
-    title,
-    description: `${title} de ${SITE.name}, tintorería en ${SITE.city}.`,
-    alternates: { canonical: path },
-    robots: { index: false, follow: true },
-  };
+  return pageMetadata({ title, description: `${title} de ${SITE.name}, tintorería en ${SITE.city}.`, path, noindex: true });
 }
 
 export function LegalPage({ title, children }: { title: string; children: ReactNode }) {

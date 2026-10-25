@@ -1,7 +1,11 @@
 import { Isotipo } from './Logo';
 import { WhatsAppLink } from './WhatsAppLink';
 
-export const metadata = { title: 'Página no encontrada', robots: { index: false } };
+export const metadata = {
+  title: 'Página no encontrada',
+  description: 'La página que buscás no existe o cambió de dirección.',
+  robots: { index: false, follow: true },
+};
 
 export default function NotFound() {
   return (

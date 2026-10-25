@@ -18,6 +18,15 @@ npm run images     # assets/fotos/*.jpg → public/img (AVIF + WebP) y app/image
 | Variable | Para qué |
 | --- | --- |
 | `NEXT_PUBLIC_GA_ID` | ID de GA4 (`G-XXXXXXX`). Sin esto no se carga GA ni aparece el aviso de cookies. |
+| `NEXT_PUBLIC_SITE_URL` | Opcional. Dominio final (`https://www.ejemplo.com.ar`). Si no está, se usa el dominio de producción que informa Vercel. Define canonical, sitemap, robots y Open Graph. |
+
+Las vistas previas de Vercel (`VERCEL_ENV=preview`) salen con `noindex` y `robots.txt` en `Disallow: /`.
+
+## SEO
+
+- Metadatos de cada página con `pageMetadata()` en `app/seo.ts` (title, description, canonical, Open Graph, Twitter, robots).
+- Sitemap: `app/sitemap.ts` (home, `/servicios` y cada servicio). Las legales y la 404 tienen `noindex` y no van en el sitemap.
+- Datos estructurados: `DryCleaningOrLaundry` + `WebSite` en todas las páginas, `FAQPage` en la home, `Service` + `BreadcrumbList` + `FAQPage` en cada servicio.
 
 ## Dónde se cambia cada cosa
 

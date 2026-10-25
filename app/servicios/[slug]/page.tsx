@@ -2,8 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ServiceLanding } from '../../ServiceLanding';
 import { SERVICE_CONTENT, getServiceContent } from '../content';
-import { seoTitle } from '../../site';
-import { imageUrl } from '../../imageUrl';
+import { pageMetadata } from '../../seo';
 
 export const dynamicParams = false;
 
@@ -14,18 +13,13 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const c = getServiceContent((await params).slug);
   if (!c) return {};
-  const path = `/servicios/${c.slug}`;
-  return {
-    title: { absolute: seoTitle(c.metaTitle) },
+  return pageMetadata({
+    title: c.metaTitle,
     description: c.metaDescription,
-    alternates: { canonical: path },
-    openGraph: {
-      title: c.metaTitle,
-      description: c.metaDescription,
-      url: path,
-      images: [{ url: imageUrl(c.image, 1200), alt: c.imageAlt }],
-    },
-  };
+    path: `/servicios/${c.slug}`,
+    image: c.image,
+    imageAlt: c.imageAlt,
+  });
 }
 
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {

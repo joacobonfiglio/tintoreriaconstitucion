@@ -4,13 +4,16 @@ import { Icon } from '../Icon';
 import { Img } from '../Img';
 import { Motion } from '../Motion';
 import { SERVICES, absoluteUrl } from '../site';
+import { pageMetadata } from '../seo';
 
-export const metadata: Metadata = {
-  title: { absolute: 'Servicios de tintorería en Mar del Plata' },
+export const metadata: Metadata = pageMetadata({
+  title: 'Servicios de tintorería en Mar del Plata',
   description:
     'Limpieza en seco, lavado de acolchados, camisas, camperas, cortinas y prendas delicadas en Mar del Plata. Precio antes de dejar la prenda y aviso por WhatsApp.',
-  alternates: { canonical: '/servicios' },
-};
+  path: '/servicios',
+  image: 'percheros',
+  imageAlt: 'Perchero con prendas limpias en fundas',
+});
 
 const jsonLd = {
   '@context': 'https://schema.org',

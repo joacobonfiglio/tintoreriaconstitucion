@@ -7,7 +7,7 @@ import { CookieConsent, CookieSettingsButton } from './CookieConsent';
 import { GA_ID, consentBootstrap } from './ga';
 import { Icon } from './Icon';
 import { Logo } from './Logo';
-import { LEGAL_PAGES, NAV, SERVICES, SITE, absoluteUrl } from './site';
+import { IS_PRODUCTION, LEGAL_PAGES, NAV, SERVICES, SITE, absoluteUrl } from './site';
 import { TrackedLink } from './TrackedLink';
 import { WhatsAppLink } from './WhatsAppLink';
 import { Waves } from './Blocks';
@@ -29,18 +29,17 @@ export const metadata: Metadata = {
   },
   description: SITE.description,
   applicationName: SITE.name,
-  alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
     locale: 'es_AR',
     siteName: SITE.name,
-    url: '/',
     title: `${SITE.name} | Tintorería en Mar del Plata`,
     description: SITE.description,
     images: [{ url: imageUrl('camisas', 1376), width: 1376, height: 768, alt: 'Camisas limpias y planchadas en percha' }],
   },
   twitter: { card: 'summary_large_image' },
-  robots: { index: true, follow: true },
+  // Las vistas previas de Vercel no se indexan.
+  robots: IS_PRODUCTION ? { index: true, follow: true } : { index: false, follow: false },
   formatDetection: { telephone: false },
 };
 
