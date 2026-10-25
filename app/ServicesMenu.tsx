@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Icon } from './Icon';
 import { imageUrl } from './imageUrl';
 import { Isotipo } from './Logo';
-import { SERVICES } from './site';
+import { GREETING, SERVICES } from './site';
 import { WhatsAppLink } from './WhatsAppLink';
 
 /**
@@ -90,7 +90,7 @@ export function ServicesMenu() {
         <aside className="mega-aside">
           <Isotipo className="mega-iso" color="var(--orange)" />
           <p>¿No sabés qué servicio necesita tu prenda?</p>
-          <WhatsAppLink message="Hola! No sé qué servicio necesita mi prenda, les mando una foto." placement="menu_servicios">
+          <WhatsAppLink message={`${GREETING} No sé qué servicio necesita mi prenda, les mando una foto.`} placement="menu_servicios">
             Mandanos una foto
           </WhatsAppLink>
           <a className="mega-all" href="/servicios">

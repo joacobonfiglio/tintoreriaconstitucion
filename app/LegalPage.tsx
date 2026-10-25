@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
-import { LEGAL, SITE } from './site';
+import { GREETING, LEGAL, SITE } from './site';
 import { pageMetadata } from './seo';
 import { WhatsAppLink } from './WhatsAppLink';
 
@@ -34,7 +34,7 @@ export function LegalPage({ title, children }: { title: string; children: ReactN
           <article className="prose">
             {children}
             <p className="prose-updated">Última actualización: {LEGAL.updated}.</p>
-            <WhatsAppLink message="Hola! Tengo una consulta sobre la información legal de la web." placement="legal">
+            <WhatsAppLink message={`${GREETING} Tengo una consulta sobre la información legal de la web.`} placement="legal">
               Consultar por WhatsApp
             </WhatsAppLink>
           </article>

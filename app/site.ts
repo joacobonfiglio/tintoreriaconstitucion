@@ -23,11 +23,11 @@ export const SITE = {
   country: 'AR',
   tagline: 'Cuidamos tu ropa como si fuera nuestra.',
   description:
-    'Tintorería en Mar del Plata: limpieza en seco, acolchados, camisas, cortinas y prendas delicadas. Precio antes de dejarla y aviso por WhatsApp.',
-  // TODO: número real en formato internacional sin + ni espacios (ej. 5492235551234)
-  whatsapp: '5492230000000',
-  phoneDisplay: '(223) 000-0000', // TODO
-  email: 'hola@tintoreriaconstitucion.com.ar', // TODO
+    'Tintorería en Mar del Plata: lavado de trajes, acolchados, camisas, camperas, cortinas y prendas delicadas. Precio antes de dejarla y aviso por WhatsApp.',
+  // Formato internacional sin + ni espacios: 54 9 + característica + número.
+  whatsapp: '5492235655898',
+  phoneDisplay: '223 565-5898',
+  email: '', // TODO: email de contacto (vacío = no se publica)
   address: {
     street: 'Av. Constitución 0000', // TODO: dirección exacta
     neighborhood: 'Constitución',
@@ -96,58 +96,58 @@ export type IconName =
 // Orden = prioridad comercial y de búsqueda (lo más buscado primero).
 export const SERVICES: Service[] = [
   {
-    slug: 'limpieza-en-seco',
-    name: 'Limpieza en seco',
-    short: 'Trajes, sacos, tapados y vestidos que no van al lavarropas. Sin encoger, sin perder forma.',
+    slug: 'lavado-de-trajes',
+    name: 'Lavado de trajes',
+    short: 'Trajes, sacos, tapados y pantalones de vestir. Sin encoger, sin perder forma ni color.',
     image: 'traje',
     icon: 'jacket',
-    message: 'Hola! Quiero consultar por limpieza en seco.',
+    message: '¡Hola Tintorería Constitución! Quiero consultar por el lavado de un traje.',
   },
   {
-    slug: 'acolchados-y-frazadas',
-    name: 'Acolchados y frazadas',
-    short: 'Plumón, vellón o sintético. Lavado a fondo y secado completo para que vuelvan esponjosos.',
+    slug: 'lavado-de-acolchados',
+    name: 'Lavado de acolchados',
+    short: 'Acolchados de pluma, vellón o sintéticos, frazadas y mantas. Secado completo para que vuelvan esponjosos.',
     image: 'acolchados',
     icon: 'towels',
-    message: 'Hola! Quiero consultar por lavado de acolchados.',
+    message: '¡Hola Tintorería Constitución! Quiero consultar por el lavado de un acolchado.',
   },
   {
-    slug: 'camisas',
-    name: 'Camisas y planchado',
+    slug: 'lavado-de-camisas',
+    name: 'Lavado de camisas',
     short: 'Lavadas y planchadas a mano, cuello y puños firmes. Entregadas en percha.',
     image: 'camisas',
     icon: 'shirt',
-    message: 'Hola! Quiero consultar por lavado y planchado de camisas.',
+    message: '¡Hola Tintorería Constitución! Quiero consultar por el lavado y planchado de camisas.',
   },
   {
-    slug: 'camperas-y-abrigos',
-    name: 'Camperas y abrigos',
+    slug: 'lavado-de-camperas',
+    name: 'Lavado de camperas',
     short: 'Camperas de pluma, paño, gamuza sintética e impermeables. Cuidamos rellenos y terminaciones.',
     image: 'saco-lana',
     icon: 'hanger',
-    message: 'Hola! Quiero consultar por limpieza de camperas o abrigos.',
+    message: '¡Hola Tintorería Constitución! Quiero consultar por el lavado de una campera.',
   },
   {
-    slug: 'cortinas-y-blanqueria',
-    name: 'Cortinas y blanquería',
+    slug: 'lavado-de-cortinas',
+    name: 'Lavado de cortinas',
     short: 'Cortinas, manteles, sábanas y almohadones. Para casas, alquileres temporarios y hoteles.',
     image: 'blanqueria',
     icon: 'basin',
-    message: 'Hola! Quiero consultar por lavado de cortinas o blanquería.',
+    message: '¡Hola Tintorería Constitución! Quiero consultar por el lavado de cortinas.',
   },
   {
-    slug: 'prendas-delicadas',
-    name: 'Prendas delicadas y de fiesta',
-    short: 'Vestidos, seda, lana fina y bordados. Revisamos etiqueta y fibra antes de tocarlas.',
+    slug: 'lavado-de-prendas-delicadas',
+    name: 'Lavado de prendas delicadas',
+    short: 'Vestidos de fiesta, seda, lana fina y bordados. Revisamos etiqueta y fibra antes de tocarlas.',
     image: 'control-prenda',
     icon: 'spray',
-    message: 'Hola! Quiero consultar por una prenda delicada.',
+    message: '¡Hola Tintorería Constitución! Quiero consultar por el lavado de una prenda delicada.',
   },
 ];
 
 export const FAQ = [
   {
-    q: '¿Cuánto tarda la limpieza en seco?',
+    q: '¿Cuánto tarda el lavado?',
     // TODO: confirmar plazos reales con el cliente
     a: 'La mayoría de las prendas están listas en 48 a 72 horas hábiles. Acolchados y cortinas pueden llevar unos días más según el tamaño. Cuando está lista te avisamos por WhatsApp.',
   },
@@ -173,6 +173,17 @@ export const FAQ = [
     a: 'Sí. Armamos un circuito fijo de retiro y entrega para blanquería, uniformes y mantelería, con facturación mensual.',
   },
 ];
+
+export const GREETING = '¡Hola Tintorería Constitución!';
+
+/** Mensaje de WhatsApp según la página en la que está la persona (header, botón flotante y footer). */
+export function whatsappMessageFor(pathname: string) {
+  const service = SERVICES.find((s) => pathname === `/servicios/${s.slug}`);
+  if (service) return service.message;
+  if (pathname === '/servicios') return `${GREETING} Estoy viendo sus servicios y quiero hacer una consulta.`;
+  if (LEGAL_PAGES.some((l) => l.href === pathname)) return `${GREETING} Tengo una consulta sobre la información legal de la web.`;
+  return `${GREETING} Quiero hacer una consulta.`;
+}
 
 export const waLink = (message: string) =>
   `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(message)}`;

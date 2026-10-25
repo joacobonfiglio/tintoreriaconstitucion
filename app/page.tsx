@@ -5,7 +5,7 @@ import { Icon } from './Icon';
 import { Img } from './Img';
 import { Isotipo } from './Logo';
 import { Motion } from './Motion';
-import { FAQ, SERVICES, SITE } from './site';
+import { FAQ, GREETING, SERVICES, SITE } from './site';
 import { pageMetadata } from './seo';
 
 export const metadata = pageMetadata({
@@ -70,12 +70,12 @@ const GUIDES = [
     icon: 'jacket',
     tag: 'Trajes y sacos',
     title: 'Cómo hacer que un traje dure años',
-    text: 'Un traje no necesita lavarse seguido: necesita descanso, percha correcta y limpieza en seco a tiempo.',
+    text: 'Un traje no necesita lavarse seguido: necesita descanso, percha correcta y un lavado profesional a tiempo.',
     tips: [
       'Usá percha ancha de hombro, no de alambre.',
       'Dejalo descansar un día entre usos.',
-      'Limpieza en seco cada 5 a 8 usos, o ante cualquier mancha.',
-      'Entre limpiezas, vapor para sacar arrugas en lugar de plancha.',
+      'Lavado profesional cada 5 a 8 usos, o ante cualquier mancha.',
+      'Entre lavados, vapor para sacar arrugas en lugar de plancha.',
     ],
   },
 ] as const;
@@ -95,11 +95,11 @@ export default function Home() {
               Tu ropa vuelve <span className="thin">como</span> <span className="accent">la primera vez.</span>
             </h1>
             <p className="lead">
-              Limpieza en seco, acolchados, camisas y prendas delicadas. Revisamos cada prenda antes de tocarla,
+              Lavado de trajes, acolchados, camisas y prendas delicadas. Revisamos cada prenda antes de tocarla,
               te damos el precio antes de que la dejes y te avisamos por WhatsApp cuando está lista.
             </p>
             <div className="hero-ctas">
-              <WhatsAppLink message="Hola! Quiero pedir un precio." placement="hero">
+              <WhatsAppLink message={`${GREETING} Quiero pedir un precio.`} placement="hero">
                 Pedí precio por WhatsApp
               </WhatsAppLink>
               <a href="#servicios" className="btn btn-ghost">
@@ -158,7 +158,7 @@ export default function Home() {
             </h2>
           </Motion>
           <Motion as="p" className="lead" delay={100}>
-            Trabajamos limpieza en seco y lavado al agua según la fibra, la etiqueta y el estado de cada prenda.
+            Elegimos el lavado según la fibra, la etiqueta y el estado de cada prenda.
             Seguí bajando para recorrer todo lo que hacemos.
           </Motion>
         </div>
@@ -255,7 +255,7 @@ export default function Home() {
                 Blanquería, mantelería, uniformes y cortinas con retiro y entrega coordinados y facturación mensual.
                 Ideal para la temporada en Mar del Plata.
               </p>
-              <WhatsAppLink message="Hola! Tengo un negocio y quiero consultar por servicio para empresas." placement="empresas" className="btn">
+              <WhatsAppLink message={`${GREETING} Tengo un negocio y quiero consultar por el servicio para empresas.`} placement="empresas" className="btn">
                 Consultar para mi negocio
               </WhatsAppLink>
             </div>
@@ -336,7 +336,7 @@ export default function Home() {
                 </li>
               </ul>
               <div className="hero-ctas">
-                <WhatsAppLink message="Hola! Quiero hacer una consulta." placement="contacto" />
+                <WhatsAppLink message={`${GREETING} Quiero hacer una consulta.`} placement="contacto" />
                 <TrackedLink href={SITE.mapsUrl} target="_blank" rel="noopener" className="btn btn-ghost" event="map_click" params={{ placement: 'contacto' }}>
                   <Icon name="pin" /> Cómo llegar
                 </TrackedLink>

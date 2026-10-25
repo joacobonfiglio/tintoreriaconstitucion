@@ -1,4 +1,5 @@
 import { Isotipo } from './Logo';
+import { GREETING } from './site';
 import { WhatsAppLink } from './WhatsAppLink';
 
 export const metadata = {
@@ -18,7 +19,7 @@ export default function NotFound() {
           <a href="/" className="btn">
             Ir al inicio
           </a>
-          <WhatsAppLink message="Hola! Quiero hacer una consulta." placement="404" className="btn btn-ghost" />
+          <WhatsAppLink message={`${GREETING} Llegué a una página que no existe y quiero hacer una consulta.`} placement="404" className="btn btn-ghost" />
         </div>
       </div>
     </section>

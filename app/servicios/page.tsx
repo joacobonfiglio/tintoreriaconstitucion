@@ -3,13 +3,13 @@ import { PageHero } from '../Blocks';
 import { Icon } from '../Icon';
 import { Img } from '../Img';
 import { Motion } from '../Motion';
-import { SERVICES, absoluteUrl } from '../site';
+import { GREETING, SERVICES, absoluteUrl } from '../site';
 import { pageMetadata } from '../seo';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Servicios de tintorería en Mar del Plata',
   description:
-    'Limpieza en seco, lavado de acolchados, camisas, camperas, cortinas y prendas delicadas en Mar del Plata. Precio antes de dejar la prenda y aviso por WhatsApp.',
+    'Lavado de trajes, acolchados, camisas, camperas, cortinas y prendas delicadas en Mar del Plata. Precio antes de dejar la prenda y aviso por WhatsApp.',
   path: '/servicios',
   image: 'percheros',
   imageAlt: 'Perchero con prendas limpias en fundas',
@@ -43,10 +43,10 @@ export default function Servicios() {
             Servicios de tintorería <span className="thin">en Mar del Plata.</span>
           </>
         }
-        lead="Limpieza en seco y lavado al agua según la fibra, la etiqueta y el estado de cada prenda. Elegí el servicio para ver qué incluye, cómo trabajamos y cómo pedir precio."
+        lead="Elegimos el lavado según la fibra, la etiqueta y el estado de cada prenda. Elegí el servicio para ver qué incluye, cómo trabajamos y cómo pedir precio."
         image="percheros"
         imageAlt="Perchero con prendas limpias en fundas"
-        message="Hola! Quiero consultar por un servicio."
+        message={`${GREETING} Estoy viendo sus servicios y quiero hacer una consulta.`}
       />
       <section className="section">
         <div className="wrap svc-related svc-index">

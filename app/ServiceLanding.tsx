@@ -161,7 +161,7 @@ export function ServiceLanding({ content: c }: { content: ServiceContent }) {
           <Motion>
             <span className="eyebrow">Preguntas frecuentes</span>
             <h2 className="h-l">
-              Sobre {service.name.toLowerCase()} <span className="thin">en {SITE.city}.</span>
+              Sobre el {service.name.toLowerCase()} <span className="thin">en {SITE.city}.</span>
             </h2>
           </Motion>
           <div className="faq">

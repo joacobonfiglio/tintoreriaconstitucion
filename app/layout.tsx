@@ -9,7 +9,7 @@ import { Icon } from './Icon';
 import { Logo } from './Logo';
 import { IS_PRODUCTION, LEGAL_PAGES, NAV, SERVICES, SITE, absoluteUrl } from './site';
 import { TrackedLink } from './TrackedLink';
-import { WhatsAppLink } from './WhatsAppLink';
+import { PageWhatsAppLink } from './PageWhatsAppLink';
 import { Waves } from './Blocks';
 import { ServicesMenu } from './ServicesMenu';
 import { imageUrl } from './imageUrl';
@@ -71,7 +71,7 @@ const jsonLd = {
       logo: absoluteUrl('/brand/logo.svg'),
       image: [absoluteUrl(imageUrl('camisas')), absoluteUrl(imageUrl('control-prenda'))],
       telephone: `+${SITE.whatsapp}`,
-      email: SITE.email,
+      ...(SITE.email ? { email: SITE.email } : {}),
       priceRange: SITE.priceRange,
       address: {
         '@type': 'PostalAddress',
@@ -134,9 +134,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main id="contenido">{children}</main>
         <Footer />
-        <WhatsAppLink message="Hola! Quiero hacer una consulta." placement="flotante" className="wa-float" label="¿Consultas? Escribinos por WhatsApp">
+        <PageWhatsAppLink placement="flotante" className="wa-float" label="¿Consultas? Escribinos por WhatsApp">
           <span className="wa-float-text">¿Consultas?</span>
-        </WhatsAppLink>
+        </PageWhatsAppLink>
         <CookieConsent />
       </body>
     </html>
@@ -157,9 +157,9 @@ function Header() {
             ))}
           </ul>
         </nav>
-        <WhatsAppLink message="Hola! Quiero hacer una consulta." placement="header" className="btn btn-wa header-cta" label="Pedí precio por WhatsApp">
+        <PageWhatsAppLink placement="header" className="btn btn-wa header-cta" label="Pedí precio por WhatsApp">
           <span className="header-cta-long">Pedí precio</span>
-        </WhatsAppLink>
+        </PageWhatsAppLink>
         <details className="menu">
           <summary aria-label="Abrir menú">
             <span />
@@ -189,7 +189,7 @@ function Footer() {
         <div className="footer-brand">
           <Logo iso="var(--orange)" word="#fff" />
           <p>{SITE.tagline}</p>
-          <WhatsAppLink message="Hola! Quiero hacer una consulta." placement="footer" />
+          <PageWhatsAppLink placement="footer" />
         </div>
         <div>
           <h2 className="footer-h">Servicios</h2>
