@@ -95,7 +95,7 @@ export default function Home() {
               Tu ropa vuelve <span className="thin">como</span> <span className="accent">la primera vez.</span>
             </h1>
             <p className="lead">
-              Lavado de trajes, acolchados, camisas y prendas delicadas. Revisamos cada prenda antes de tocarla,
+              Lavado de valet, trajes, acolchados, camisas y prendas delicadas. Revisamos cada prenda antes de tocarla,
               te damos el precio antes de que la dejes y te avisamos por WhatsApp cuando está lista.
             </p>
             <div className="hero-ctas">

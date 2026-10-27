@@ -23,7 +23,7 @@ export const SITE = {
   country: 'AR',
   tagline: 'Cuidamos tu ropa como si fuera nuestra.',
   description:
-    'Tintorería en Mar del Plata: lavado de trajes, acolchados, camisas, camperas, cortinas y prendas delicadas. Precio antes de dejarla y aviso por WhatsApp.',
+    'Tintorería en Mar del Plata: lavado de valet, trajes, acolchados, camisas, camperas, cortinas y prendas delicadas. Precio antes de dejarla y aviso por WhatsApp.',
   // Formato internacional sin + ni espacios: 54 9 + característica + número.
   whatsapp: '5492235655898',
   phoneDisplay: '223 565-5898',
@@ -66,7 +66,6 @@ export const LEGAL_PAGES = [
 export const NAV = [
   { href: '/servicios', label: 'Servicios' },
   { href: '/#como-funciona', label: 'Cómo funciona' },
-  { href: '/#cuidado', label: 'Cuidado' },
   { href: '/#preguntas', label: 'Preguntas' },
   { href: '/#contacto', label: 'Contacto' },
 ] as const;
@@ -95,6 +94,14 @@ export type IconName =
 
 // Orden = prioridad comercial y de búsqueda (lo más buscado primero).
 export const SERVICES: Service[] = [
+  {
+    slug: 'lavado-de-valet',
+    name: 'Lavado de valet',
+    short: 'La ropa de todos los días lavada, secada y doblada. La dejás en una bolsa y la retirás lista para guardar.',
+    image: 'toallas',
+    icon: 'washer',
+    message: '¡Hola Tintorería Constitución! Quiero consultar por el lavado de valet.',
+  },
   {
     slug: 'lavado-de-trajes',
     name: 'Lavado de trajes',

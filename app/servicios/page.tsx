@@ -9,7 +9,7 @@ import { pageMetadata } from '../seo';
 export const metadata: Metadata = pageMetadata({
   title: 'Servicios de tintorería en Mar del Plata',
   description:
-    'Lavado de trajes, acolchados, camisas, camperas, cortinas y prendas delicadas en Mar del Plata. Precio antes de dejar la prenda y aviso por WhatsApp.',
+    'Lavado de valet, trajes, acolchados, camisas, camperas, cortinas y prendas delicadas en Mar del Plata. Precio antes de dejar la prenda y aviso por WhatsApp.',
   path: '/servicios',
   image: 'percheros',
   imageAlt: 'Perchero con prendas limpias en fundas',

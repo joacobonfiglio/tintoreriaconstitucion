@@ -27,6 +27,55 @@ export type ServiceContent = {
 
 export const SERVICE_CONTENT: ServiceContent[] = [
   {
+    slug: 'lavado-de-valet',
+    keyword: 'lavado de valet en Mar del Plata',
+    metaTitle: 'Lavado de valet en Mar del Plata',
+    metaDescription:
+      'Lavado de valet en Mar del Plata: tu ropa de todos los días lavada, secada y doblada. Dejás la bolsa y te avisamos por WhatsApp cuando está lista.',
+    eyebrow: 'Lavado de valet · Mar del Plata',
+    h1: 'Lavado de valet',
+    h1Thin: 'tu ropa lavada, secada y doblada.',
+    lead: 'Traés la ropa de todos los días en una bolsa y te la devolvemos lavada, seca y doblada, lista para guardar. Sin lavarropas, sin tender y sin esperar a que se seque.',
+    image: 'toallas',
+    imageAlt: 'Ropa limpia doblada y apilada: jeans, remeras y toallas',
+    intro: [
+      'El valet es el servicio para la ropa de uso diario: remeras, jeans, ropa interior, ropa deportiva, toallas y sábanas. Es ideal cuando no tenés tiempo, no tenés dónde tender o en Mar del Plata la humedad no deja secar nada.',
+      'Antes de lavar separamos las prendas por color y tipo de tela, revisamos bolsillos y apartamos lo que necesita un cuidado distinto. Después secamos todo por completo y lo doblamos prenda por prenda.',
+    ],
+    items: [
+      { title: 'Ropa de todos los días', text: 'Remeras, buzos, pantalones, jeans y ropa interior.' },
+      { title: 'Ropa deportiva', text: 'Lavado que respeta telas técnicas y elásticas.' },
+      { title: 'Sábanas y fundas', text: 'Lavadas, secadas y dobladas.' },
+      { title: 'Toallas y toallones', text: 'Suaves y sin olor a humedad.' },
+      { title: 'Ropa de bebé y de chicos', text: 'Separada del resto y con el cuidado que necesita.' },
+      { title: 'Ropa de trabajo', text: 'Uniformes, ambos y delantales de uso diario.' },
+    ],
+    steps: [
+      { icon: 'basin', title: 'Separamos', text: 'Por color y tipo de tela, y revisamos bolsillos antes de lavar.' },
+      { icon: 'washer', title: 'Lavamos', text: 'Ciclo y temperatura según cada carga.' },
+      { icon: 'clock', title: 'Secamos', text: 'Secado completo, sin olor a humedad.' },
+      { icon: 'towels', title: 'Doblamos', text: 'Prenda por prenda, y te la entregamos en bolsa lista para guardar.' },
+    ],
+    priceFactors: ['Cantidad de ropa o de bolsas', 'Si incluye ropa de cama o toallas', 'Prendas que necesitan un lavado aparte', 'Si sumás planchado'],
+    care: {
+      title: 'Para preparar tu bolsa de valet',
+      tips: [
+        'Vaciá los bolsillos: monedas, papeles y pañuelos arruinan una carga.',
+        'Avisanos si hay prendas que destiñen o que son nuevas.',
+        'Separá las prendas delicadas o de vestir: van por otro servicio.',
+        'Si alguna prenda tiene una mancha, contanos de qué es.',
+      ],
+    },
+    // TODO: confirmar con el cliente si el valet incluye planchado y cómo se cobra (por bolsa, por kilo o por carga).
+    faqs: [
+      { q: '¿Qué incluye el lavado de valet?', a: 'Lavado, secado y doblado de la ropa de uso diario. Si querés que planchemos alguna prenda, avisanos y lo sumamos.' },
+      { q: '¿Cuánto tarda?', a: 'En general está listo en 24 a 48 horas hábiles, según el volumen. Te avisamos por WhatsApp cuando podés retirarlo.' },
+      { q: '¿Puedo mandar ropa delicada en el valet?', a: 'Mejor separala: trajes, vestidos, seda o lana fina tienen su propio servicio para que no corran riesgo.' },
+      { q: '¿Cómo sé cuánto me va a salir?', a: 'Escribinos por WhatsApp contándonos cuánta ropa es y te pasamos el precio antes de que la traigas.' },
+    ],
+    related: ['lavado-de-camisas', 'lavado-de-acolchados', 'lavado-de-cortinas'],
+  },
+  {
     slug: 'lavado-de-trajes',
     keyword: 'lavado de trajes en Mar del Plata',
     metaTitle: 'Lavado de trajes en Mar del Plata',
