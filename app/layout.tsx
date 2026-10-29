@@ -134,8 +134,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main id="contenido">{children}</main>
         <Footer />
-        <PageWhatsAppLink placement="flotante" className="wa-float" label="¿Consultas? Escribinos por WhatsApp">
-          <span className="wa-float-text">¿Consultas?</span>
+        <PageWhatsAppLink placement="flotante" className="wa-float" label="Pedir por WhatsApp">
+          <span className="wa-float-text">Pedir por WhatsApp</span>
         </PageWhatsAppLink>
         <CookieConsent />
       </body>
@@ -157,8 +157,8 @@ function Header() {
             ))}
           </ul>
         </nav>
-        <PageWhatsAppLink placement="header" className="btn btn-wa header-cta" label="Pedí precio por WhatsApp">
-          <span className="header-cta-long">Pedí precio</span>
+        <PageWhatsAppLink placement="header" className="btn btn-wa header-cta" label="Pedir retiro por WhatsApp">
+          <span className="header-cta-long">Pedir retiro</span>
         </PageWhatsAppLink>
         <details className="menu">
           <summary aria-label="Abrir menú">

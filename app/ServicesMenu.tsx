@@ -89,9 +89,9 @@ export function ServicesMenu() {
         </ul>
         <aside className="mega-aside">
           <Isotipo className="mega-iso" color="var(--orange)" />
-          <p>¿No sabés qué servicio necesita tu prenda?</p>
-          <WhatsAppLink message={`${GREETING} No sé qué servicio necesita mi prenda, les mando una foto.`} placement="menu_servicios">
-            Mandanos una foto
+          <p>Retiramos y entregamos a domicilio.</p>
+          <WhatsAppLink message={`${GREETING} Quiero pedir un retiro a domicilio.`} placement="menu_servicios">
+            Pedir retiro
           </WhatsAppLink>
           <a className="mega-all" href="/servicios">
             Ver todos los servicios →

@@ -13,13 +13,13 @@ export default function NotFound() {
     <section className="notfound">
       <div className="wrap">
         <Isotipo color="var(--orange)" />
-        <h1 className="h-l">Esta página se perdió en el lavado.</h1>
-        <p>La dirección no existe o cambió. Volvé al inicio o escribinos y te ayudamos.</p>
+        <h1 className="h-l">Esta página no existe.</h1>
+        <p>Volvé al inicio o hacé tu pedido por WhatsApp.</p>
         <div className="hero-ctas">
           <a href="/" className="btn">
             Ir al inicio
           </a>
-          <WhatsAppLink message={`${GREETING} Llegué a una página que no existe y quiero hacer una consulta.`} placement="404" className="btn btn-ghost" />
+          <WhatsAppLink message={`${GREETING} Quiero pedir un retiro a domicilio.`} placement="404" className="btn btn-ghost" />
         </div>
       </div>
     </section>

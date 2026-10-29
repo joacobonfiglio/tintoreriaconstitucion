@@ -26,7 +26,7 @@ export function WhatsAppLink({ message, placement, className = 'btn btn-wa', chi
       aria-label={label}
     >
       {icon && <Icon name="whatsapp" />}
-      {children ?? 'Escribinos por WhatsApp'}
+      {children ?? 'Pedir por WhatsApp'}
     </TrackedLink>
   );
 }

@@ -1,10 +1,10 @@
 import type { ReactNode } from 'react';
-import { Icon, type AnyIcon } from './Icon';
+import { Icon } from './Icon';
 import { Img } from './Img';
 import { Isotipo } from './Logo';
 import { Motion } from './Motion';
 import { WhatsAppLink } from './WhatsAppLink';
-import type { Service } from './site';
+import { DELIVERY, GREETING, type Service } from './site';
 
 /* ───────── Waves: patrón de ondas del manual (pág. 13 y 17) ───────── */
 export function Waves({ id = 'w', color = 'currentColor', opacity = 0.08, className }: { id?: string; color?: string; opacity?: number; className?: string }) {
@@ -35,6 +35,7 @@ export function PageHero({
   image,
   imageAlt,
   message,
+  cta = 'Pedir por WhatsApp',
   children,
 }: {
   eyebrow: string;
@@ -43,6 +44,7 @@ export function PageHero({
   image: string;
   imageAlt: string;
   message: string;
+  cta?: string;
   children?: ReactNode;
 }) {
   return (
@@ -55,7 +57,7 @@ export function PageHero({
           <p className="lead">{lead}</p>
           <div className="hero-ctas">
             <WhatsAppLink message={message} placement="page_hero">
-              Pedí precio por WhatsApp
+              {cta}
             </WhatsAppLink>
             {children}
           </div>
@@ -63,6 +65,50 @@ export function PageHero({
         <div className="page-hero-media">
           <Img name={image} alt={imageAlt} priority sizes="(min-width: 900px) 480px, 100vw" />
         </div>
+      </div>
+    </section>
+  );
+}
+
+/* ───────── DeliveryBand: retiro y entrega a domicilio (lo que más se destaca) ───────── */
+export function DeliveryBand({ id, message, link = true }: { id?: string; message?: string; link?: boolean }) {
+  return (
+    <section id={id} className="delivery on-dark">
+      <Waves id={`dv-${id ?? 'b'}`} color="#fff" opacity={0.06} />
+      <div className="wrap delivery-grid">
+        <div className="delivery-copy">
+          <span className="delivery-badge">
+            <Icon name="truck" /> Retiro y entrega a domicilio
+          </span>
+          <h2 className="h-l">
+            No tenés que venir. <span className="thin">Pasamos a buscarla.</span>
+          </h2>
+          <p className="lead">{DELIVERY.short}</p>
+          <div className="hero-ctas">
+            <WhatsAppLink message={message ?? `${GREETING} Quiero pedir un retiro a domicilio.`} placement="retiro">
+              Pedir retiro a domicilio
+            </WhatsAppLink>
+            {link && (
+              <a href={DELIVERY.href} className="btn btn-ghost">
+                Cómo funciona
+              </a>
+            )}
+          </div>
+        </div>
+        <ol className="delivery-steps">
+          {DELIVERY.steps.map((s, i) => (
+            <Motion as="li" key={s.title} delay={i * 100}>
+              <span className="delivery-n">{i + 1}</span>
+              <span className="delivery-icon">
+                <Icon name={s.icon} />
+              </span>
+              <span>
+                <strong>{s.title}</strong>
+                <small>{s.text}</small>
+              </span>
+            </Motion>
+          ))}
+        </ol>
       </div>
     </section>
   );
@@ -114,69 +160,18 @@ export function Clothesline({ services }: { services: Service[] }) {
                 </h3>
                 <p>{s.short}</p>
                 <div className="garment-links">
-                  <a href={`/servicios/${s.slug}`} className="link-arrow">
-                    Ver servicio
-                  </a>
-                  <WhatsAppLink message={s.message} placement={`servicio_${s.slug}`} className="link-arrow" icon={false}>
-                    Consultar precio
+                  <WhatsAppLink message={s.message} placement={`servicio_${s.slug}`} className="btn btn-wa btn-sm">
+                    Pedir
                   </WhatsAppLink>
+                  <a href={`/servicios/${s.slug}`} className="link-arrow">
+                    Ver más
+                  </a>
                 </div>
               </div>
             </article>
           </li>
         ))}
       </ul>
-    </div>
-  );
-}
-
-/* ───────── Process: pasos numerados ───────── */
-export function Process({ steps }: { steps: { icon: AnyIcon; title: string; text: string }[] }) {
-  return (
-    <ol className="process">
-      {steps.map((s, i) => (
-        <Motion as="li" key={s.title} delay={i * 110} className="step">
-          <span className="step-n" aria-hidden="true">
-            {String(i + 1).padStart(2, '0')}
-          </span>
-          <span className="step-icon">
-            <Icon name={s.icon} />
-          </span>
-          <h3>{s.title}</h3>
-          <p>{s.text}</p>
-        </Motion>
-      ))}
-    </ol>
-  );
-}
-
-/* ───────── GuideCards: guía de cuidado (contenido útil + SEO) ───────── */
-export function GuideCards({ guides }: { guides: { icon: AnyIcon; tag: string; title: string; text: string; tips: string[] }[] }) {
-  return (
-    <div className="guides">
-      {guides.map((g, i) => (
-        <Motion as="article" key={g.title} delay={i * 90} className="guide">
-          <div className="guide-top">
-            <span className="guide-icon">
-              <Icon name={g.icon} />
-            </span>
-            <span className="guide-tag">{g.tag}</span>
-          </div>
-          <h3>{g.title}</h3>
-          <p>{g.text}</p>
-          <details>
-            <summary>Ver consejos</summary>
-            <ul>
-              {g.tips.map((t) => (
-                <li key={t}>
-                  <Icon name="check" />
-                  <span>{t}</span>
-                </li>
-              ))}
-            </ul>
-          </details>
-        </Motion>
-      ))}
     </div>
   );
 }

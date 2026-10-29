@@ -20,7 +20,7 @@ export function ChatPreview({ services }: { services: Service[] }) {
     <div className="chat">
       <style>{rules}</style>
       <fieldset className="chat-picker">
-        <legend>¿Qué necesitás limpiar?</legend>
+        <legend>¿Qué querés limpiar?</legend>
         <div className="chips">
           {services.map((s, i) => (
             <span key={s.slug}>
@@ -49,19 +49,19 @@ export function ChatPreview({ services }: { services: Service[] }) {
             <div key={s.slug} className="bubble out" data-svc={s.slug}>
               <p>{s.message}</p>
               <p className="bubble-hint">
-                <Icon name="camera" /> Adjuntá una foto de la prenda y su etiqueta
+                <Icon name="truck" /> Sumá tu dirección para el retiro
               </p>
             </div>
           ))}
           <div className="bubble in">
-            <p>¡Hola! Con la foto te pasamos el precio y el plazo antes de que vengas.</p>
+            <p>¡Hola! Pasanos tu dirección y coordinamos el retiro.</p>
           </div>
         </div>
         <div className="phone-send">
           {services.map((s) => (
             <div key={s.slug} data-svc={s.slug} className="phone-send-row">
               <WhatsAppLink message={s.message} placement={`selector_${s.slug}`}>
-                Enviar este mensaje
+                Enviar pedido
               </WhatsAppLink>
             </div>
           ))}

@@ -1,13 +1,13 @@
-import { PageHero, Process } from './Blocks';
+import { DeliveryBand, PageHero } from './Blocks';
 import { Icon } from './Icon';
 import { Img } from './Img';
 import { imageUrl } from './imageUrl';
 import { Motion } from './Motion';
-import { SERVICES, SITE, absoluteUrl } from './site';
+import { DELIVERY, SERVICES, SITE, absoluteUrl } from './site';
 import type { ServiceContent } from './servicios/content';
 import { WhatsAppLink } from './WhatsAppLink';
 
-/** Plantilla de página de servicio. Todo el texto viene de servicios/content.ts. */
+/** Plantilla de página de servicio: qué incluye, retiro a domicilio y pedido. Texto en servicios/content.ts. */
 export function ServiceLanding({ content: c }: { content: ServiceContent }) {
   const service = SERVICES.find((s) => s.slug === c.slug)!;
   const url = absoluteUrl(`/servicios/${c.slug}`);
@@ -69,99 +69,57 @@ export function ServiceLanding({ content: c }: { content: ServiceContent }) {
         image={c.image}
         imageAlt={c.imageAlt}
         message={service.message}
+        cta="Pedir por WhatsApp"
       >
-        <a href="#que-limpiamos" className="btn btn-ghost">
-          Qué limpiamos
+        <a href={DELIVERY.href} className="btn btn-ghost">
+          <Icon name="truck" /> Retiro a domicilio
         </a>
       </PageHero>
 
-      {/* Intro + lista de prendas */}
-      <section id="que-limpiamos" className="section">
-        <div className="wrap svc-intro">
-          <Motion className="svc-intro-copy">
-            <span className="eyebrow">Qué limpiamos</span>
-            <h2 className="h-l">{service.name}</h2>
-            {c.intro.map((p) => (
-              <p key={p.slice(0, 24)} className="lead">
-                {p}
-              </p>
-            ))}
-          </Motion>
-          <ul className="svc-items">
-            {c.items.map((it, i) => (
-              <Motion as="li" key={it.title} delay={i * 60}>
-                <span className="check-dot">
-                  <Icon name="check" strokeWidth={2.2} />
-                </span>
-                <div>
-                  <h3>{it.title}</h3>
-                  <p>{it.text}</p>
-                </div>
-              </Motion>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* Proceso */}
-      <section className="section section-tint">
-        <div className="wrap">
-          <div className="section-head">
-            <Motion>
-              <span className="eyebrow">Cómo lo hacemos</span>
-              <h2 className="h-l">
-                El proceso, <span className="thin">paso a paso.</span>
-              </h2>
-            </Motion>
-            <Motion as="p" className="lead" delay={100}>
-              Cada prenda pasa por los mismos controles. Si algo no nos convence, te consultamos antes de seguir.
-            </Motion>
-          </div>
-          <Process steps={c.steps} />
-        </div>
-      </section>
-
-      {/* Precio + cuidado */}
+      {/* Qué incluye + pedido */}
       <section className="section">
-        <div className="wrap svc-duo">
-          <Motion className="svc-price">
-            <span className="eyebrow">Precio</span>
-            <h2 className="h-m">Te pasamos el precio antes de que la traigas.</h2>
-            <p>Mandanos una foto por WhatsApp con la prenda y la etiqueta. El precio depende de:</p>
-            <ul>
-              {c.priceFactors.map((f) => (
-                <li key={f}>
-                  <Icon name="tag" />
-                  {f}
+        <div className="wrap svc-order">
+          <Motion className="svc-order-list">
+            <span className="eyebrow">Qué limpiamos</span>
+            <h2 className="h-m">{service.name}</h2>
+            <ul className="svc-chips">
+              {c.items.map((it) => (
+                <li key={it}>
+                  <Icon name="check" strokeWidth={2.2} />
+                  {it}
                 </li>
               ))}
             </ul>
-            <WhatsAppLink message={service.message} placement={`precio_${c.slug}`}>
-              Pedí precio por WhatsApp
+          </Motion>
+          <Motion className="svc-order-card" delay={100}>
+            <h2 className="h-m">Hacé tu pedido</h2>
+            <ul>
+              <li>
+                <Icon name="truck" /> Retiro y entrega a domicilio
+              </li>
+              <li>
+                <Icon name="tag" /> Precio antes de empezar
+              </li>
+              <li>
+                <Icon name="bell" /> Aviso por WhatsApp cuando está lista
+              </li>
+            </ul>
+            <WhatsAppLink message={service.message} placement={`pedido_${c.slug}`}>
+              Pedir por WhatsApp
             </WhatsAppLink>
           </Motion>
-          <Motion className="svc-care" delay={120}>
-            <span className="eyebrow">Consejo de cuidado</span>
-            <h2 className="h-m">{c.care.title}</h2>
-            <ul>
-              {c.care.tips.map((t) => (
-                <li key={t}>
-                  <Icon name="check" />
-                  <span>{t}</span>
-                </li>
-              ))}
-            </ul>
-          </Motion>
         </div>
       </section>
 
+      <DeliveryBand id="retiro" message={service.message} />
+
       {/* Preguntas */}
-      <section className="section section-tint">
+      <section className="section">
         <div className="wrap faq-grid">
           <Motion>
             <span className="eyebrow">Preguntas frecuentes</span>
             <h2 className="h-l">
-              Sobre el {service.name.toLowerCase()} <span className="thin">en {SITE.city}.</span>
+              {service.name} <span className="thin">en {SITE.city}.</span>
             </h2>
           </Motion>
           <div className="faq">
@@ -179,13 +137,13 @@ export function ServiceLanding({ content: c }: { content: ServiceContent }) {
       </section>
 
       {/* Relacionados */}
-      <section className="section">
+      <section className="section section-tint">
         <div className="wrap">
           <div className="section-head">
             <Motion>
-              <span className="eyebrow">También hacemos</span>
+              <span className="eyebrow">Otros servicios</span>
               <h2 className="h-l">
-                Otros servicios <span className="thin">que te pueden servir.</span>
+                Sumalo <span className="thin">al mismo retiro.</span>
               </h2>
             </Motion>
           </div>

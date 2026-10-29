@@ -1810,3 +1810,180 @@
 .consent a {
   color: var(--violet);
 }
+
+/* ───────── Retiro a domicilio (banda destacada) ───────── */
+.delivery {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(64px, 9vw, 112px);
+  background: linear-gradient(150deg, var(--violet-800), var(--violet-900));
+}
+.delivery-grid {
+  position: relative;
+  display: grid;
+  gap: 40px;
+  align-items: center;
+}
+.delivery-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  border-radius: var(--pill);
+  background: var(--orange);
+  color: var(--violet-900);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.delivery-badge svg {
+  width: 20px;
+  height: 20px;
+}
+.delivery-copy h2 {
+  margin-block: 20px 16px;
+}
+.delivery-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+.delivery-steps li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 22px;
+  border-radius: var(--radius);
+  background: rgb(255 255 255 / 0.07);
+  border: 1px solid rgb(255 255 255 / 0.12);
+}
+.delivery-n {
+  position: absolute;
+  right: 18px;
+  top: 8px;
+  font-size: 2.6rem;
+  font-weight: 200;
+  line-height: 1;
+  color: rgb(255 255 255 / 0.18);
+}
+.delivery-icon {
+  width: 52px;
+  height: 52px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: var(--orange);
+  color: var(--violet-900);
+}
+.delivery-icon svg {
+  width: 26px;
+  height: 26px;
+}
+.delivery-steps strong {
+  display: block;
+  font-size: 1.1rem;
+}
+.delivery-steps small {
+  display: block;
+  font-size: 0.95rem;
+  color: rgb(255 255 255 / 0.75);
+}
+@media (min-width: 960px) {
+  .delivery-grid {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 72px;
+  }
+}
+
+/* Botón chico (tarjetas del perchero) */
+.btn-sm {
+  min-height: 44px;
+  padding: 0 20px;
+  font-size: 0.95rem;
+}
+.garment-links {
+  align-items: center;
+  gap: 8px 18px;
+}
+
+/* ───────── Pedido en páginas de servicio ───────── */
+.svc-order {
+  display: grid;
+  gap: 24px;
+  align-items: start;
+}
+.svc-order-list {
+  display: grid;
+  gap: 14px;
+}
+.svc-order-list h2 {
+  color: var(--violet-900);
+}
+.svc-chips {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+}
+.svc-chips li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: var(--radius-s);
+  background: #fff;
+  box-shadow: var(--shadow-s);
+  font-weight: 500;
+  color: var(--violet-900);
+}
+.svc-chips svg {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  color: var(--orange-600);
+}
+.svc-order-card {
+  display: grid;
+  gap: 18px;
+  justify-items: start;
+  padding: clamp(24px, 4vw, 40px);
+  border-radius: var(--radius-l);
+  background: var(--orange);
+  color: var(--violet-900);
+}
+.svc-order-card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+  font-weight: 500;
+}
+.svc-order-card li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.svc-order-card li svg {
+  width: 22px;
+  height: 22px;
+  flex: none;
+}
+.svc-order-card .btn {
+  --bg: var(--violet-900);
+  --fg: #fff;
+}
+@media (min-width: 960px) {
+  .svc-order {
+    grid-template-columns: 1.4fr 1fr;
+    gap: 48px;
+  }
+}
+.trust .hero-ctas {
+  margin-top: 28px;
+}

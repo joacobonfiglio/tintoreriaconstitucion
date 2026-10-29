@@ -1,4 +1,4 @@
-import { FAQ, SERVICES, SITE, absoluteUrl } from '../site';
+import { DELIVERY, FAQ, SERVICES, SITE, absoluteUrl } from '../site';
 
 export const dynamic = 'force-static';
 
@@ -19,12 +19,11 @@ export function GET() {
 
 ${SERVICES.map((s) => `- [${s.name}](${absoluteUrl(`/servicios/${s.slug}`)}): ${s.short}`).join('\n')}
 
-## Cómo trabajamos
+## Retiro y entrega a domicilio
 
-1. La persona manda una foto de la prenda y la etiqueta por WhatsApp.
-2. Le pasamos precio y plazo antes de que la deje.
-3. Revisamos la prenda con ella al recibirla.
-4. Avisamos por WhatsApp cuando está lista.
+${DELIVERY.short} Más información: ${absoluteUrl(DELIVERY.href)}
+
+${DELIVERY.steps.map((s, i) => `${i + 1}. ${s.title}: ${s.text}`).join('\n')}
 
 ## Preguntas frecuentes
 

@@ -1,5 +1,5 @@
 import { ChatPreview } from './ChatPreview';
-import { Clothesline, GuideCards, Process, Ribbon, Waves } from './Blocks';
+import { Clothesline, DeliveryBand, Ribbon, Waves } from './Blocks';
 import { ScrollRail } from './ScrollRail';
 import { Icon } from './Icon';
 import { Img } from './Img';
@@ -7,17 +7,17 @@ import { Isotipo } from './Logo';
 import { Motion } from './Motion';
 import { FAQ, GREETING, SERVICES, SITE } from './site';
 import { pageMetadata } from './seo';
+import { TrackedLink } from './TrackedLink';
+import { WhatsAppLink } from './WhatsAppLink';
 
 export const metadata = pageMetadata({
   title: 'Tintorería en Mar del Plata',
   fullTitle: `${SITE.name} | Tintorería en Mar del Plata`,
   description: SITE.description,
   path: '/',
-  image: 'camisas',
-  imageAlt: 'Camisas limpias y planchadas en percha',
+  image: 'clienta-celular',
+  imageAlt: 'Clienta pidiendo el retiro de su ropa desde el celular',
 });
-import { TrackedLink } from './TrackedLink';
-import { WhatsAppLink } from './WhatsAppLink';
 
 const faqLd = {
   '@context': 'https://schema.org',
@@ -25,60 +25,14 @@ const faqLd = {
   mainEntity: FAQ.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
 };
 
-const STEPS = [
-  { icon: 'camera', title: 'Mandá una foto', text: 'Por WhatsApp, de la prenda y de su etiqueta. Si tiene una mancha, contanos de qué es.' },
-  { icon: 'tag', title: 'Te pasamos el precio', text: 'Precio y plazo antes de que la traigas. Lo que te decimos es lo que pagás.' },
-  { icon: 'hanger', title: 'La revisamos con vos', text: 'Al recibirla miramos fibra, manchas, botones y bolsillos, y lo anotamos en tu ticket.' },
-  { icon: 'bell', title: 'Te avisamos que está lista', text: 'Te escribimos por WhatsApp. La retirás limpia, planchada y protegida.' },
-] as const;
+const ORDER = `${GREETING} Quiero pedir un retiro a domicilio.`;
 
-const CHECKS = [
-  'Leemos la etiqueta y confirmamos la fibra',
-  'Marcamos manchas y zonas gastadas antes de empezar',
-  'Revisamos bolsillos, botones y cierres',
-  'Elegimos el proceso según la prenda, no al revés',
-  'Control final de planchado y terminación',
-  'Entrega en percha y funda, lista para guardar',
+const REASONS = [
+  'Retiro y entrega en tu casa o trabajo',
+  'Precio antes de empezar, sin sorpresas',
+  'Cada prenda revisada antes y después',
+  'Entrega planchada, en percha y con funda',
 ];
-
-const GUIDES = [
-  {
-    icon: 'drop',
-    tag: 'Manchas',
-    title: 'Qué hacer con una mancha en los primeros minutos',
-    text: 'Lo que hacés antes de traer la prenda define cuánto sale. La regla: absorber, nunca frotar.',
-    tips: [
-      'Apoyá papel o un paño blanco y presioná, sin frotar.',
-      'No pongas agua caliente ni planches encima: fija la mancha.',
-      'Evitá quitamanchas caseros en seda, lana o prendas de color.',
-      'Traela cuanto antes y contanos de qué es la mancha.',
-    ],
-  },
-  {
-    icon: 'towels',
-    tag: 'Acolchados',
-    title: 'Cada cuánto lavar el acolchado (y por qué en tintorería)',
-    text: 'En Mar del Plata la humedad se queda en el relleno. Un lavado al cambiar de estación lo mantiene sano.',
-    tips: [
-      'Lavalo una o dos veces por año, antes de guardarlo.',
-      'El secado completo importa más que el lavado: evita olor y hongos.',
-      'Guardalo en funda de tela, nunca en bolsa de nylon cerrada.',
-      'Si es de pluma, airealo al sol suave unas horas al usarlo.',
-    ],
-  },
-  {
-    icon: 'jacket',
-    tag: 'Trajes y sacos',
-    title: 'Cómo hacer que un traje dure años',
-    text: 'Un traje no necesita lavarse seguido: necesita descanso, percha correcta y un lavado profesional a tiempo.',
-    tips: [
-      'Usá percha ancha de hombro, no de alambre.',
-      'Dejalo descansar un día entre usos.',
-      'Lavado profesional cada 5 a 8 usos, o ante cualquier mancha.',
-      'Entre lavados, vapor para sacar arrugas en lugar de plancha.',
-    ],
-  },
-] as const;
 
 export default function Home() {
   return (
@@ -92,15 +46,14 @@ export default function Home() {
           <div className="hero-copy">
             <span className="eyebrow">Tintorería en Mar del Plata · Barrio Constitución</span>
             <h1 className="h-xl">
-              Tu ropa vuelve <span className="thin">como</span> <span className="accent">la primera vez.</span>
+              Tintorería con <span className="accent">retiro a domicilio.</span>
             </h1>
             <p className="lead">
-              Lavado de valet, trajes, acolchados, camisas y prendas delicadas. Revisamos cada prenda antes de tocarla,
-              te damos el precio antes de que la dejes y te avisamos por WhatsApp cuando está lista.
+              Pasamos a buscar tu ropa, la limpiamos y te la devolvemos lista para usar. Pedilo por WhatsApp en un minuto.
             </p>
             <div className="hero-ctas">
-              <WhatsAppLink message={`${GREETING} Quiero pedir un precio.`} placement="hero">
-                Pedí precio por WhatsApp
+              <WhatsAppLink message={ORDER} placement="hero">
+                Pedir retiro a domicilio
               </WhatsAppLink>
               <a href="#servicios" className="btn btn-ghost">
                 Ver servicios
@@ -108,30 +61,30 @@ export default function Home() {
             </div>
             <ul className="hero-proof">
               <li>
-                <Icon name="check" /> Precio antes de dejarla
+                <Icon name="check" /> Retiro y entrega a domicilio
               </li>
               <li>
-                <Icon name="check" /> Revisión prenda por prenda
+                <Icon name="check" /> Precio antes de empezar
               </li>
               <li>
-                <Icon name="check" /> Aviso por WhatsApp
+                <Icon name="check" /> Aviso cuando está lista
               </li>
             </ul>
           </div>
 
           <div className="hero-media">
             <div className="hero-photo hero-photo-a">
-              <Img name="control-prenda" alt="Prenda clara revisada a contraluz antes de entregarla" priority sizes="(min-width: 900px) 460px, 80vw" />
+              <Img name="clienta-celular" alt="Clienta pidiendo el retiro de su ropa desde el celular" priority sizes="(min-width: 900px) 460px, 80vw" />
             </div>
             <div className="hero-photo hero-photo-b">
-              <Img name="camisas" alt="Camisas limpias y planchadas colgadas en perchas de madera" sizes="(min-width: 900px) 300px, 50vw" />
+              <Img name="camisas" alt="Camisas limpias y planchadas colgadas en perchas" sizes="(min-width: 900px) 300px, 50vw" />
             </div>
             <div className="hero-ticket" aria-hidden="true">
               <span className="ticket-hole" />
-              <span className="ticket-k">Tu prenda</span>
-              <span className="ticket-v">Revisada</span>
-              <span className="ticket-v">Limpia</span>
-              <span className="ticket-v ok">Lista ✓</span>
+              <span className="ticket-k">Tu pedido</span>
+              <span className="ticket-v">Retirado</span>
+              <span className="ticket-v">Limpio</span>
+              <span className="ticket-v ok">Entregado ✓</span>
             </div>
           </div>
         </div>
@@ -139,14 +92,15 @@ export default function Home() {
 
       <Ribbon
         items={[
-          'Precio antes de dejar la prenda',
-          'Revisión prenda por prenda',
+          'Retiro y entrega a domicilio',
+          'Precio antes de empezar',
           'Aviso por WhatsApp cuando está lista',
-          'Entrega en percha y funda',
-          'Acolchados con secado completo',
+          'Planchado, en percha y con funda',
           'Empresas, hoteles y temporarios',
         ]}
       />
+
+      <DeliveryBand id="retiro" />
 
       {/* ───────── SERVICIOS ───────── */}
       <section id="servicios" className="section">
@@ -154,12 +108,11 @@ export default function Home() {
           <Motion>
             <span className="eyebrow">Servicios</span>
             <h2 className="h-l">
-              Cada prenda tiene <span className="thin">su forma</span> de cuidarse.
+              ¿Qué <span className="thin">limpiamos hoy?</span>
             </h2>
           </Motion>
           <Motion as="p" className="lead" delay={100}>
-            Elegimos el lavado según la fibra, la etiqueta y el estado de cada prenda.
-            Seguí bajando para recorrer todo lo que hacemos.
+            Elegí el servicio y pedilo por WhatsApp. Lo retiramos de tu casa.
           </Motion>
         </div>
         <ScrollRail count={SERVICES.length}>
@@ -167,36 +120,15 @@ export default function Home() {
         </ScrollRail>
       </section>
 
-      {/* ───────── CÓMO FUNCIONA ───────── */}
-      <section id="como-funciona" className="section section-tint">
-        <div className="wrap">
-          <div className="section-head">
-            <Motion>
-              <span className="eyebrow">Cómo funciona</span>
-              <h2 className="h-l">
-                Sin vueltas, <span className="thin">sin sorpresas.</span>
-              </h2>
-            </Motion>
-            <Motion as="p" className="lead" delay={100}>
-              Sabés cuánto vas a pagar y cuándo la retirás antes de dejar la prenda. Así de simple.
-            </Motion>
-          </div>
-          <Process steps={STEPS.map((s) => ({ ...s }))} />
-        </div>
-      </section>
-
-      {/* ───────── SELECTOR + WHATSAPP ───────── */}
-      <section className="section">
+      {/* ───────── PEDIDO EN UN MINUTO ───────── */}
+      <section className="section section-tint">
         <div className="wrap split">
           <Motion className="split-copy">
-            <span className="eyebrow">Cotizá en un minuto</span>
+            <span className="eyebrow">Pedido en un minuto</span>
             <h2 className="h-l">
-              Elegí qué querés limpiar <span className="thin">y escribinos.</span>
+              Elegí, enviá <span className="thin">y listo.</span>
             </h2>
-            <p className="lead">
-              Te dejamos el mensaje armado. Sumale una foto de la prenda y de la etiqueta y te respondemos con precio y
-              plazo.
-            </p>
+            <p className="lead">El mensaje ya está armado. Solo sumá tu dirección.</p>
           </Motion>
           <Motion variant="scale" delay={120}>
             <ChatPreview services={SERVICES} />
@@ -204,8 +136,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ───────── CONFIANZA: CONTROL DE CADA PRENDA ───────── */}
-      <section id="cuidado" className="section trust on-dark">
+      {/* ───────── POR QUÉ ELEGIRNOS ───────── */}
+      <section id="por-que" className="section trust on-dark">
         <Waves id="trust" color="#fff" opacity={0.05} />
         <div className="wrap trust-grid">
           <Motion variant="scale" className="trust-media">
@@ -221,17 +153,13 @@ export default function Home() {
           </Motion>
           <div>
             <Motion>
-              <span className="eyebrow">Por qué confiar</span>
+              <span className="eyebrow">Por qué elegirnos</span>
               <h2 className="h-l">
-                Tratamos tu ropa <span className="thin">como si fuera</span> nuestra.
+                Tu ropa, <span className="thin">en buenas manos.</span>
               </h2>
-              <p className="lead">
-                Una prenda arruinada no se arregla con una disculpa. Por eso cada pieza pasa por el mismo control antes
-                y después del proceso.
-              </p>
             </Motion>
             <ul className="checklist">
-              {CHECKS.map((c, i) => (
+              {REASONS.map((c, i) => (
                 <Motion as="li" key={c} delay={i * 70}>
                   <span className="check-dot">
                     <Icon name="check" strokeWidth={2.2} />
@@ -240,6 +168,11 @@ export default function Home() {
                 </Motion>
               ))}
             </ul>
+            <div className="hero-ctas">
+              <WhatsAppLink message={ORDER} placement="por_que">
+                Pedir retiro a domicilio
+              </WhatsAppLink>
+            </div>
           </div>
         </div>
       </section>
@@ -250,46 +183,27 @@ export default function Home() {
           <Motion className="biz">
             <div className="biz-copy">
               <span className="eyebrow">Empresas y alojamientos</span>
-              <h2 className="h-m">Hoteles, alquileres temporarios, restaurantes y consultorios.</h2>
-              <p>
-                Blanquería, mantelería, uniformes y cortinas con retiro y entrega coordinados y facturación mensual.
-                Ideal para la temporada en Mar del Plata.
-              </p>
-              <WhatsAppLink message={`${GREETING} Tengo un negocio y quiero consultar por el servicio para empresas.`} placement="empresas" className="btn">
-                Consultar para mi negocio
+              <h2 className="h-m">Hoteles, temporarios, restaurantes y consultorios.</h2>
+              <p>Blanquería, mantelería y uniformes con retiro programado y facturación mensual.</p>
+              <WhatsAppLink message={`${GREETING} Quiero contratar el servicio para mi negocio.`} placement="empresas" className="btn">
+                Contratar para mi negocio
               </WhatsAppLink>
             </div>
             <div className="biz-media">
-              <Img name="toallas" alt="Toallas blancas dobladas y apiladas" sizes="(min-width: 900px) 380px, 100vw" />
+              <Img name="entrega" alt="Repartidor entregando un pedido de ropa limpia en la puerta" sizes="(min-width: 900px) 380px, 100vw" />
             </div>
           </Motion>
         </div>
       </section>
 
-      {/* ───────── GUÍA DE CUIDADO ───────── */}
-      <section className="section section-tint">
-        <div className="wrap">
-          <div className="section-head">
-            <Motion>
-              <span className="eyebrow">Guía de cuidado</span>
-              <h2 className="h-l">
-                Lo que sabemos, <span className="thin">para que lo uses en casa.</span>
-              </h2>
-            </Motion>
-          </div>
-          <GuideCards guides={GUIDES.map((g) => ({ ...g, tips: [...g.tips] }))} />
-        </div>
-      </section>
-
       {/* ───────── PREGUNTAS ───────── */}
-      <section id="preguntas" className="section">
+      <section id="preguntas" className="section section-tint">
         <div className="wrap faq-grid">
           <Motion>
             <span className="eyebrow">Preguntas frecuentes</span>
             <h2 className="h-l">
-              Lo que más <span className="thin">nos preguntan.</span>
+              Lo que <span className="thin">tenés que saber.</span>
             </h2>
-            <p className="lead">¿No está tu duda? Escribinos y te respondemos.</p>
           </Motion>
           <div className="faq">
             {FAQ.map((f, i) => (
@@ -310,9 +224,9 @@ export default function Home() {
         <div className="wrap">
           <Motion className="contact-card">
             <div className="contact-copy">
-              <span className="eyebrow">Visitanos</span>
+              <span className="eyebrow">Local y retiro</span>
               <h2 className="h-l">
-                Estamos en <span className="accent">Constitución</span>, Mar del Plata.
+                Pedí tu retiro <span className="thin">o traela al local.</span>
               </h2>
               <ul className="contact-list">
                 <li>
@@ -336,7 +250,9 @@ export default function Home() {
                 </li>
               </ul>
               <div className="hero-ctas">
-                <WhatsAppLink message={`${GREETING} Quiero hacer una consulta.`} placement="contacto" />
+                <WhatsAppLink message={`${GREETING} Quiero pedir un retiro a domicilio.`} placement="contacto">
+                  Pedir retiro
+                </WhatsAppLink>
                 <TrackedLink href={SITE.mapsUrl} target="_blank" rel="noopener" className="btn btn-ghost" event="map_click" params={{ placement: 'contacto' }}>
                   <Icon name="pin" /> Cómo llegar
                 </TrackedLink>

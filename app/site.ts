@@ -21,9 +21,9 @@ export const SITE = {
   city: 'Mar del Plata',
   region: 'Buenos Aires',
   country: 'AR',
-  tagline: 'Cuidamos tu ropa como si fuera nuestra.',
+  tagline: 'Retiramos, limpiamos y te la devolvemos lista.',
   description:
-    'Tintorería en Mar del Plata: lavado de valet, trajes, acolchados, camisas, camperas, cortinas y prendas delicadas. Precio antes de dejarla y aviso por WhatsApp.',
+    'Tintorería en Mar del Plata con retiro a domicilio. Limpieza de trajes, acolchados, camisas, cortinas, prendas delicadas y valet de ropa. Pedí por WhatsApp.',
   // Formato internacional sin + ni espacios: 54 9 + característica + número.
   whatsapp: '5492235655898',
   phoneDisplay: '223 565-5898',
@@ -63,12 +63,28 @@ export const LEGAL_PAGES = [
   { href: '/terminos-y-condiciones', label: 'Términos y condiciones' },
 ] as const;
 
+export const GREETING = '¡Hola Tintorería Constitución!';
+
 export const NAV = [
   { href: '/servicios', label: 'Servicios' },
-  { href: '/#como-funciona', label: 'Cómo funciona' },
+  { href: '/retiro-a-domicilio', label: 'Retiro a domicilio' },
   { href: '/#preguntas', label: 'Preguntas' },
   { href: '/#contacto', label: 'Contacto' },
 ] as const;
+
+// Retiro y entrega a domicilio: el servicio que más se destaca en la web.
+// TODO: confirmar zonas, días/horarios de retiro y si tiene costo.
+export const DELIVERY = {
+  href: '/retiro-a-domicilio',
+  title: 'Retiro y entrega a domicilio',
+  short: 'Pasamos a buscar tu ropa y te la devolvemos limpia, en tu casa o tu trabajo.',
+  area: 'Mar del Plata',
+  steps: [
+    { icon: 'whatsapp', title: 'Pedí por WhatsApp', text: 'Decinos qué prendas y tu dirección.' },
+    { icon: 'truck', title: 'La retiramos', text: 'En el día y horario que elijas.' },
+    { icon: 'check', title: 'Te la devolvemos lista', text: 'Limpia, planchada y en percha.' },
+  ],
+} as const;
 
 export type Service = {
   slug: string;
@@ -95,101 +111,91 @@ export type IconName =
 // Orden = prioridad comercial y de búsqueda (lo más buscado primero).
 export const SERVICES: Service[] = [
   {
-    slug: 'lavado-de-valet',
-    name: 'Lavado de valet',
-    short: 'La ropa de todos los días lavada, secada y doblada. La dejás en una bolsa y la retirás lista para guardar.',
-    image: 'toallas',
-    icon: 'washer',
-    message: '¡Hola Tintorería Constitución! Quiero consultar por el lavado de valet.',
-  },
-  {
-    slug: 'lavado-de-trajes',
-    name: 'Lavado de trajes',
-    short: 'Trajes, sacos, tapados y pantalones de vestir. Sin encoger, sin perder forma ni color.',
+    slug: 'limpieza-de-trajes',
+    name: 'Limpieza de trajes',
+    short: 'Trajes, sacos, tapados y pantalones de vestir. Planchados y en percha.',
     image: 'traje',
     icon: 'jacket',
-    message: '¡Hola Tintorería Constitución! Quiero consultar por el lavado de un traje.',
+    message: `${GREETING} Quiero pedir la limpieza de un traje.`,
   },
   {
-    slug: 'lavado-de-acolchados',
-    name: 'Lavado de acolchados',
-    short: 'Acolchados de pluma, vellón o sintéticos, frazadas y mantas. Secado completo para que vuelvan esponjosos.',
+    slug: 'limpieza-de-acolchados',
+    name: 'Limpieza de acolchados',
+    short: 'Acolchados de pluma o sintéticos, frazadas y mantas. Secos y esponjosos.',
     image: 'acolchados',
     icon: 'towels',
-    message: '¡Hola Tintorería Constitución! Quiero consultar por el lavado de un acolchado.',
+    message: `${GREETING} Quiero pedir la limpieza de un acolchado.`,
   },
   {
-    slug: 'lavado-de-camisas',
-    name: 'Lavado de camisas',
-    short: 'Lavadas y planchadas a mano, cuello y puños firmes. Entregadas en percha.',
+    slug: 'limpieza-de-camisas',
+    name: 'Limpieza de camisas',
+    short: 'Limpias y planchadas, con cuello y puños firmes. En percha.',
     image: 'camisas',
     icon: 'shirt',
-    message: '¡Hola Tintorería Constitución! Quiero consultar por el lavado y planchado de camisas.',
+    message: `${GREETING} Quiero pedir la limpieza y planchado de camisas.`,
   },
   {
-    slug: 'lavado-de-camperas',
-    name: 'Lavado de camperas',
-    short: 'Camperas de pluma, paño, gamuza sintética e impermeables. Cuidamos rellenos y terminaciones.',
+    slug: 'limpieza-de-camperas',
+    name: 'Limpieza de camperas',
+    short: 'Camperas de pluma, paño e impermeables. Listas para usar.',
     image: 'saco-lana',
     icon: 'hanger',
-    message: '¡Hola Tintorería Constitución! Quiero consultar por el lavado de una campera.',
+    message: `${GREETING} Quiero pedir la limpieza de una campera.`,
   },
   {
-    slug: 'lavado-de-cortinas',
-    name: 'Lavado de cortinas',
-    short: 'Cortinas, manteles, sábanas y almohadones. Para casas, alquileres temporarios y hoteles.',
-    image: 'blanqueria',
-    icon: 'basin',
-    message: '¡Hola Tintorería Constitución! Quiero consultar por el lavado de cortinas.',
-  },
-  {
-    slug: 'lavado-de-prendas-delicadas',
-    name: 'Lavado de prendas delicadas',
-    short: 'Vestidos de fiesta, seda, lana fina y bordados. Revisamos etiqueta y fibra antes de tocarlas.',
+    slug: 'limpieza-de-prendas-delicadas',
+    name: 'Limpieza de prendas delicadas',
+    short: 'Vestidos de fiesta y de novia, seda, lana fina y bordados.',
     image: 'control-prenda',
     icon: 'spray',
-    message: '¡Hola Tintorería Constitución! Quiero consultar por el lavado de una prenda delicada.',
+    message: `${GREETING} Quiero pedir la limpieza de una prenda delicada.`,
+  },
+  {
+    slug: 'limpieza-de-cortinas',
+    name: 'Limpieza de cortinas',
+    short: 'Cortinas, manteles, sábanas y almohadones. Para casas y alojamientos.',
+    image: 'blanqueria',
+    icon: 'basin',
+    message: `${GREETING} Quiero pedir la limpieza de cortinas.`,
+  },
+  {
+    slug: 'valet-de-ropa',
+    name: 'Valet de ropa',
+    short: 'La ropa de todos los días, limpia, seca y doblada.',
+    image: 'toallas',
+    icon: 'washer',
+    message: `${GREETING} Quiero pedir el servicio de valet de ropa.`,
   },
 ];
 
+// TODO: confirmar plazos, zonas y costo del retiro con el cliente.
 export const FAQ = [
   {
-    q: '¿Cuánto tarda el lavado?',
-    // TODO: confirmar plazos reales con el cliente
-    a: 'La mayoría de las prendas están listas en 48 a 72 horas hábiles. Acolchados y cortinas pueden llevar unos días más según el tamaño. Cuando está lista te avisamos por WhatsApp.',
-  },
-  {
-    q: '¿Cómo sé cuánto me va a salir?',
-    a: 'Mandanos una foto por WhatsApp con la prenda y la etiqueta y te pasamos el precio antes de que la traigas. Sin sorpresas al retirar.',
-  },
-  {
-    q: '¿Sacan todas las manchas?',
-    a: 'Tratamos cada mancha según la fibra y el origen. La mayoría salen; algunas viejas o con calor encima pueden quedar atenuadas. Si vemos un riesgo para la prenda te consultamos antes de seguir.',
-  },
-  {
-    q: '¿Puedo lavar un acolchado de plumas?',
-    a: 'Sí. Usamos un ciclo suave y un secado largo y completo, que es lo que evita que la pluma se apelmace o quede con olor a humedad.',
-  },
-  {
     q: '¿Hacen retiro y entrega a domicilio?',
-    // TODO: confirmar si el servicio existe y en qué zonas
-    a: 'Consultanos por WhatsApp: coordinamos según la zona y el volumen.',
+    a: 'Sí. Pedilo por WhatsApp con tu dirección y coordinamos el día y horario de retiro y de entrega.',
   },
   {
-    q: '¿Trabajan con empresas, hoteles o alquileres temporarios?',
-    a: 'Sí. Armamos un circuito fijo de retiro y entrega para blanquería, uniformes y mantelería, con facturación mensual.',
+    q: '¿Cuánto tarda?',
+    a: 'La mayoría de las prendas están listas en 48 a 72 horas hábiles. Te avisamos por WhatsApp cuando está lista.',
+  },
+  {
+    q: '¿Cómo sé el precio?',
+    a: 'Te lo pasamos por WhatsApp antes de empezar. Si nos mandás una foto de la prenda, es más rápido.',
+  },
+  {
+    q: '¿Trabajan con empresas y alojamientos?',
+    a: 'Sí. Retiro y entrega programados para blanquería, uniformes y mantelería, con facturación mensual.',
   },
 ];
-
-export const GREETING = '¡Hola Tintorería Constitución!';
 
 /** Mensaje de WhatsApp según la página en la que está la persona (header, botón flotante y footer). */
 export function whatsappMessageFor(pathname: string) {
   const service = SERVICES.find((s) => pathname === `/servicios/${s.slug}`);
   if (service) return service.message;
-  if (pathname === '/servicios') return `${GREETING} Estoy viendo sus servicios y quiero hacer una consulta.`;
+  if (pathname === DELIVERY.href) return `${GREETING} Quiero pedir un retiro a domicilio.`;
+  if (pathname === '/servicios') return `${GREETING} Quiero hacer un pedido.`;
   if (LEGAL_PAGES.some((l) => l.href === pathname)) return `${GREETING} Tengo una consulta sobre la información legal de la web.`;
-  return `${GREETING} Quiero hacer una consulta.`;
+  return `${GREETING} Quiero pedir un retiro a domicilio.`;
 }
 
 export const waLink = (message: string) =>
