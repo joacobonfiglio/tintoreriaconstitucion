@@ -81,7 +81,10 @@ export function ServiceLanding({ content: c }: { content: ServiceContent }) {
         <div className="wrap svc-order">
           <Motion className="svc-order-list">
             <span className="eyebrow">Qué limpiamos</span>
-            <h2 className="h-m">{service.name}</h2>
+            <h2 className="h-m">
+              {service.name} en {SITE.city}
+            </h2>
+            <p className="svc-desc">{c.description}</p>
             <ul className="svc-chips">
               {c.items.map((it) => (
                 <li key={it}>

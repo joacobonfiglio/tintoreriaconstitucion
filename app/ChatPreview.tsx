@@ -20,7 +20,9 @@ export function ChatPreview({ services }: { services: Service[] }) {
     <div className="chat">
       <style>{rules}</style>
       <fieldset className="chat-picker">
-        <legend>¿Qué querés limpiar?</legend>
+        <legend>
+          <span className="chat-step">1</span> Elegí el servicio
+        </legend>
         <div className="chips">
           {services.map((s, i) => (
             <span key={s.slug}>
@@ -34,37 +36,42 @@ export function ChatPreview({ services }: { services: Service[] }) {
         </div>
       </fieldset>
 
-      <div className="phone" aria-label="Vista previa del mensaje">
-        <div className="phone-bar">
-          <span className="phone-avatar">
-            <Isotipo color="#fff" />
-          </span>
-          <span>
-            <strong>{SITE.name}</strong>
-            <small>Respondemos en horario de atención</small>
-          </span>
-        </div>
-        <div className="phone-body">
-          {services.map((s) => (
-            <div key={s.slug} className="bubble out" data-svc={s.slug}>
-              <p>{s.message}</p>
-              <p className="bubble-hint">
-                <Icon name="truck" /> Sumá tu dirección para el retiro
-              </p>
-            </div>
-          ))}
-          <div className="bubble in">
-            <p>¡Hola! Pasanos tu dirección y coordinamos el retiro.</p>
+      <div className="chat-send">
+        <p className="chat-legend">
+          <span className="chat-step">2</span> Enviá tu pedido
+        </p>
+        <div className="phone" aria-label="Vista previa del mensaje">
+          <div className="phone-bar">
+            <span className="phone-avatar">
+              <Isotipo color="#fff" />
+            </span>
+            <span>
+              <strong>{SITE.name}</strong>
+              <small>Respondemos en horario de atención</small>
+            </span>
           </div>
-        </div>
-        <div className="phone-send">
-          {services.map((s) => (
-            <div key={s.slug} data-svc={s.slug} className="phone-send-row">
-              <WhatsAppLink message={s.message} placement={`selector_${s.slug}`}>
-                Enviar pedido
-              </WhatsAppLink>
+          <div className="phone-body">
+            {services.map((s) => (
+              <div key={s.slug} className="bubble out" data-svc={s.slug}>
+                <p>{s.message}</p>
+                <p className="bubble-hint">
+                  <Icon name="truck" /> Sumá tu dirección para el retiro
+                </p>
+              </div>
+            ))}
+            <div className="bubble in">
+              <p>¡Hola! Pasanos tu dirección y coordinamos el retiro.</p>
             </div>
-          ))}
+          </div>
+          <div className="phone-send">
+            {services.map((s) => (
+              <div key={s.slug} data-svc={s.slug} className="phone-send-row">
+                <WhatsAppLink message={s.message} placement={`selector_${s.slug}`}>
+                  Enviar pedido
+                </WhatsAppLink>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

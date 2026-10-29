@@ -14,6 +14,8 @@ export type ServiceContent = {
   lead: string;
   image: string;
   imageAlt: string;
+  /** descripción breve para la página (ayuda al SEO): qué es, para quién, con retiro a domicilio */
+  description: string;
   /** qué se limpia, en frases cortas */
   items: string[];
   faqs: { q: string; a: string }[];
@@ -34,6 +36,8 @@ export const SERVICE_CONTENT: ServiceContent[] = [
     lead: 'Trajes, sacos y tapados limpios, planchados y en percha. Los retiramos y te los devolvemos listos para usar.',
     image: 'traje',
     imageAlt: 'Detalle de un saco azul oscuro con botón',
+    description:
+      'La limpieza de trajes en Tintorería Constitución deja tus sacos, tapados y pantalones de vestir limpios, sin brillos y con su forma original. Cada prenda se entrega planchada, en percha y con funda, lista para tu próxima reunión o evento. Pedila por WhatsApp y la retiramos de tu casa u oficina en Mar del Plata.',
     items: ['Trajes y sacos', 'Tapados y abrigos de paño', 'Pantalones de vestir', 'Chalecos y polleras', 'Sweaters y tejidos finos', 'Corbatas y pañuelos'],
     faqs: [
       { q: '¿Cuánto tarda?', a: 'Entre 48 y 72 horas hábiles. Te avisamos por WhatsApp cuando está listo.' },
@@ -54,6 +58,8 @@ export const SERVICE_CONTENT: ServiceContent[] = [
     lead: 'Acolchados, frazadas y mantas limpios y completamente secos. Los retiramos de tu casa y te los devolvemos listos para usar o guardar.',
     image: 'acolchados',
     imageAlt: 'Tres acolchados enrollados en gris, celeste y rosa',
+    description:
+      'La limpieza de acolchados en Mar del Plata necesita un secado completo: la humedad de la costa queda en el relleno y genera olor. Limpiamos acolchados de pluma, plumón y sintéticos, frazadas y mantas, y te los devolvemos secos, esponjosos y listos para usar o guardar. Los retiramos de tu casa.',
     items: ['Acolchados de pluma y plumón', 'Acolchados sintéticos y de vellón', 'Frazadas y mantas', 'Cubrecamas y quilts', 'Almohadas', 'Fundas nórdicas'],
     faqs: [
       { q: '¿Limpian acolchados de plumas?', a: 'Sí, y te los devolvemos completamente secos, sin olor a humedad.' },
@@ -74,6 +80,8 @@ export const SERVICE_CONTENT: ServiceContent[] = [
     lead: 'Camisas limpias y planchadas, con cuello y puños firmes. Ideal para la semana de trabajo: las retiramos y te las devolvemos listas.',
     image: 'camisas',
     imageAlt: 'Camisas celestes y blancas colgadas en perchas de madera',
+    description:
+      'Limpieza y planchado de camisas para tu semana de trabajo: cuello y puños firmes, sin marcas de plancha y entregadas en percha. Atendemos pedidos sueltos y por cantidad para oficinas, consultorios y comercios de Mar del Plata, con retiro y entrega a domicilio.',
     items: ['Camisas de vestir', 'Camisas de lino', 'Blusas', 'Chombas y remeras de uniforme', 'Solo planchado', 'Camisas por cantidad'],
     faqs: [
       { q: '¿Hacen solo planchado?', a: 'Sí. Si ya las lavaste, las planchamos y te las entregamos en percha.' },
@@ -94,6 +102,8 @@ export const SERVICE_CONTENT: ServiceContent[] = [
     lead: 'Camperas de pluma, paño, gamuza sintética e impermeables, limpias y listas para usar. Las retiramos y te las devolvemos en percha.',
     image: 'saco-lana',
     imageAlt: 'Detalle de un abrigo de paño color camel',
+    description:
+      'Limpieza de camperas de pluma, inflables, de paño, impermeables y de gamuza sintética en Mar del Plata. Las dejamos limpias, con el relleno suelto y listas para el frío, y te las entregamos en percha. Retiramos tu campera de tu casa y te la devolvemos lista.',
     items: ['Camperas de pluma e inflables', 'Tapados y abrigos de paño', 'Impermeables y rompevientos', 'Gamuza y cuero sintético', 'Parkas con capucha', 'Ropa de nieve'],
     faqs: [
       { q: '¿Limpian camperas de pluma?', a: 'Sí, y te las devolvemos secas y con el relleno suelto.' },
@@ -114,6 +124,8 @@ export const SERVICE_CONTENT: ServiceContent[] = [
     lead: 'Vestidos de fiesta y de novia, seda, encaje y bordados. Limpios, cuidados y entregados en funda, listos para guardar.',
     image: 'control-prenda',
     imageAlt: 'Mujer revisando un vestido claro en su funda',
+    description:
+      'Limpieza de vestidos de fiesta, vestidos de novia y prendas delicadas de seda, satén, encaje o lana fina. Revisamos cada detalle, pedrería y bordados incluidos, y te entregamos la prenda en funda para usarla o guardarla. Retiro y entrega a domicilio en Mar del Plata.',
     items: ['Vestidos de fiesta', 'Vestidos de novia', 'Seda y satén', 'Encajes y bordados', 'Lana fina y cashmere', 'Trajes de ceremonia'],
     faqs: [
       { q: '¿Limpian vestidos con pedrería?', a: 'Sí. Si algún aplique está flojo, te lo avisamos al recibirlo.' },
@@ -134,6 +146,8 @@ export const SERVICE_CONTENT: ServiceContent[] = [
     lead: 'Cortinas, manteles, sábanas y almohadones limpios y planchados. Para tu casa o por volumen para alquileres temporarios, hoteles y restaurantes.',
     image: 'blanqueria',
     imageAlt: 'Toallas blancas dobladas y apiladas junto a una planta',
+    description:
+      'Limpieza de cortinas, manteles, sábanas, toallas y almohadones para casas, alquileres temporarios, hoteles y restaurantes de Mar del Plata. Te las devolvemos limpias, planchadas y listas para colgar o usar. Para negocios, armamos un retiro programado con facturación mensual.',
     items: ['Cortinas de tela y voile', 'Cortinas blackout', 'Manteles y servilletas', 'Sábanas y fundas', 'Toallas y toallones', 'Almohadones y fundas de sillón'],
     faqs: [
       // TODO: confirmar si ofrecen descolgado y colocación de cortinas
@@ -155,6 +169,8 @@ export const SERVICE_CONTENT: ServiceContent[] = [
     lead: 'Tu ropa de todos los días, lista para guardar. Sin lavarropas, sin tender y sin esperar. La retiramos y te la devolvemos doblada.',
     image: 'toallas',
     imageAlt: 'Ropa limpia doblada y apilada: jeans, remeras y toallas',
+    description:
+      'El valet de ropa es la forma más simple de tener tu ropa de todos los días limpia: la retiramos de tu casa en Mar del Plata y te la devolvemos limpia, seca y doblada, lista para guardar. Ideal si no tenés tiempo, lavarropas o lugar para tender.',
     items: ['Ropa de todos los días', 'Jeans y pantalones', 'Ropa deportiva', 'Sábanas y fundas', 'Toallas y toallones', 'Ropa de trabajo'],
     // TODO: confirmar si incluye planchado y cómo se cobra (por bolsa, kilo o carga)
     faqs: [

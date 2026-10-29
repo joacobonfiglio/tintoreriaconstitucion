@@ -29,18 +29,18 @@ export const SITE = {
   phoneDisplay: '223 565-5898',
   email: '', // TODO: email de contacto (vacío = no se publica)
   address: {
-    street: 'Av. Constitución 0000', // TODO: dirección exacta
+    street: 'Av. Constitución 5491',
     neighborhood: 'Constitución',
     postalCode: '7600', // TODO: confirmar CP
   },
-  // TODO: coordenadas exactas del local (las de abajo son el centro del barrio)
-  geo: { lat: -37.9705, lng: -57.5575 },
+  // TODO: coordenadas exactas del local (de la ficha de Google). Vacío = no se publica en el JSON-LD.
+  geo: null as { lat: number; lng: number } | null,
   // TODO: horario real. Formato 24 h.
   hours: [
     { days: ['Mo', 'Tu', 'We', 'Th', 'Fr'], label: 'Lunes a viernes', opens: '08:30', closes: '19:30' },
     { days: ['Sa'], label: 'Sábados', opens: '09:00', closes: '13:00' },
   ],
-  mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Tintorer%C3%ADa+Constituci%C3%B3n+Mar+del+Plata', // TODO: link de la ficha de Google
+  mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Av.+Constituci%C3%B3n+5491%2C+Mar+del+Plata', // TODO: reemplazar por el link de la ficha de Google
   social: {
     instagram: '', // TODO
     facebook: '', // TODO

@@ -1987,3 +1987,120 @@
 .trust .hero-ctas {
   margin-top: 28px;
 }
+
+/* ───────── Selector de pedido (rediseño: pasos 1 y 2) ───────── */
+.chat {
+  gap: 32px;
+}
+.chat-picker legend,
+.chat-legend {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--violet-900);
+}
+.chat-step {
+  width: 30px;
+  height: 30px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--orange);
+  color: var(--violet-900);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+.chips {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.chips > span {
+  display: block;
+}
+.chip {
+  width: 100%;
+  min-height: 64px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  border-width: 1.5px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.25;
+  box-shadow: var(--shadow-s);
+}
+.chip svg {
+  width: 34px;
+  height: 34px;
+  flex: none;
+  padding: 7px;
+  border-radius: 50%;
+  background: var(--violet-50);
+  color: var(--violet);
+}
+.chip:hover {
+  border-color: var(--violet);
+  transform: translateY(-1px);
+}
+.chat input:checked + .chip svg {
+  background: var(--orange);
+  color: var(--violet-900);
+}
+.phone {
+  max-width: 480px;
+}
+@media (min-width: 960px) {
+  .chat {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .chip {
+    min-height: 72px;
+    font-size: 1rem;
+  }
+  .phone {
+    max-width: none;
+  }
+}
+
+/* Tarjetas del perchero: CTA principal a todo el ancho */
+.garment-body {
+  display: flex;
+  flex-direction: column;
+}
+.garment-links {
+  display: grid;
+  gap: 4px;
+  margin-top: auto;
+  padding-top: 10px;
+}
+.garment-cta {
+  width: 100%;
+  min-height: 52px;
+  font-size: 1rem;
+  box-shadow: 0 10px 22px -10px rgb(237 108 5 / 0.7);
+}
+.garment-more {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--violet);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.svc-desc {
+  max-width: 68ch;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+}
+.chips > span:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}

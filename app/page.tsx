@@ -121,16 +121,20 @@ export default function Home() {
       </section>
 
       {/* ───────── PEDIDO EN UN MINUTO ───────── */}
-      <section className="section section-tint">
-        <div className="wrap split">
-          <Motion className="split-copy">
-            <span className="eyebrow">Pedido en un minuto</span>
-            <h2 className="h-l">
-              Elegí, enviá <span className="thin">y listo.</span>
-            </h2>
-            <p className="lead">El mensaje ya está armado. Solo sumá tu dirección.</p>
-          </Motion>
-          <Motion variant="scale" delay={120}>
+      <section id="pedido" className="section section-tint">
+        <div className="wrap">
+          <div className="section-head">
+            <Motion>
+              <span className="eyebrow">Pedido en un minuto</span>
+              <h2 className="h-l">
+                Elegí, enviá <span className="thin">y listo.</span>
+              </h2>
+            </Motion>
+            <Motion as="p" className="lead" delay={100}>
+              El mensaje ya está armado. Solo sumá tu dirección y coordinamos el retiro.
+            </Motion>
+          </div>
+          <Motion variant="fade">
             <ChatPreview services={SERVICES} />
           </Motion>
         </div>

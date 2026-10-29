@@ -81,7 +81,7 @@ const jsonLd = {
         postalCode: SITE.address.postalCode,
         addressCountry: SITE.country,
       },
-      geo: { '@type': 'GeoCoordinates', latitude: SITE.geo.lat, longitude: SITE.geo.lng },
+      ...(SITE.geo ? { geo: { '@type': 'GeoCoordinates', latitude: SITE.geo.lat, longitude: SITE.geo.lng } } : {}),
       hasMap: SITE.mapsUrl,
       areaServed: [
         { '@type': 'City', name: 'Mar del Plata' },
