@@ -7,7 +7,7 @@ import { CookieConsent, CookieSettingsButton } from './CookieConsent';
 import { GA_ID, consentBootstrap } from './ga';
 import { Icon } from './Icon';
 import { Logo } from './Logo';
-import { IS_PRODUCTION, LEGAL_PAGES, NAV, SERVICES, SITE, absoluteUrl } from './site';
+import { DELIVERY, FOOTER_NAV, IS_PRODUCTION, LEGAL_PAGES, NAV, SERVICES, SITE, absoluteUrl } from './site';
 import { TrackedLink } from './TrackedLink';
 import { PageWhatsAppLink } from './PageWhatsAppLink';
 import { Waves } from './Blocks';
@@ -92,8 +92,8 @@ const jsonLd = {
       ...(SITE.geo ? { geo: { '@type': 'GeoCoordinates', latitude: SITE.geo.lat, longitude: SITE.geo.lng } } : {}),
       hasMap: SITE.mapsUrl,
       areaServed: [
-        { '@type': 'City', name: 'Mar del Plata' },
-        { '@type': 'Place', name: `Barrio ${SITE.address.neighborhood}, Mar del Plata` },
+        { '@type': 'City', name: SITE.city },
+        ...DELIVERY.areas.map((name) => ({ '@type': 'Place', name: `${name}, ${SITE.city}` })),
       ],
       openingHoursSpecification: SITE.hours.map((h) => ({
         '@type': 'OpeningHoursSpecification',
@@ -205,6 +205,16 @@ function Footer() {
             {SERVICES.map((s) => (
               <li key={s.slug}>
                 <a href={`/servicios/${s.slug}`}>{s.name}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h2 className="footer-h">La web</h2>
+          <ul className="footer-list">
+            {FOOTER_NAV.map((n) => (
+              <li key={n.href}>
+                <a href={n.href}>{n.label}</a>
               </li>
             ))}
           </ul>

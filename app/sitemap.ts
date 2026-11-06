@@ -1,15 +1,26 @@
 import type { MetadataRoute } from 'next';
+import { GUIDES } from './guias/content';
 import { SERVICES, absoluteUrl } from './site';
 
 // Cada página pública tiene que estar acá. tests/sitemap-coverage.test.mjs lo controla.
-export const ROUTES = ['/', '/retiro-a-domicilio', '/servicios', ...SERVICES.map((s) => `/servicios/${s.slug}`)];
+export const ROUTES = [
+  '/',
+  '/retiro-a-domicilio',
+  '/servicios',
+  ...SERVICES.map((s) => `/servicios/${s.slug}`),
+  '/guias',
+  ...GUIDES.map((g) => `/guias/${g.slug}`),
+];
+
+/** Última edición de cada guía; para el resto, la fecha del build. */
+const guideDates = new Map(GUIDES.map((g) => [`/guias/${g.slug}`, new Date(g.updated ?? g.date)]));
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   return ROUTES.map((path) => ({
     url: absoluteUrl(path),
-    lastModified: now,
-    changeFrequency: 'monthly',
-    priority: path === '/' || path === '/retiro-a-domicilio' ? 1 : path.split('/').length > 2 ? 0.9 : 0.8,
+    lastModified: guideDates.get(path) ?? now,
+    changeFrequency: path.startsWith('/guias/') ? 'yearly' : 'monthly',
+    priority: path === '/' ? 1 : path.startsWith('/servicios/') ? 0.9 : path.startsWith('/guias/') ? 0.6 : 0.8,
   }));
 }

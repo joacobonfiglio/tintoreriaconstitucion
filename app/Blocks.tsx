@@ -103,7 +103,7 @@ export function DeliveryBand({
           </h2>
           <p className="lead">{DELIVERY.short}</p>
           <p className="delivery-note">
-            <Icon name="pin" /> {DELIVERY.zones}
+            <Icon name="pin" /> {DELIVERY.zonesLong}
           </p>
           <div className="hero-ctas">
             <WhatsAppLink message={message ?? `${GREETING} Quiero consultar por el retiro a domicilio.`} placement="retiro">

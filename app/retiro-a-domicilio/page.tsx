@@ -9,7 +9,7 @@ import { WhatsAppLink } from '../WhatsAppLink';
 export const metadata = pageMetadata({
   title: 'Retiro y entrega a domicilio',
   description:
-    'Retiro y entrega de tintorería y lavandería a domicilio en zonas seleccionadas de Mar del Plata. Pasanos tu dirección por WhatsApp y te confirmamos.',
+    'Retiro y entrega de tintorería y lavandería a domicilio en el barrio Constitución y el centro de Mar del Plata. Pedilo por WhatsApp.',
   path: DELIVERY.href,
   image: 'entrega',
   imageAlt: 'Repartidor entregando un pedido de ropa limpia en la puerta de una casa',
@@ -21,9 +21,12 @@ const ORDER = `${GREETING} Quiero consultar por el retiro a domicilio.`;
 const FAQS = [
   {
     q: '¿En qué zonas retiran?',
-    a: `En zonas seleccionadas de ${SITE.city}. Pasanos tu dirección por WhatsApp y te confirmamos si llegamos y en qué día y horario.`,
+    a: `En el barrio ${SITE.address.neighborhood} y en el centro de ${SITE.city}. Pasanos tu dirección por WhatsApp y coordinamos el día y el horario.`,
   },
-  { q: '¿Y si no llegan a mi zona?', a: `Podés acercar tus prendas al local, en ${SITE.address.street}, barrio ${SITE.address.neighborhood}.` },
+  {
+    q: '¿Y si estoy fuera de esas zonas?',
+    a: `Escribinos igual: según el día y el volumen podemos llegar un poco más lejos. Si no, podés acercar tus prendas al local, en ${SITE.address.street}.`,
+  },
   { q: '¿Cómo pago?', a: 'Te pasamos el precio antes de empezar y pagás al recibir tu ropa.' },
   { q: '¿Tengo que estar en casa?', a: 'Sí, o dejá a alguien que entregue y reciba. Coordinamos el horario que te quede cómodo.' },
   { q: '¿Puedo mezclar servicios en un mismo retiro?', a: 'Sí. Trajes, camisas, acolchados, cortinas o la ropa de lavandería van en el mismo pedido.' },
@@ -36,10 +39,10 @@ const jsonLd = {
       '@type': 'Service',
       name: DELIVERY.title,
       serviceType: 'Tintorería con retiro a domicilio',
-      description: `${DELIVERY.short} ${DELIVERY.zones}`,
+      description: `${DELIVERY.short} ${DELIVERY.zonesLong}`,
       url: absoluteUrl(DELIVERY.href),
       provider: { '@id': absoluteUrl('/#negocio') },
-      areaServed: { '@type': 'City', name: SITE.city },
+      areaServed: DELIVERY.areas.map((name) => ({ '@type': 'Place', name: `${name}, ${SITE.city}` })),
     },
     {
       '@type': 'BreadcrumbList',
@@ -71,7 +74,7 @@ export default function Retiro() {
             Retiro y entrega <span className="thin">a domicilio</span>
           </>
         }
-        lead={`Si te queda más cómodo, pasamos a buscar tu ropa y te la devolvemos limpia en tu casa o tu trabajo. Disponible en zonas seleccionadas de ${SITE.city}.`}
+        lead={`Si te queda más cómodo, pasamos a buscar tu ropa y te la devolvemos limpia en tu casa o tu trabajo. Retiramos en el barrio ${SITE.address.neighborhood} y en el centro de ${SITE.city}.`}
         image="entrega"
         imageAlt="Repartidor entregando un pedido de ropa limpia en la puerta de una casa"
         message={ORDER}

@@ -26,23 +26,47 @@ async function pages(dir, base = '') {
 
 const serviceSlugs = slugsIn(await read('app/site.ts'));
 const contentSlugs = slugsIn(await read('app/servicios/content.ts'));
+const guideSlugs = slugsIn(await read('app/guias/content.ts'));
 
-/** Rutas que el sitemap genera: literales + una por servicio si usa SERVICES.map */
+/** Cada ruta [slug] y de dónde salen sus valores. */
+const DYNAMIC = {
+  '/servicios/[slug]': { base: '/servicios', slugs: contentSlugs, map: 'SERVICES.map' },
+  '/guias/[slug]': { base: '/guias', slugs: guideSlugs, map: 'GUIDES.map' },
+};
+
+/** Rutas que el sitemap genera: los literales del array ROUTES + las dinámicas que expande con .map */
 async function sitemapRoutes() {
   const src = await read('app/sitemap.ts');
-  const literals = [...src.matchAll(/'(\/[^'$]*)'/g)].map((m) => m[1]);
-  const dynamic = src.includes('SERVICES.map') ? serviceSlugs.map((s) => `/servicios/${s}`) : [];
+  const routes = src.match(/ROUTES = \[([\s\S]*?)\n\];/);
+  assert.ok(routes, 'no se encontró el array ROUTES en app/sitemap.ts');
+  const literals = [...routes[1].matchAll(/'(\/[^'$]*)'/g)].map((m) => m[1]);
+  const dynamic = Object.values(DYNAMIC).flatMap((d) => (routes[1].includes(d.map) ? d.slugs.map((s) => `${d.base}/${s}`) : []));
   return [...literals, ...dynamic];
 }
 
-/** Páginas reales, con [slug] de servicios expandido */
+/** Páginas reales, con las rutas [slug] expandidas */
 async function publicPages() {
-  return (await pages('app')).flatMap((p) => (p === '/servicios/[slug]' ? contentSlugs.map((s) => `/servicios/${s}`) : [p]));
+  return (await pages('app')).flatMap((p) => (DYNAMIC[p] ? DYNAMIC[p].slugs.map((s) => `${DYNAMIC[p].base}/${s}`) : [p]));
 }
 
 test('cada servicio tiene su contenido y viceversa', () => {
   assert.ok(serviceSlugs.length > 0, 'no se encontraron servicios en site.ts');
   assert.deepEqual([...contentSlugs].sort(), [...serviceSlugs].sort());
+});
+
+test('las guías tienen slug único y no repiten el de un servicio', () => {
+  assert.ok(guideSlugs.length > 0, 'no se encontraron guías en guias/content.ts');
+  assert.equal(new Set(guideSlugs).size, guideSlugs.length, 'hay slugs de guía repetidos');
+});
+
+test('los enlaces internos de las guías apuntan a páginas que existen', async () => {
+  const src = await read('app/guias/content.ts');
+  // `services: [...]` y `related: [...]` de cada guía
+  for (const [, key, list] of src.matchAll(/(services|related): \[([^\]]*)\]/g)) {
+    const refs = [...list.matchAll(/'([a-z0-9-]+)'/g)].map((m) => m[1]);
+    const valid = key === 'services' ? serviceSlugs : guideSlugs;
+    for (const r of refs) assert.ok(valid.includes(r), `${key}: "${r}" no existe`);
+  }
 });
 
 test('el sitemap cubre todas las páginas', async () => {

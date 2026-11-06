@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Isotipo } from './Logo';
-import { GREETING, NAV, SERVICES, SITE } from './site';
+import { FOOTER_NAV, GREETING, SERVICES, SITE } from './site';
 import { WhatsAppLink } from './WhatsAppLink';
 
 // La 404 no se indexa, pero sus enlaces se siguen: así Google y las personas
@@ -40,7 +40,7 @@ export default function NotFound() {
           </ul>
           <h2 className="footer-h">Secciones</h2>
           <ul>
-            {NAV.map((n) => (
+            {FOOTER_NAV.map((n) => (
               <li key={n.href}>
                 <a href={n.href}>{n.label}</a>
               </li>

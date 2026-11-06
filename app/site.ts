@@ -68,10 +68,19 @@ export const LEGAL_PAGES = [
 
 export const GREETING = '¡Hola Tintorería Constitución!';
 
+// Menú del header. Corto a propósito: el botón de WhatsApp es la acción principal.
 export const NAV = [
   { href: '/servicios', label: 'Servicios' },
   { href: '/retiro-a-domicilio', label: 'Retiro a domicilio' },
-  { href: '/#preguntas', label: 'Preguntas' },
+  { href: '/guias', label: 'Guías' },
+] as const;
+
+// Enlaces del footer: lo que salió del header sigue enlazado desde acá.
+export const FOOTER_NAV = [
+  { href: '/servicios', label: 'Servicios' },
+  { href: '/retiro-a-domicilio', label: 'Retiro a domicilio' },
+  { href: '/guias', label: 'Guías y consejos' },
+  { href: '/#preguntas', label: 'Preguntas frecuentes' },
   { href: '/#contacto', label: 'Contacto' },
 ] as const;
 
@@ -82,11 +91,16 @@ export const DELIVERY = {
   title: 'Retiro y entrega a domicilio',
   short: 'Si te queda más cómodo, pasamos a buscar tu ropa y te la devolvemos limpia en tu casa o tu trabajo.',
   area: 'Mar del Plata',
-  /** El retiro no llega a toda la ciudad: se confirma la dirección antes de coordinar. */
-  zones: 'Disponible en zonas seleccionadas de Mar del Plata. Pasanos tu dirección por WhatsApp y te confirmamos.',
+  /** Barrios donde llega el retiro. También van al JSON-LD como areaServed. */
+  areas: ['Barrio Constitución', 'Centro de Mar del Plata'],
+  /** Frase corta de cobertura. Se repite en la banda, la página de retiro y las preguntas. */
+  zones: 'Retiramos y entregamos en el barrio Constitución y el centro de Mar del Plata.',
+  /** Versión larga, para los textos donde hay lugar para invitar a consultar. */
+  zonesLong:
+    'Retiramos y entregamos en el barrio Constitución y el centro de Mar del Plata. Si estás cerca, pasanos tu dirección por WhatsApp y te confirmamos.',
   steps: [
     { icon: 'whatsapp', title: 'Pedilo por WhatsApp', text: 'Decinos qué prendas y tu dirección.' },
-    { icon: 'truck', title: 'Confirmamos la zona', text: 'Si llegamos, coordinamos día y horario.' },
+    { icon: 'truck', title: 'Confirmamos la zona', text: 'Constitución y centro: coordinamos día y horario.' },
     { icon: 'check', title: 'Te la devolvemos lista', text: 'Limpia, planchada y en percha.' },
   ],
 } as const;
@@ -202,7 +216,7 @@ export const FAQ = [
   },
   {
     q: '¿Hacen retiro y entrega a domicilio?',
-    a: 'Sí, en zonas seleccionadas de Mar del Plata. Pasanos tu dirección por WhatsApp y te confirmamos si llegamos y en qué día y horario.',
+    a: 'Sí, en el barrio Constitución y el centro de Mar del Plata. Pasanos tu dirección por WhatsApp y coordinamos el día y el horario.',
   },
   {
     q: '¿Trabajan con empresas y alojamientos?',

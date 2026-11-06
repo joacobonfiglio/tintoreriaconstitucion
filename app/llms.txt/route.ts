@@ -1,3 +1,4 @@
+import { GUIDES } from '../guias/content';
 import { DELIVERY, FAQ, SERVICES, SITE, absoluteUrl } from '../site';
 
 export const dynamic = 'force-static';
@@ -21,9 +22,13 @@ ${SERVICES.map((s) => `- [${s.name}](${absoluteUrl(`/servicios/${s.slug}`)}): ${
 
 ## Retiro y entrega a domicilio
 
-${DELIVERY.short} Más información: ${absoluteUrl(DELIVERY.href)}
+${DELIVERY.short} ${DELIVERY.zones} Más información: ${absoluteUrl(DELIVERY.href)}
 
 ${DELIVERY.steps.map((s, i) => `${i + 1}. ${s.title}: ${s.text}`).join('\n')}
+
+## Guías y consejos
+
+${GUIDES.map((g) => `- [${g.title}](${absoluteUrl(`/guias/${g.slug}`)}): ${g.excerpt}`).join('\n')}
 
 ## Preguntas frecuentes
 
