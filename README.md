@@ -49,11 +49,22 @@ botón de WhatsApp. El resto vive en el footer (`FOOTER_NAV`), que también usa 
 | Sección | Para qué búsquedas | Dónde se edita |
 | --- | --- | --- |
 | `/` | "tintorería / lavandería en Mar del Plata" | `app/page.tsx` + `app/site.ts` |
-| `/servicios/<slug>` | "limpieza de trajes", "lavandería", … | `app/servicios/content.ts` |
+| `/servicios/<slug>` | "limpieza de trajes", "lavandería", "arreglos de ropa", … | `app/servicios/content.ts` + `SERVICES` en `app/site.ts` |
 | `/zonas/<slug>` | "tintorería en \<barrio\>" | `app/zonas/content.ts` |
 | `/empresas` | "lavandería para hoteles", "blanquería alquileres temporarios" | `app/empresas/page.tsx` |
 | `/guias/<slug>` | búsquedas informativas ("cómo sacar una mancha") | `app/guias/content.ts` |
 | `/retiro-a-domicilio` | "tintorería con retiro a domicilio" | `app/retiro-a-domicilio/page.tsx` |
+
+## Pendientes del cliente
+
+Buscá `TODO` en el código. Los que bloquean contenido hoy:
+
+- **Fotos propias de zapatillas y alfombras.** `limpieza-de-zapatillas` usa la foto del taller como
+  provisoria (`image: 'maquinas'`), porque no hay ninguna del servicio.
+- **Plazos y alcance de los servicios nuevos**: cuánto tarda un arreglo, si se toman gamuza y cuero
+  natural en zapatillas, y cómo se resuelven los sillones grandes en tapizados. Hoy las respuestas
+  quedan abiertas ("consultanos") a propósito, para no prometer algo que no se cumpla.
+- **Fotos originales más grandes**: varias son de 355–396 px (ver la nota de `shareImage()` arriba).
 
 ## Zonas (`/zonas`)
 

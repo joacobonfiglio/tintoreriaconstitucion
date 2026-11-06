@@ -26,7 +26,7 @@ export const SITE = {
   country: 'AR',
   tagline: 'Tintorería y lavandería en Mar del Plata',
   description:
-    'Tintorería y lavandería en Mar del Plata: limpieza de trajes, acolchados, camisas, cortinas, prendas delicadas y lavandería de ropa diaria. Pedí por WhatsApp.',
+    'Tintorería y lavandería en Mar del Plata: trajes, acolchados, camisas, cortinas, alfombras, zapatillas y arreglos de ropa. Pedí por WhatsApp.',
   // Formato internacional sin + ni espacios: 54 9 + característica + número.
   whatsapp: '5492235655898',
   phoneDisplay: '223 565-5898',
@@ -130,7 +130,10 @@ export type IconName =
   | 'drop'
   | 'truck'
   | 'basin'
-  | 'spray';
+  | 'spray'
+  | 'scissors'
+  | 'sofa'
+  | 'shoe';
 
 // Orden = prioridad comercial y de búsqueda (lo más buscado primero).
 export const SERVICES: Service[] = [
@@ -197,13 +200,41 @@ export const SERVICES: Service[] = [
     icon: 'washer',
     message: `${GREETING} Quiero pedir el servicio de lavandería y valet de ropa.`,
   },
+  {
+    slug: 'limpieza-de-alfombras',
+    name: 'Limpieza de alfombras y tapizados',
+    short: 'Alfombras, carpetas y tapizados de sillones y sillas. Sin olor y secos.',
+    image: 'sala',
+    imageAlt: 'Sillón claro y mesa baja en una sala, con percheros de ropa al fondo',
+    icon: 'sofa',
+    message: `${GREETING} Quiero pedir la limpieza de una alfombra o un tapizado.`,
+  },
+  {
+    // TODO: falta una foto de zapatillas. Mientras tanto usa la del taller.
+    slug: 'limpieza-de-zapatillas',
+    name: 'Limpieza de zapatillas',
+    short: 'Lona, running y cuero sintético. Limpias por fuera, por dentro y en la suela.',
+    image: 'maquinas',
+    imageAlt: 'Lavarropas industriales de carga frontal en el taller',
+    icon: 'shoe',
+    message: `${GREETING} Quiero pedir la limpieza de unas zapatillas.`,
+  },
+  {
+    slug: 'arreglos-de-ropa',
+    name: 'Arreglos y costura',
+    short: 'Dobladillos, cierres, botones y ajustes de talle. La prenda que ya tenés, usable de nuevo.',
+    image: 'manos-tela',
+    imageAlt: 'Manos revisando una tela celeste sobre una mesa de trabajo',
+    icon: 'scissors',
+    message: `${GREETING} Quiero consultar por un arreglo de ropa.`,
+  },
 ];
 
 // TODO: confirmar plazos, zonas y costo del retiro con el cliente.
 export const FAQ = [
   {
     q: '¿Qué servicios hacen?',
-    a: 'Tintorería y lavandería: limpieza de trajes, acolchados, camisas, camperas, cortinas y prendas delicadas, además de la ropa de todos los días limpia, seca y doblada.',
+    a: 'Tintorería y lavandería: limpieza de trajes, acolchados, camisas, camperas, cortinas y prendas delicadas, más la ropa de todos los días limpia, seca y doblada. También limpiamos alfombras y tapizados, zapatillas, y hacemos arreglos y costura.',
   },
   {
     q: '¿Cuánto tarda?',

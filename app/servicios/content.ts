@@ -175,6 +175,97 @@ export const SERVICE_CONTENT: ServiceContent[] = [
     ],
     related: ['limpieza-de-camisas', 'limpieza-de-acolchados', 'limpieza-de-cortinas'],
   },
+  {
+    slug: 'limpieza-de-alfombras',
+    keyword: 'limpieza de alfombras en Mar del Plata',
+    metaTitle: 'Limpieza de alfombras y tapizados en Mar del Plata',
+    metaDescription:
+      'Limpieza de alfombras, carpetas y tapizados de sillones y sillas en Mar del Plata. Sin olor a humedad y entregadas secas. Pedí por WhatsApp.',
+    eyebrow: 'Alfombras y tapizados · Mar del Plata',
+    h1: 'Limpieza de alfombras',
+    h1Thin: 'y tapizados',
+    lead: 'Alfombras, carpetas y el tapizado de sillones y sillas. Les sacamos el polvo acumulado, las manchas y el olor, y te las devolvemos secas.',
+    image: 'sala',
+    description:
+      'Una alfombra junta años de polvo, pelo y humedad antes de que se note a simple vista: para cuando cambió de color ya hace rato que el problema está. Limpiamos alfombras y carpetas de todo tipo, además del tapizado de sillones, sillas y almohadones. El punto crítico en Mar del Plata es el mismo de siempre, el secado: una alfombra que vuelve a su lugar todavía húmeda es olor a humedad asegurado en una semana.',
+    items: ['Alfombras y carpetas', 'Alfombras de lana', 'Tapizados de sillas y sillones', 'Almohadones y fundas', 'Pie de cama y alfombras de pasillo', 'Alfombras con olor a humedad'],
+    // TODO: confirmar con el cliente si los sillones grandes se limpian en el local,
+    // en el domicilio, o si directamente no se toman. Mientras tanto la respuesta queda abierta.
+    faqs: [
+      {
+        q: '¿Cómo les hago llegar una alfombra o un sillón?',
+        a: 'Contanos el tamaño y el tipo por WhatsApp, con una foto si podés, y vemos cómo conviene resolverlo en cada caso.',
+      },
+      { q: '¿Cuánto tardan?', a: 'Más que una prenda, por el secado. Te damos el plazo al recibirla y te avisamos por WhatsApp cuando está.' },
+      {
+        q: '¿Le sacan el olor a humedad?',
+        a: 'En la mayoría de los casos sí: el olor viene de lo que creció en la fibra con la humedad, y se va con la limpieza y un secado completo.',
+      },
+    ],
+    related: ['limpieza-de-cortinas', 'limpieza-de-acolchados', 'valet-de-ropa'],
+  },
+  {
+    slug: 'limpieza-de-zapatillas',
+    keyword: 'limpieza de zapatillas en Mar del Plata',
+    metaTitle: 'Limpieza de zapatillas en Mar del Plata',
+    metaDescription:
+      'Limpieza de zapatillas de lona, running y cuero sintético en Mar del Plata. Por fuera, por dentro, cordones y suela. Pedí por WhatsApp.',
+    eyebrow: 'Zapatillas · Mar del Plata',
+    h1: 'Limpieza de zapatillas',
+    h1Thin: 'por dentro y por fuera',
+    lead: 'Lona, running y cuero sintético. Les sacamos la tierra, las manchas y el olor, y les limpiamos cordones, plantilla y suela.',
+    image: 'maquinas',
+    description:
+      'Meter las zapatillas en el lavarropas es la forma más rápida de despegar la suela y deformar el contrafuerte. Nosotros las limpiamos por partes: la tela o el cuero sintético por fuera, el interior donde está el olor, los cordones y la plantilla aparte, y la suela y los laterales de goma, que es lo que más se nota. Después secan solas, sin calor, que es lo que las arruina.',
+    items: ['Zapatillas de lona', 'Zapatillas de running', 'Cuero sintético', 'Zapatillas blancas', 'Cordones y plantillas', 'Suelas y laterales de goma'],
+    // TODO: confirmar plazo y si se toman gamuza y cuero natural.
+    faqs: [
+      {
+        q: '¿Quedan como nuevas?',
+        a: 'Mejoran muchísimo, pero depende del estado y del material: una mancha vieja de aceite o una tela ya desgastada tienen un límite. Te decimos qué esperar al recibirlas.',
+      },
+      {
+        q: '¿Limpian zapatillas de gamuza o de cuero?',
+        a: 'Esos materiales llevan otro tratamiento. Mandanos una foto por WhatsApp y te confirmamos antes de que te muevas.',
+      },
+      {
+        q: '¿Por qué no las lavo en el lavarropas?',
+        a: 'El golpeteo del tambor despega la suela y deforma el talón, y el calor termina de arruinar el pegamento. Se nota después del segundo o tercer lavado.',
+      },
+    ],
+    related: ['valet-de-ropa', 'limpieza-de-camperas', 'limpieza-de-alfombras'],
+  },
+  {
+    slug: 'arreglos-de-ropa',
+    keyword: 'arreglos de ropa en Mar del Plata',
+    metaTitle: 'Arreglos de ropa y costura en Mar del Plata',
+    metaDescription:
+      'Dobladillos, cierres, botones y ajustes de talle en Mar del Plata. Arreglos de ropa con o sin limpieza, en el mismo pedido. Consultá por WhatsApp.',
+    eyebrow: 'Arreglos y costura · Mar del Plata',
+    h1: 'Arreglos y costura',
+    h1Thin: 'de la ropa que ya tenés',
+    lead: 'Un dobladillo, un cierre que no cierra o un pantalón que te queda grande. Cosas chicas que dejan una prenda guardada durante años.',
+    image: 'manos-tela',
+    description:
+      'La mayoría de la ropa que termina en el fondo del placard no está rota: le falta un arreglo de diez minutos. Hacemos dobladillos, cambios de cierre, botones, ojales, ajustes de cintura y de talle, y arreglos de forro. Podés traer la prenda solo para el arreglo, o combinarlo con la limpieza en el mismo pedido y retirar todo junto.',
+    items: ['Dobladillos de pantalón', 'Ruedos de vestidos y polleras', 'Ajuste de cintura y de talle', 'Cambio de cierres', 'Botones y ojales', 'Arreglo de forros'],
+    // TODO: confirmar plazos por tipo de arreglo y si se toman prendas de cuero.
+    faqs: [
+      {
+        q: '¿Cuánto tarda un arreglo?',
+        a: 'Depende de qué sea: un dobladillo no es lo mismo que cambiar un cierre o entallar un saco. Te damos el plazo y el precio al ver la prenda.',
+      },
+      {
+        q: '¿Tengo que probarme la prenda?',
+        a: 'Para un dobladillo o un ajuste de talle, sí: viene con el pantalón o el vestido puesto y lo marcamos en el momento. Para un botón o un cierre no hace falta.',
+      },
+      {
+        q: '¿Puedo pedir el arreglo y la limpieza juntos?',
+        a: 'Sí, y conviene: va en el mismo pedido y retirás todo de una sola vez.',
+      },
+    ],
+    related: ['limpieza-de-trajes', 'limpieza-de-prendas-delicadas', 'limpieza-de-camisas'],
+  },
 ];
 
 export const getServiceContent = (slug: string) => SERVICE_CONTENT.find((s) => s.slug === slug);

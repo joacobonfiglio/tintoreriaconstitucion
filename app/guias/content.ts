@@ -679,7 +679,7 @@ export const GUIDES: Guide[] = [
         a: 'En algodón y sintéticos, sí. En seda y lana conviene no arriesgar: esas prendas mejor traerlas.',
       },
     ],
-    services: ['valet-de-ropa', 'limpieza-de-acolchados', 'limpieza-de-camperas'],
+    services: ['valet-de-ropa', 'limpieza-de-acolchados', 'limpieza-de-alfombras'],
     related: ['como-guardar-la-ropa-de-invierno', 'como-lavar-un-acolchado-de-plumas'],
   },
 

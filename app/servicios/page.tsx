@@ -9,7 +9,7 @@ import { pageMetadata } from '../seo';
 export const metadata: Metadata = pageMetadata({
   title: 'Servicios de tintorería y lavandería',
   description:
-    'Limpieza de trajes, acolchados, camisas, camperas, cortinas y prendas delicadas, y lavandería de la ropa de todos los días en Mar del Plata.',
+    'Limpieza de trajes, acolchados, camisas, cortinas y prendas delicadas, lavandería, alfombras, zapatillas y arreglos de ropa en Mar del Plata.',
   path: '/servicios',
   image: 'percheros',
   imageAlt: 'Prendas limpias en fundas colgadas en el perchero de la tintorería',
@@ -43,7 +43,7 @@ export default function Servicios() {
             Servicios de tintorería <span className="thin">y lavandería</span>
           </>
         }
-        lead="Tintorería para las prendas que necesitan cuidado y lavandería para la ropa de todos los días. Elegí el servicio y pedilo por WhatsApp."
+        lead="Diez servicios en un mismo lugar: tintorería, lavandería, alfombras y tapizados, zapatillas y arreglos de costura. Elegí y pedilo por WhatsApp."
         image="percheros"
         imageAlt="Prendas limpias en fundas colgadas en el perchero de la tintorería"
         message={`${GREETING} Quiero hacer un pedido.`}

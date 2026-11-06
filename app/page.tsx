@@ -52,8 +52,8 @@ export default function Home() {
               Tintorería y <span className="accent">lavandería</span> en Mar del Plata
             </h1>
             <p className="lead">
-              Trajes, acolchados, camisas, cortinas, prendas delicadas y la ropa de todos los días. Limpieza profesional y
-              entrega lista para usar. Pedilo por WhatsApp en un minuto.
+              Trajes, acolchados, camisas, cortinas y la ropa de todos los días. También alfombras, zapatillas y arreglos
+              de costura. Pedilo por WhatsApp en un minuto.
             </p>
             <div className="hero-ctas">
               <WhatsAppLink message={ORDER} placement="hero">
@@ -100,6 +100,7 @@ export default function Home() {
           'Precio antes de empezar',
           'Aviso por WhatsApp cuando está lista',
           'Planchado, en percha y con funda',
+          'Alfombras, zapatillas y arreglos',
           'Retiro a domicilio en algunas zonas',
           'Empresas, hoteles y temporarios',
         ]}
@@ -115,8 +116,8 @@ export default function Home() {
             </h2>
           </Motion>
           <Motion as="p" className="lead" delay={100}>
-            Tintorería para las prendas que necesitan cuidado y lavandería para la ropa de todos los días. Elegí el servicio
-            y pedilo por WhatsApp.
+            Tintorería para lo que necesita cuidado, lavandería para la ropa de todos los días, y además alfombras,
+            zapatillas y arreglos de costura. Elegí el servicio y pedilo por WhatsApp.
           </Motion>
         </div>
         <ScrollRail count={SERVICES.length}>
