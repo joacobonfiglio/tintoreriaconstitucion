@@ -14,8 +14,7 @@ export function GET() {
 - Barrio: ${SITE.address.neighborhood}
 - Dirección: ${SITE.address.street}
 - WhatsApp: +${SITE.whatsapp}
-- Horario: ${SITE.hours.map((h) => `${h.label} ${h.opens}–${h.closes}`).join('; ')}
-- Web: ${SITE.url}
+${SITE.hours.length ? `- Horario: ${SITE.hours.map((h) => `${h.label} ${h.opens}–${h.closes}`).join('; ')}\n` : ''}- Web: ${SITE.url}
 
 ## Servicios
 

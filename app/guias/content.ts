@@ -163,7 +163,7 @@ export const GUIDES: Guide[] = [
       },
       {
         q: '¿Cuánto tarda la limpieza de un acolchado?',
-        a: 'Unos días más que una prenda común, justamente por el secado. Te avisamos por WhatsApp cuando está listo.',
+        a: 'Más que una prenda común, justamente por el secado. Te damos el plazo al recibirlo y te avisamos cuando está.',
       },
     ],
     services: ['limpieza-de-acolchados', 'limpieza-de-cortinas'],
@@ -383,7 +383,7 @@ export const GUIDES: Guide[] = [
       },
       {
         q: '¿Cuánto tarda la limpieza de un traje?',
-        a: 'Entre 48 y 72 horas hábiles. Te avisamos por WhatsApp cuando está listo.',
+        a: 'Te damos el plazo al recibir la prenda y te avisamos por WhatsApp apenas está lista.',
       },
       {
         q: '¿Qué hago si solo se manchó el saco?',
@@ -771,7 +771,7 @@ export const GUIDES: Guide[] = [
       { t: 'h2', text: 'Si son muchas' },
       {
         t: 'p',
-        text: 'Una camisa bien planchada lleva entre cinco y ocho minutos. Si usás camisa todos los días, eso es más de media hora por semana. Nosotros hacemos solo planchado, si ya las lavaste, o lavado y planchado completo, y te las entregamos en percha. Para pedidos semanales hay precio por cantidad.',
+        text: 'Una camisa bien planchada lleva entre cinco y ocho minutos. Si usás camisa todos los días, eso es más de media hora por semana. Nosotros hacemos solo planchado, si ya las lavaste, o lavado y planchado completo, y te las entregamos en percha.',
       },
     ],
     faqs: [

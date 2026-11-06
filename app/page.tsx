@@ -262,11 +262,15 @@ export default function Home() {
                 <li>
                   <Icon name="clock" />
                   <div>
-                    {SITE.hours.map((h) => (
-                      <span key={h.label}>
-                        <strong>{h.label}:</strong> {h.opens} a {h.closes} h
-                      </span>
-                    ))}
+                    {SITE.hours.length ? (
+                      SITE.hours.map((h) => (
+                        <span key={h.label}>
+                          <strong>{h.label}:</strong> {h.opens} a {h.closes} h
+                        </span>
+                      ))
+                    ) : (
+                      <span>Escribinos por WhatsApp y te confirmamos el horario</span>
+                    )}
                   </div>
                 </li>
               </ul>

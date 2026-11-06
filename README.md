@@ -55,15 +55,33 @@ botón de WhatsApp. El resto vive en el footer (`FOOTER_NAV`), que también usa 
 | `/guias/<slug>` | búsquedas informativas ("cómo sacar una mancha") | `app/guias/content.ts` |
 | `/retiro-a-domicilio` | "tintorería con retiro a domicilio" | `app/retiro-a-domicilio/page.tsx` |
 
-## Pendientes del cliente
+## Regla: lo que no está confirmado no se publica
 
-Buscá `TODO` en el código. Los que bloquean contenido hoy:
+La web no afirma nada que el cliente no haya confirmado. Un dato vacío no rompe nada: la sección que
+lo usaría no se muestra, o se reemplaza por "consultanos por WhatsApp". Es preferible que falte un
+dato a que la web prometa algo que después no se cumple.
 
-- **Fotos propias de zapatillas y alfombras.** `limpieza-de-zapatillas` usa la foto del taller como
-  provisoria (`image: 'maquinas'`), porque no hay ninguna del servicio.
-- **Plazos y alcance de los servicios nuevos**: cuánto tarda un arreglo, si se toman gamuza y cuero
-  natural en zapatillas, y cómo se resuelven los sillones grandes en tapizados. Hoy las respuestas
-  quedan abiertas ("consultanos") a propósito, para no prometer algo que no se cumpla.
+Hay un test (`npm test`) que falla si se cuela un plazo en horas o días en los archivos de contenido.
+
+### Pendientes del cliente
+
+Al completarlos, aparecen solos donde corresponde. Buscá `TODO` en el código.
+
+| Dato | Dónde aparecería | Hoy |
+| --- | --- | --- |
+| `SITE.hours` | Home, footer, `/zonas/constitucion`, JSON-LD | "Consultá el horario por WhatsApp" |
+| Plazos de entrega | Preguntas de cada servicio y zona | "Te damos el plazo al recibirla" |
+| Precios y forma de cobro | Servicios, `/empresas`, `/retiro-a-domicilio` | "Te lo pasamos antes de empezar" |
+| `SITE.address.postalCode` | Dirección del JSON-LD | se omite |
+| `SITE.priceRange` | Nivel de precio del JSON-LD | se omite |
+| `SITE.email`, `geo`, `social`, `foundingYear` | JSON-LD y footer | se omiten |
+| `LEGAL.holder`, `LEGAL.cuit` | Páginas legales | se omiten |
+| Esquema de empresas | `/empresas`: mínimos, frecuencia, cobro | "contanos tu caso" |
+| Alcance de los servicios nuevos | Gamuza y cuero en zapatillas, sillones grandes en tapizados | "consultanos" |
+
+También pendiente, pero de diseño y no de contenido:
+
+- **Foto de zapatillas.** `limpieza-de-zapatillas` usa la del taller como provisoria (`image: 'maquinas'`).
 - **Fotos originales más grandes**: varias son de 355–396 px (ver la nota de `shareImage()` arriba).
 
 ## Zonas (`/zonas`)

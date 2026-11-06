@@ -5,7 +5,7 @@ import { Icon } from '../../Icon';
 import { Img } from '../../Img';
 import { Motion } from '../../Motion';
 import { pageMetadata } from '../../seo';
-import { GREETING, SERVICES, SITE, absoluteUrl } from '../../site';
+import { GREETING, SERVICES, SITE, absoluteUrl, placeName } from '../../site';
 import { TrackedLink } from '../../TrackedLink';
 import { WhatsAppLink } from '../../WhatsAppLink';
 import { ZONES, getZone } from '../content';
@@ -47,7 +47,7 @@ export default async function ZonePage({ params }: { params: Promise<{ slug: str
         description: z.metaDescription,
         url,
         provider: { '@id': absoluteUrl('/#negocio') },
-        areaServed: { '@type': 'Place', name: `${z.name}, ${SITE.city}` },
+        areaServed: { '@type': 'Place', name: placeName(z.name) },
         hasOfferCatalog: {
           '@type': 'OfferCatalog',
           name: `Servicios en ${z.name}`,
@@ -144,11 +144,15 @@ export default async function ZonePage({ params }: { params: Promise<{ slug: str
                   <li>
                     <Icon name="clock" />
                     <div>
-                      {SITE.hours.map((h) => (
-                        <span key={h.label}>
-                          <strong>{h.label}:</strong> {h.opens} a {h.closes} h
-                        </span>
-                      ))}
+                      {SITE.hours.length ? (
+                        SITE.hours.map((h) => (
+                          <span key={h.label}>
+                            <strong>{h.label}:</strong> {h.opens} a {h.closes} h
+                          </span>
+                        ))
+                      ) : (
+                        <span>Consultá el horario por WhatsApp</span>
+                      )}
                     </div>
                   </li>
                 </ul>

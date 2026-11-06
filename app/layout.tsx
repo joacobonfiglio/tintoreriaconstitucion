@@ -7,7 +7,7 @@ import { CookieConsent, CookieSettingsButton } from './CookieConsent';
 import { GA_ID, consentBootstrap } from './ga';
 import { Icon } from './Icon';
 import { Logo } from './Logo';
-import { DELIVERY, FOOTER_NAV, IS_PRODUCTION, LEGAL_PAGES, NAV, SERVICES, SITE, absoluteUrl } from './site';
+import { DELIVERY, FOOTER_NAV, IS_PRODUCTION, LEGAL_PAGES, NAV, SERVICES, SITE, absoluteUrl, placeName } from './site';
 import { TrackedLink } from './TrackedLink';
 import { PageWhatsAppLink } from './PageWhatsAppLink';
 import { Waves } from './Blocks';
@@ -80,27 +80,32 @@ const jsonLd = {
       image: [absoluteUrl(imageUrl('camisas')), absoluteUrl(imageUrl('control-prenda'))],
       telephone: `+${SITE.whatsapp}`,
       ...(SITE.email ? { email: SITE.email } : {}),
-      priceRange: SITE.priceRange,
+      ...(SITE.priceRange ? { priceRange: SITE.priceRange } : {}),
       address: {
         '@type': 'PostalAddress',
         streetAddress: SITE.address.street,
         addressLocality: SITE.city,
         addressRegion: SITE.region,
-        postalCode: SITE.address.postalCode,
+        ...(SITE.address.postalCode ? { postalCode: SITE.address.postalCode } : {}),
         addressCountry: SITE.country,
       },
       ...(SITE.geo ? { geo: { '@type': 'GeoCoordinates', latitude: SITE.geo.lat, longitude: SITE.geo.lng } } : {}),
       hasMap: SITE.mapsUrl,
       areaServed: [
         { '@type': 'City', name: SITE.city },
-        ...DELIVERY.areas.map((name) => ({ '@type': 'Place', name: `${name}, ${SITE.city}` })),
+        ...DELIVERY.areas.map((name) => ({ '@type': 'Place', name: placeName(name) })),
       ],
-      openingHoursSpecification: SITE.hours.map((h) => ({
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: h.days.map((d) => `https://schema.org/${DAY[d]}`),
-        opens: h.opens,
-        closes: h.closes,
-      })),
+      // Sin horario confirmado no se declara: un horario incorrecto en Google es peor que ninguno.
+      ...(SITE.hours.length
+        ? {
+            openingHoursSpecification: SITE.hours.map((h) => ({
+              '@type': 'OpeningHoursSpecification',
+              dayOfWeek: h.days.map((d) => `https://schema.org/${DAY[d]}`),
+              opens: h.opens,
+              closes: h.closes,
+            })),
+          }
+        : {}),
       sameAs: Object.values(SITE.social).filter(Boolean),
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
@@ -236,6 +241,12 @@ function Footer() {
                 </span>
               </li>
             ))}
+            {SITE.hours.length === 0 && (
+              <li>
+                <Icon name="clock" />
+                <span>Consultá el horario por WhatsApp</span>
+              </li>
+            )}
             <li>
               <Icon name="whatsapp" />
               <span>{SITE.phoneDisplay}</span>

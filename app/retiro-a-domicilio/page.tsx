@@ -3,7 +3,7 @@ import { Icon } from '../Icon';
 import { Img } from '../Img';
 import { Motion } from '../Motion';
 import { pageMetadata } from '../seo';
-import { DELIVERY, GREETING, SERVICES, SITE, absoluteUrl } from '../site';
+import { DELIVERY, GREETING, SERVICES, SITE, absoluteUrl, placeName } from '../site';
 import { WhatsAppLink } from '../WhatsAppLink';
 
 export const metadata = pageMetadata({
@@ -25,10 +25,10 @@ const FAQS = [
   },
   {
     q: '¿Y si estoy fuera de esas zonas?',
-    a: `Escribinos igual: según el día y el volumen podemos llegar un poco más lejos. Si no, podés acercar tus prendas al local, en ${SITE.address.street}.`,
+    a: `Escribinos igual y lo vemos. Si no llegamos, podés acercar tus prendas al local, en ${SITE.address.street}.`,
   },
-  { q: '¿Cómo pago?', a: 'Te pasamos el precio antes de empezar y pagás al recibir tu ropa.' },
-  { q: '¿Tengo que estar en casa?', a: 'Sí, o dejá a alguien que entregue y reciba. Coordinamos el horario que te quede cómodo.' },
+  { q: '¿Cuánto cuesta el retiro?', a: 'Consultanos por WhatsApp junto con tu pedido y te lo decimos antes de pasar.' },
+  { q: '¿Tengo que estar en casa?', a: 'Alguien tiene que entregar y recibir el pedido. Coordinamos el horario que te quede cómodo.' },
   { q: '¿Puedo mezclar servicios en un mismo retiro?', a: 'Sí. Trajes, camisas, acolchados, cortinas o la ropa de lavandería van en el mismo pedido.' },
 ];
 
@@ -42,7 +42,7 @@ const jsonLd = {
       description: `${DELIVERY.short} ${DELIVERY.zonesLong}`,
       url: absoluteUrl(DELIVERY.href),
       provider: { '@id': absoluteUrl('/#negocio') },
-      areaServed: DELIVERY.areas.map((name) => ({ '@type': 'Place', name: `${name}, ${SITE.city}` })),
+      areaServed: DELIVERY.areas.map((name) => ({ '@type': 'Place', name: placeName(name) })),
     },
     {
       '@type': 'BreadcrumbList',

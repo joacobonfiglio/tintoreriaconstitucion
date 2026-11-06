@@ -96,6 +96,23 @@ test('cada zona publicada está declarada en DELIVERY.areas', async () => {
   }
 });
 
+test('no se publican plazos ni horarios sin confirmar', async () => {
+  // Regla del proyecto: lo que no está confirmado no se publica. Si el cliente
+  // confirma los plazos, se completan en el contenido y este test se actualiza.
+  const files = ['app/site.ts', 'app/servicios/content.ts', 'app/zonas/content.ts', 'app/guias/content.ts'];
+  // Plazos en horas o días dentro de un texto (no en código: anchos de imagen, fechas, etc.)
+  const plazo = /\b\d+\s*(?:a|y)\s*\d+\s*(?:horas|días)\b|\bhoras hábiles\b|\bdías hábiles\b/i;
+  for (const f of files) {
+    for (const [i, line] of (await read(f)).split('\n').entries()) {
+      if (line.trimStart().startsWith('//')) continue; // los comentarios sí pueden documentarlos
+      assert.ok(!plazo.test(line), `${f}:${i + 1} publica un plazo sin confirmar → ${line.trim()}`);
+    }
+  }
+  // El horario vacío no se publica en ninguna parte.
+  const site = await read('app/site.ts');
+  assert.match(site, /hours: \[\] as /, 'SITE.hours debería estar vacío hasta confirmar el horario real');
+});
+
 test('las páginas legales existen y no se indexan', async () => {
   for (const p of ['politica-de-privacidad', 'politica-de-cookies', 'terminos-y-condiciones']) {
     const src = await read(`app/${p}/page.tsx`);

@@ -23,7 +23,9 @@ export type ServiceContent = {
   related: string[];
 };
 
-// TODO: confirmar plazos con el cliente (se repiten en FAQ de site.ts).
+// Los plazos y los precios no están confirmados, así que no se publican: la respuesta
+// es siempre "te lo decimos al recibir la prenda". Cuando el cliente los confirme,
+// se completan acá y en la FAQ de site.ts.
 export const SERVICE_CONTENT: ServiceContent[] = [
   {
     slug: 'limpieza-de-trajes',
@@ -40,7 +42,7 @@ export const SERVICE_CONTENT: ServiceContent[] = [
       'La limpieza de trajes en Tintorería Constitución deja tus sacos, tapados y pantalones de vestir limpios, sin brillos y con su forma original. Cada prenda se entrega planchada, en percha y con funda, lista para tu próxima reunión o evento. Pedila por WhatsApp y, si te queda más cómodo, consultá por el retiro a domicilio.',
     items: ['Trajes y sacos', 'Tapados y abrigos de paño', 'Pantalones de vestir', 'Chalecos y polleras', 'Sweaters y tejidos finos', 'Corbatas y pañuelos'],
     faqs: [
-      { q: '¿Cuánto tarda?', a: 'Entre 48 y 72 horas hábiles. Te avisamos por WhatsApp cuando está listo.' },
+      { q: '¿Cuánto tarda?', a: 'Te damos el plazo al recibirlo y te avisamos por WhatsApp apenas está listo.' },
       { q: '¿Me lo entregan planchado?', a: 'Sí, planchado y en percha con funda.' },
       { q: '¿Lo pueden retirar de mi casa?', a: 'Sí, en el barrio Constitución y el centro de Mar del Plata. Pasanos tu dirección por WhatsApp y coordinamos.' },
     ],
@@ -62,7 +64,7 @@ export const SERVICE_CONTENT: ServiceContent[] = [
     items: ['Acolchados de pluma y plumón', 'Acolchados sintéticos y de vellón', 'Frazadas y mantas', 'Cubrecamas y quilts', 'Almohadas', 'Fundas nórdicas'],
     faqs: [
       { q: '¿Limpian acolchados de plumas?', a: 'Sí, y te los devolvemos completamente secos, sin olor a humedad.' },
-      { q: '¿Cuánto tarda?', a: 'Unos días más que una prenda común por el secado. Te avisamos por WhatsApp cuando está listo.' },
+      { q: '¿Cuánto tarda?', a: 'Más que una prenda común, por el secado. Te damos el plazo al recibirlo y te avisamos cuando está.' },
       { q: '¿Lo pueden retirar de mi casa?', a: 'Sí, en el barrio Constitución y el centro de Mar del Plata. Pasanos tu dirección por WhatsApp y coordinamos.' },
     ],
     related: ['limpieza-de-cortinas', 'valet-de-ropa', 'limpieza-de-camperas'],
@@ -83,7 +85,7 @@ export const SERVICE_CONTENT: ServiceContent[] = [
     items: ['Camisas de vestir', 'Camisas de lino', 'Blusas', 'Chombas y remeras de uniforme', 'Solo planchado', 'Camisas por cantidad'],
     faqs: [
       { q: '¿Hacen solo planchado?', a: 'Sí. Si ya las lavaste, las planchamos y te las entregamos en percha.' },
-      { q: '¿Tienen precio por cantidad?', a: 'Sí, para varias camisas o pedidos semanales.' },
+      { q: '¿Puedo mandar varias camisas juntas?', a: 'Sí. Contanos cuántas son y te pasamos el precio antes de empezar.' },
       { q: '¿Las pueden retirar de mi casa u oficina?', a: 'Sí, en el barrio Constitución y el centro de Mar del Plata. Pasanos tu dirección por WhatsApp y coordinamos.' },
     ],
     related: ['limpieza-de-trajes', 'valet-de-ropa', 'limpieza-de-prendas-delicadas'],
@@ -104,7 +106,7 @@ export const SERVICE_CONTENT: ServiceContent[] = [
     items: ['Camperas de pluma e inflables', 'Tapados y abrigos de paño', 'Impermeables y rompevientos', 'Gamuza y cuero sintético', 'Parkas con capucha', 'Ropa de nieve'],
     faqs: [
       { q: '¿Limpian camperas de pluma?', a: 'Sí, y te las devolvemos secas y con el relleno suelto.' },
-      { q: '¿Cuánto tarda?', a: 'Entre 48 y 72 horas hábiles. Te avisamos por WhatsApp cuando está lista.' },
+      { q: '¿Cuánto tarda?', a: 'Te damos el plazo al recibirla y te avisamos por WhatsApp apenas está lista.' },
       { q: '¿La pueden retirar de mi casa?', a: 'Sí, en el barrio Constitución y el centro de Mar del Plata. Pasanos tu dirección por WhatsApp y coordinamos.' },
     ],
     related: ['limpieza-de-trajes', 'limpieza-de-acolchados', 'limpieza-de-prendas-delicadas'],
@@ -125,7 +127,7 @@ export const SERVICE_CONTENT: ServiceContent[] = [
     items: ['Vestidos de fiesta', 'Vestidos de novia', 'Seda y satén', 'Encajes y bordados', 'Lana fina y cashmere', 'Trajes de ceremonia'],
     faqs: [
       { q: '¿Limpian vestidos con pedrería?', a: 'Sí. Si algún aplique está flojo, te lo avisamos al recibirlo.' },
-      { q: '¿Con cuánta anticipación lo traigo para un evento?', a: 'Te recomendamos una semana antes.' },
+      { q: '¿Con cuánta anticipación lo traigo para un evento?', a: 'Cuanto antes mejor. Decinos la fecha del evento al dejar la prenda y te confirmamos si llegamos.' },
       { q: '¿Lo pueden retirar de mi casa?', a: 'Sí, en el barrio Constitución y el centro de Mar del Plata. Pasanos tu dirección por WhatsApp y coordinamos.' },
     ],
     related: ['limpieza-de-trajes', 'limpieza-de-camisas', 'limpieza-de-camperas'],
@@ -148,7 +150,7 @@ export const SERVICE_CONTENT: ServiceContent[] = [
       // TODO: confirmar si ofrecen descolgado y colocación de cortinas
       { q: '¿Las retiran de mi casa?', a: 'Sí, en el barrio Constitución y el centro de Mar del Plata. Descolgalas, pasanos tu dirección y coordinamos.' },
       { q: '¿Trabajan con alquileres temporarios y hoteles?', a: 'Sí, con retiro y entrega programados y facturación mensual.' },
-      { q: '¿Cuánto tarda?', a: 'Según el volumen, entre 3 y 5 días hábiles. Te avisamos por WhatsApp.' },
+      { q: '¿Cuánto tarda?', a: 'Depende del volumen. Te damos el plazo al recibir las prendas y te avisamos por WhatsApp.' },
     ],
     related: ['limpieza-de-acolchados', 'valet-de-ropa', 'limpieza-de-camisas'],
   },
@@ -169,7 +171,7 @@ export const SERVICE_CONTENT: ServiceContent[] = [
     // TODO: confirmar si incluye planchado y cómo se cobra (por bolsa, kilo o carga)
     faqs: [
       { q: '¿Qué incluye?', a: 'Limpieza, secado y doblado. El planchado se suma si lo pedís.' },
-      { q: '¿Cuánto tarda?', a: 'Entre 24 y 48 horas hábiles, según el volumen.' },
+      { q: '¿Cuánto tarda?', a: 'Depende del volumen. Te lo decimos al recibir el pedido.' },
       { q: '¿Es lo mismo que una lavandería?', a: 'Sí. Es el lavado de la ropa de todos los días, con secado y doblado, además de la tintorería para las prendas que necesitan otro cuidado.' },
       { q: '¿La pueden retirar de mi casa?', a: 'Sí, en el barrio Constitución y el centro de Mar del Plata. Pasanos tu dirección por WhatsApp y coordinamos.' },
     ],

@@ -1,6 +1,15 @@
 // Fuente única de datos del negocio. Todo lo que dice la web sale de acá:
 // textos de contacto, JSON-LD, sitemap, llms.txt y mensajes de WhatsApp.
-// Los campos con TODO esperan el dato real del cliente; no inventar.
+//
+// REGLA: lo que no está confirmado no se publica. Un campo vacío no rompe nada:
+// la sección que lo usaría simplemente no se muestra. Es preferible que falte
+// un dato a que la web prometa algo que después no se cumple.
+//
+// Sin confirmar hoy (al completarlos, aparecen solos donde corresponde):
+//   hours       → horario en la home, el footer, /zonas/constitucion y el JSON-LD
+//   postalCode  → dirección del JSON-LD
+//   priceRange  → nivel de precio del JSON-LD
+//   email, geo, social, foundingYear, LEGAL.holder, LEGAL.cuit
 
 /** Dominio principal de la web. Define canonical, sitemap, robots y Open Graph. */
 const DOMAIN = 'https://tintoreriaconstitucion.com';
@@ -34,22 +43,22 @@ export const SITE = {
   address: {
     street: 'Av. Constitución 5491',
     neighborhood: 'Constitución',
-    postalCode: '7600', // TODO: confirmar CP
+    postalCode: '', // TODO: CP (vacío = no se publica)
   },
   // TODO: coordenadas exactas del local (de la ficha de Google). Vacío = no se publica en el JSON-LD.
   geo: null as { lat: number; lng: number } | null,
-  // TODO: horario real. Formato 24 h.
-  hours: [
-    { days: ['Mo', 'Tu', 'We', 'Th', 'Fr'], label: 'Lunes a viernes', opens: '08:30', closes: '19:30' },
-    { days: ['Sa'], label: 'Sábados', opens: '09:00', closes: '13:00' },
-  ],
+  // TODO: horario real. Vacío = no se publica en ninguna parte.
+  // Formato, cuando se complete (días en inglés abreviado, horas en 24 h):
+  //   { days: ['Mo', 'Tu', 'We', 'Th', 'Fr'], label: 'Lunes a viernes', opens: '08:30', closes: '19:30' },
+  //   { days: ['Sa'], label: 'Sábados', opens: '09:00', closes: '13:00' },
+  hours: [] as { days: string[]; label: string; opens: string; closes: string }[],
   mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Av.+Constituci%C3%B3n+5491%2C+Mar+del+Plata', // TODO: reemplazar por el link de la ficha de Google
   social: {
     instagram: '', // TODO
     facebook: '', // TODO
   },
   foundingYear: null as number | null, // TODO: año de apertura, para "X años en el barrio"
-  priceRange: '$$',
+  priceRange: '', // TODO: nivel de precio ($, $$, $$$). Vacío = no se publica.
 } as const;
 
 // Datos del responsable para las páginas legales (la Ley 25.326 pide identificarlo).
@@ -238,7 +247,7 @@ export const FAQ = [
   },
   {
     q: '¿Cuánto tarda?',
-    a: 'La mayoría de las prendas están listas en 48 a 72 horas hábiles. Te avisamos por WhatsApp cuando está lista.',
+    a: 'Depende de la prenda y del trabajo que lleve. Te damos el plazo al recibirla y te avisamos por WhatsApp apenas está lista.',
   },
   {
     q: '¿Cómo sé el precio?',
@@ -246,7 +255,7 @@ export const FAQ = [
   },
   {
     q: '¿Dónde están?',
-    a: `${SITE.address.street}, barrio ${SITE.address.neighborhood}, ${SITE.city}. Atendemos ${SITE.hours.map((h) => `${h.label.toLowerCase()} de ${h.opens} a ${h.closes}`).join(' y ')}.`,
+    a: `${SITE.address.street}, barrio ${SITE.address.neighborhood}, ${SITE.city}. Si querés confirmar el horario antes de venir, escribinos por WhatsApp.`,
   },
   {
     q: '¿Hacen retiro y entrega a domicilio?',
@@ -267,6 +276,9 @@ export function whatsappMessageFor(pathname: string) {
   if (LEGAL_PAGES.some((l) => l.href === pathname)) return `${GREETING} Tengo una consulta sobre la información legal de la web.`;
   return `${GREETING} Quiero hacer un pedido.`;
 }
+
+/** "Barrio Constitución" → "Barrio Constitución, Mar del Plata"; si ya nombra la ciudad, la deja igual. */
+export const placeName = (area: string) => (area.includes(SITE.city) ? area : `${area}, ${SITE.city}`);
 
 export const serviceBySlug = (slug: string) => SERVICES.find((s) => s.slug === slug);
 

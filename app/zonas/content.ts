@@ -9,6 +9,9 @@
 // Dos zonas no pueden tener el mismo texto: ahí está todo el valor de la página.
 //
 // Al agregar una zona, sumala también a DELIVERY.areas en app/site.ts.
+//
+// Lo que se escribe acá tiene que ser cierto. Nada de plazos, días de recorrido ni
+// "lo que más nos piden" si no lo confirmó el cliente: son promesas que se reclaman.
 
 export type Zone = {
   /** Va en la URL: /zonas/<slug>. Una vez publicada no se cambia. */
@@ -55,15 +58,15 @@ export const ZONES: Zone[] = [
     highlights: [
       {
         title: 'Podés venir caminando',
-        text: 'Si estás a unas cuadras, traerla al local suele ser lo más rápido: dejás la prenda, te pasamos el precio en el momento y te avisamos por WhatsApp cuando está.',
+        text: 'Si estás a unas cuadras, traerla al local suele ser lo más rápido: dejás la prenda y te avisamos por WhatsApp cuando está.',
       },
       {
-        title: 'Retiro el mismo día que lo pedís',
-        text: 'Al ser nuestra zona, es donde más flexibilidad tenemos para coordinar el horario que te sirva.',
+        title: 'O la pasamos a buscar',
+        text: 'Si preferís no moverte, coordinás el retiro por WhatsApp y pasamos por tu casa.',
       },
       {
-        title: 'Casas con acolchados y cortinas',
-        text: 'Lo que más nos piden en el barrio: acolchados al final del invierno y cortinas de toda la casa en la misma pasada.',
+        title: 'Tintorería y lavandería juntas',
+        text: 'Lo que necesita cuidado especial y la ropa de todos los días van en el mismo pedido.',
       },
     ],
     image: 'local',
@@ -74,8 +77,8 @@ export const ZONES: Zone[] = [
         a: 'En Av. Constitución 5491, barrio Constitución, Mar del Plata.',
       },
       {
-        q: '¿Hace falta pedir turno?',
-        a: 'No. Venís en horario de atención, dejás la prenda y listo. Si preferís, avisanos antes por WhatsApp y te pasamos el precio estimado.',
+        q: '¿En qué horario atienden?',
+        a: 'Escribinos por WhatsApp y te lo confirmamos.',
       },
       {
         q: '¿Retiran en todo el barrio?',
@@ -96,7 +99,7 @@ export const ZONES: Zone[] = [
     lead: 'Si vivís o trabajás en el centro, no hace falta que cruces la ciudad: pasamos a buscar tu ropa y te la devolvemos limpia donde estés.',
     intro: [
       'El centro es la otra zona donde hacemos retiro y entrega a domicilio. Coordinás el día y el horario por WhatsApp, pasamos a buscar la ropa y te la llevamos de vuelta limpia, planchada y en percha.',
-      'Funciona igual para un departamento, para una oficina o para la recepción de un edificio. Si en tu horario no vas a estar, podés dejar el pedido con el encargado y avisarnos.',
+      'Funciona igual para un departamento o para una oficina. Contanos qué prendas son y dónde estás, y el resto lo arreglamos por mensaje.',
     ],
     highlights: [
       {
@@ -109,15 +112,15 @@ export const ZONES: Zone[] = [
       },
       {
         title: 'Alquileres temporarios',
-        text: 'Juegos de blanquería entre huésped y huésped, con retiro programado. Si manejás varios departamentos, lo vemos como cuenta de empresa.',
+        text: 'Juegos de blanquería entre huésped y huésped. Si manejás varios departamentos, consultanos por el servicio para empresas.',
       },
     ],
     image: 'clienta-celular',
     imageAlt: 'Clienta coordinando el retiro de su ropa desde el celular',
     faqs: [
       {
-        q: '¿Tengo que estar yo para la entrega?',
-        a: 'No necesariamente. Podés dejar o recibir el pedido con el encargado del edificio, avisándonos antes.',
+        q: '¿Cómo coordinamos el retiro?',
+        a: 'Pasanos tu dirección por WhatsApp y arreglamos el día y el horario que te quede cómodo.',
       },
       {
         q: '¿Puedo mandar tintorería y lavandería en el mismo retiro?',
@@ -125,7 +128,7 @@ export const ZONES: Zone[] = [
       },
       {
         q: '¿Cuánto tarda?',
-        a: 'La mayoría de las prendas, entre 48 y 72 horas hábiles. Los acolchados, unos días más por el secado.',
+        a: 'Depende de la prenda. Te damos el plazo al recibirla y te avisamos por WhatsApp cuando está lista.',
       },
     ],
   },
