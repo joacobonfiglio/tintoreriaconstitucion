@@ -27,11 +27,13 @@ async function pages(dir, base = '') {
 const serviceSlugs = slugsIn(await read('app/site.ts'));
 const contentSlugs = slugsIn(await read('app/servicios/content.ts'));
 const guideSlugs = slugsIn(await read('app/guias/content.ts'));
+const zoneSlugs = slugsIn(await read('app/zonas/content.ts'));
 
 /** Cada ruta [slug] y de dónde salen sus valores. */
 const DYNAMIC = {
   '/servicios/[slug]': { base: '/servicios', slugs: contentSlugs, map: 'SERVICES.map' },
   '/guias/[slug]': { base: '/guias', slugs: guideSlugs, map: 'GUIDES.map' },
+  '/zonas/[slug]': { base: '/zonas', slugs: zoneSlugs, map: 'ZONES.map' },
 };
 
 /** Rutas que el sitemap genera: los literales del array ROUTES + las dinámicas que expande con .map */
@@ -77,6 +79,21 @@ test('el sitemap cubre todas las páginas', async () => {
 test('el sitemap no lista páginas que no existen', async () => {
   const existing = await publicPages();
   for (const r of await sitemapRoutes()) assert.ok(existing.includes(r), `${r} está en el sitemap pero no existe`);
+});
+
+test('cada zona publicada está declarada en DELIVERY.areas', async () => {
+  // Una página de zona promete que retiramos ahí: tiene que coincidir con las zonas reales.
+  const site = await read('app/site.ts');
+  const areas = [...(site.match(/areas: \[([^\]]*)\]/)?.[1] ?? '').matchAll(/'([^']+)'/g)].map((m) => m[1].toLowerCase());
+  assert.ok(areas.length > 0, 'no se encontró DELIVERY.areas en site.ts');
+  const zones = await read('app/zonas/content.ts');
+  for (const [, name] of zones.matchAll(/\n    name: '([^']+)'/g)) {
+    const key = name.toLowerCase().replace(/^barrio /, '').replace(/ de mar del plata$/, '');
+    assert.ok(
+      areas.some((a) => a.includes(key)),
+      `la zona "${name}" no figura en DELIVERY.areas`,
+    );
+  }
 });
 
 test('las páginas legales existen y no se indexan', async () => {

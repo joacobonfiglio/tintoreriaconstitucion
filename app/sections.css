@@ -2480,3 +2480,153 @@
   flex: none;
   color: var(--orange-600);
 }
+
+/* ───────── Empresas ───────── */
+.sector-grid {
+  display: grid;
+  gap: 24px;
+}
+@media (min-width: 720px) {
+  .sector-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.sector-card {
+  display: grid;
+  gap: 10px;
+  justify-items: start;
+  padding: 28px;
+  border-radius: var(--radius);
+  background: var(--white);
+  box-shadow: var(--shadow-s);
+}
+.sector-card h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--violet-900);
+}
+.sector-card p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+.sector-icon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: var(--violet-50);
+  color: var(--violet);
+}
+.sector-icon svg {
+  width: 26px;
+  height: 26px;
+}
+.biz-split {
+  display: grid;
+  gap: 40px;
+  align-items: center;
+}
+@media (min-width: 960px) {
+  .biz-split {
+    grid-template-columns: 1fr 0.9fr;
+    gap: 64px;
+  }
+}
+.biz-split-media {
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  box-shadow: var(--shadow);
+}
+.biz-split-media picture,
+.biz-split-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.season {
+  display: grid;
+  gap: 14px;
+  justify-items: start;
+  padding: clamp(28px, 4vw, 48px);
+  border-radius: var(--radius-l);
+  background: var(--orange-100);
+  border-left: 5px solid var(--orange);
+}
+.season h2 {
+  margin: 0;
+  color: var(--violet-900);
+}
+.season p {
+  margin: 0;
+  max-width: 68ch;
+  color: var(--ink-soft);
+}
+
+/* ───────── Zonas ───────── */
+.zone-intro {
+  display: grid;
+  gap: 40px;
+}
+.zone-intro .prose h2 {
+  margin-top: 0;
+}
+.zone-highlights {
+  display: grid;
+  gap: 16px;
+}
+@media (min-width: 900px) {
+  .zone-highlights {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.zone-card {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  justify-items: start;
+  padding: 24px;
+  border-radius: var(--radius-s);
+  background: var(--violet-50);
+}
+.zone-icon {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--violet);
+  color: #fff;
+}
+.zone-icon svg {
+  width: 18px;
+  height: 18px;
+}
+.zone-card h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--violet-900);
+}
+.zone-card p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.96rem;
+}
+.zones-note {
+  display: flex;
+  gap: 12px;
+  max-width: 70ch;
+  margin: 40px auto 0;
+  padding: 20px 24px;
+  border-radius: var(--radius-s);
+  background: var(--violet-50);
+  color: var(--ink-soft);
+}
+.zones-note svg {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  margin-top: 2px;
+  color: var(--orange-600);
+}

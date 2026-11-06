@@ -586,6 +586,308 @@ export const GUIDES: Guide[] = [
     services: ['limpieza-de-prendas-delicadas', 'limpieza-de-trajes', 'valet-de-ropa'],
     related: ['como-sacar-manchas-de-la-ropa', 'como-lavar-un-acolchado-de-plumas'],
   },
+
+  {
+    slug: 'como-sacar-el-olor-a-humedad-de-la-ropa',
+    keyword: 'cómo sacar el olor a humedad de la ropa',
+    metaTitle: 'Cómo sacar el olor a humedad de la ropa',
+    metaDescription:
+      'Por qué la ropa huele a humedad y cómo sacarle el olor de verdad, no taparlo. Qué hacer con el placard, el lavarropas y las prendas que ya lo tienen.',
+    title: 'Cómo sacar el olor a humedad de la ropa',
+    excerpt:
+      'En Mar del Plata es la consulta número uno. El olor no está en la tela: está en lo que creció adentro de la tela, y por eso el perfume no lo resuelve.',
+    category: 'Humedad',
+    date: '2026-11-06',
+    image: 'sala',
+    imageAlt: 'Sillón y mesa baja con percheros de ropa al fondo',
+    body: [
+      {
+        t: 'p',
+        text: 'Vivir a diez cuadras del mar tiene un costo textil: el aire acá tiene humedad todo el año, y la ropa la absorbe. Cuando alguien pregunta cómo sacar el olor a humedad de la ropa, lo primero que hay que entender es que ese olor no es suciedad: son hongos y bacterias que crecieron en la fibra mientras estaba húmeda y encerrada. Por eso el suavizante y el perfume no lo sacan, lo tapan unas horas.',
+      },
+      { t: 'h2', text: 'De dónde sale el olor' },
+      {
+        t: 'ul',
+        items: [
+          'Ropa guardada antes de estar del todo seca, que es la causa más común.',
+          'El lavarropas: el agua que queda en la goma de la puerta y en el cajón del detergente.',
+          'Placards contra una pared exterior, donde condensa la humedad del ambiente.',
+          'Ropa limpia que quedó demasiadas horas dentro del tambor después del ciclo.',
+          'Exceso de detergente o suavizante, que deja residuo y el residuo retiene humedad.',
+        ],
+      },
+      { t: 'h2', text: 'Cómo sacarlo de una prenda' },
+      {
+        t: 'steps',
+        items: [
+          {
+            title: 'Remojo con vinagre blanco',
+            text: 'Una taza de vinagre blanco en agua fría, una hora. El vinagre baja el pH y corta el crecimiento de lo que genera el olor.',
+          },
+          {
+            title: 'Lavado con bicarbonato',
+            text: 'Media taza de bicarbonato junto al detergente habitual, en la temperatura más alta que permita la etiqueta.',
+          },
+          {
+            title: 'Secado completo, sin atajos',
+            text: 'Secadora si tenés, o al aire libre con circulación. Una prenda que vuelve a guardarse apenas húmeda vuelve a oler en una semana.',
+          },
+          {
+            title: 'Sol, si la prenda lo tolera',
+            text: 'La luz ultravioleta ayuda. En prendas de color fuerte, mejor a la sombra pero con viento.',
+          },
+        ],
+      },
+      {
+        t: 'note',
+        title: 'No la pases por la secadora antes de tiempo',
+        text: 'Si la prenda todavía huele después de lavarla, el calor de la secadora fija el olor. Olela antes de secarla y, si persiste, repetí el remojo.',
+      },
+      { t: 'h2', text: 'Y si el problema es el lavarropas' },
+      {
+        t: 'p',
+        text: 'Si toda la ropa sale con el mismo olor, la prenda no es el problema. Pasá un ciclo en vacío a la temperatura más alta con dos tazas de vinagre blanco, limpiá con un trapo el pliegue de goma de la puerta, sacá y lavá el cajón del detergente, y dejá la puerta entreabierta entre lavado y lavado. Eso solo resuelve la mayoría de los casos.',
+      },
+      { t: 'h2', text: 'Cómo evitar que vuelva' },
+      {
+        t: 'ul',
+        items: [
+          'Sacá la ropa del lavarropas apenas termina el ciclo.',
+          'Usá la dosis de detergente que indica el envase, no más: el exceso no lava mejor, deja residuo.',
+          'Ventilá el placard cada tanto y no lo llenes hasta el tope: la ropa necesita aire entre prenda y prenda.',
+          'No apoyes cajas ni ropa directamente contra una pared exterior.',
+          'Guardá siempre seco, y si tenés dudas, dejá la prenda un día más al aire.',
+        ],
+      },
+      { t: 'h2', text: 'Cuándo ya no sale en casa' },
+      {
+        t: 'p',
+        text: 'Hay un punto en el que el olor pasó a ser moho visible, con puntitos negros o grises, y ahí el remojo casero no alcanza. Lo mismo con acolchados y almohadas: el olor está en el relleno, no en la tela, y necesita un secado industrial que una casa no puede dar. En esos casos traenos la prenda y nos ocupamos.',
+      },
+    ],
+    faqs: [
+      {
+        q: '¿El suavizante tapa el olor a humedad?',
+        a: 'Lo tapa unas horas y después vuelve, porque la causa sigue en la fibra. Peor todavía: el residuo de suavizante retiene humedad y empeora el problema.',
+      },
+      {
+        q: '¿Por qué mi acolchado huele aunque lo lavé?',
+        a: 'Porque el olor está en el relleno y el secado casero no llega al centro. Necesita secado industrial.',
+      },
+      {
+        q: '¿Sirve el vinagre en cualquier tela?',
+        a: 'En algodón y sintéticos, sí. En seda y lana conviene no arriesgar: esas prendas mejor traerlas.',
+      },
+    ],
+    services: ['valet-de-ropa', 'limpieza-de-acolchados', 'limpieza-de-camperas'],
+    related: ['como-guardar-la-ropa-de-invierno', 'como-lavar-un-acolchado-de-plumas'],
+  },
+
+  {
+    slug: 'como-planchar-una-camisa',
+    keyword: 'cómo planchar una camisa',
+    metaTitle: 'Cómo planchar una camisa bien, paso a paso',
+    metaDescription:
+      'El orden correcto para planchar una camisa: cuello, puños, mangas, canesú y cuerpo. Qué temperatura usar según la tela y cómo evitar las marcas de plancha.',
+    title: 'Cómo planchar una camisa bien, paso a paso',
+    excerpt:
+      'El secreto no es la plancha: es el orden. Planchando de las partes chicas a las grandes no arrugás lo que ya hiciste.',
+    category: 'Planchado',
+    date: '2026-11-06',
+    image: 'vaporizado',
+    imageAlt: 'Vaporizadora de mano pasando sobre una prenda oscura',
+    body: [
+      {
+        t: 'p',
+        text: 'Casi todo el mundo plancha una camisa en el orden equivocado: empieza por el cuerpo, que es lo grande, y cuando llega al cuello ya volvió a arrugar lo primero. La regla es al revés: de lo más chico a lo más grande.',
+      },
+      { t: 'h2', text: 'Antes de empezar' },
+      {
+        t: 'ul',
+        items: [
+          'Planchá la camisa apenas húmeda. Si está seca, rociala con agua y esperá un minuto.',
+          'Mirá la etiqueta: un punto en el símbolo de la plancha es sintético, dos es lana o seda, tres es algodón o lino.',
+          'Usá la tabla con funda limpia. Una funda manchada transfiere la mancha a la camisa.',
+          'Las camisas oscuras y las sintéticas, siempre del revés: así evitás los brillos.',
+        ],
+      },
+      { t: 'h2', text: 'El orden correcto' },
+      {
+        t: 'steps',
+        items: [
+          {
+            title: 'Cuello',
+            text: 'Abierto y del revés primero, planchando de las puntas hacia el centro. Si vas del centro hacia afuera, empujás la tela y se forman pliegues en las puntas. Después, del derecho.',
+          },
+          {
+            title: 'Puños',
+            text: 'Desabrochados y abiertos, también del revés primero. No planches sobre los botones: rodealos con la punta de la plancha.',
+          },
+          {
+            title: 'Mangas',
+            text: 'Alineá la manga por la costura inferior y aplanala. Planchá desde el hombro hacia el puño. Si no querés la raya marcada, trabajá sobre una manguera de planchado o movela a mitad de camino.',
+          },
+          {
+            title: 'Canesú, que es la espalda del hombro',
+            text: 'Calzá el hombro de la camisa sobre la punta angosta de la tabla y girala para hacer los dos lados.',
+          },
+          {
+            title: 'Delanteros',
+            text: 'Primero el lado de los botones, pasando la punta de la plancha entre botón y botón. Después el lado del ojal, que es el más visible.',
+          },
+          {
+            title: 'Espalda',
+            text: 'Lo último y lo más fácil: apoyá la camisa a lo ancho y planchá de arriba hacia abajo en dos pasadas.',
+          },
+        ],
+      },
+      {
+        t: 'note',
+        title: 'Colgala enseguida',
+        text: 'Abrochá el botón del cuello y colgala en percha apenas terminás. Si la dejás doblada mientras todavía está tibia, se marca y perdés el trabajo.',
+      },
+      { t: 'h2', text: 'Temperatura según la tela' },
+      {
+        t: 'table',
+        head: ['Tela', 'Plancha', 'Detalle'],
+        rows: [
+          ['Algodón', 'Alta, con vapor', 'Aguanta bien; si está húmeda, mejor'],
+          ['Lino', 'Alta, con mucho vapor', 'Planchar húmedo o no sale'],
+          ['Poliéster y mezclas', 'Baja', 'Siempre del revés: brilla fácil'],
+          ['Seda', 'Baja, sin vapor', 'Del revés y con un paño encima'],
+          ['Lana fina', 'Media, con paño', 'Nunca apoyar la plancha directa'],
+        ],
+      },
+      { t: 'h2', text: 'Los errores que dejan marca' },
+      {
+        t: 'ol',
+        items: [
+          'Planchar una camisa sucia: el calor fija la mancha y la vuelve permanente.',
+          'Apoyar la plancha caliente directo sobre un bordado, un botón o un estampado.',
+          'Usar temperatura de algodón sobre una camisa con poliéster, que es lo que deja el brillo imposible de sacar.',
+          'Planchar sobre la costura del lateral sin estirarla antes: queda un pliegue torcido.',
+        ],
+      },
+      { t: 'h2', text: 'Si son muchas' },
+      {
+        t: 'p',
+        text: 'Una camisa bien planchada lleva entre cinco y ocho minutos. Si usás camisa todos los días, eso es más de media hora por semana. Nosotros hacemos solo planchado, si ya las lavaste, o lavado y planchado completo, y te las entregamos en percha. Para pedidos semanales hay precio por cantidad.',
+      },
+    ],
+    faqs: [
+      {
+        q: '¿Se puede planchar una camisa seca?',
+        a: 'Se puede, pero cuesta el doble y quedan marcas. Rociala con agua o usá el vapor de la plancha.',
+      },
+      {
+        q: '¿Cómo evito el brillo en las camisas oscuras?',
+        a: 'Planchá siempre del revés y bajá la temperatura. El brillo aparece cuando el calor aplasta y funde levemente la fibra sintética.',
+      },
+      {
+        q: '¿Hacen solo planchado?',
+        a: 'Sí. Si ya las lavaste, las planchamos y te las entregamos en percha.',
+      },
+    ],
+    services: ['limpieza-de-camisas', 'limpieza-de-trajes', 'valet-de-ropa'],
+    related: ['cada-cuanto-limpiar-un-traje', 'simbolos-de-las-etiquetas-de-la-ropa'],
+  },
+
+  {
+    slug: 'como-lavar-lana-sin-que-encoja',
+    keyword: 'cómo lavar lana sin que encoja',
+    metaTitle: 'Cómo lavar lana sin que encoja',
+    metaDescription:
+      'Por qué la lana encoge, cómo lavarla a mano o a máquina sin arruinarla, cómo secarla en plano y qué hacer si un sweater ya se achicó.',
+    title: 'Cómo lavar lana sin que encoja',
+    excerpt:
+      'La lana no encoge por el agua: encoge por el cambio de temperatura y por el movimiento. Entendiendo eso, lavarla en casa deja de ser una ruleta.',
+    category: 'Lana',
+    date: '2026-11-06',
+    image: 'saco-lana',
+    imageAlt: 'Detalle de un abrigo de paño color camel',
+    body: [
+      {
+        t: 'p',
+        text: 'Cada fibra de lana está cubierta de escamas microscópicas. Con calor y fricción, esas escamas se abren y se traban entre sí como un velcro, y la prenda se afieltra: queda más chica, más dura y ya no vuelve. Por eso la pregunta de cómo lavar lana sin que encoja se responde con dos cosas: temperatura pareja y nada de movimiento brusco.',
+      },
+      { t: 'h2', text: 'A mano, que es lo más seguro' },
+      {
+        t: 'steps',
+        items: [
+          {
+            title: 'Agua fría, y siempre a la misma temperatura',
+            text: 'Lo que afieltra no es el agua fría ni la caliente: es pasar de una a la otra. Lavá y enjuagá a la misma temperatura.',
+          },
+          {
+            title: 'Detergente específico para lana',
+            text: 'O un jabón neutro muy suave. Los detergentes comunes tienen enzimas que atacan la proteína de la lana.',
+          },
+          {
+            title: 'Sumergila y dejala quieta',
+            text: 'Diez minutos en remojo, apretando suave con la palma abierta. Nada de refregar, retorcer ni frotar una parte contra otra.',
+          },
+          {
+            title: 'Enjuagá sin estrujar',
+            text: 'Cambiá el agua las veces que haga falta, siempre a la misma temperatura.',
+          },
+          {
+            title: 'Sacá el agua con una toalla',
+            text: 'Apoyá la prenda extendida sobre una toalla seca, enrollá las dos juntas y presioná. Nunca la cuelgues chorreando: el peso del agua la estira.',
+          },
+        ],
+      },
+      { t: 'h2', text: 'A máquina, si la etiqueta lo permite' },
+      {
+        t: 'ul',
+        items: [
+          'Usá el programa de lana o el más delicado que tenga, con agua fría.',
+          'Centrifugado al mínimo o directamente apagado.',
+          'Metela en una bolsa de red: reduce el roce contra el tambor y contra otras prendas.',
+          'Lavala sola o con muy poca carga, para que tenga espacio.',
+        ],
+      },
+      {
+        t: 'note',
+        title: 'La trampa del "lavable a máquina"',
+        text: 'Algunas lanas vienen tratadas y toleran el lavarropas, pero igual no toleran la secadora. El calor del secado es lo que termina de afieltrarlas.',
+      },
+      { t: 'h2', text: 'El secado, en plano y a la sombra' },
+      {
+        t: 'p',
+        text: 'Esta es la parte donde se arruinan la mayoría de los sweaters. Extendé la prenda sobre una toalla seca, en horizontal, dándole con las manos la forma que tenía antes de lavarla. Nunca la cuelgues de una percha: la lana mojada pesa y el hombro se estira hasta quedar deformado. Lejos del sol directo y de la estufa.',
+      },
+      { t: 'h2', text: 'Si ya encogió' },
+      {
+        t: 'p',
+        text: 'Si el afieltrado es leve, se puede intentar: remojá la prenda media hora en agua fría con un buen chorro de acondicionador de pelo, que relaja la fibra. Sacala sin enjuagar del todo, quitale el agua con una toalla y estirala con las manos sobre una superficie plana hasta la medida que buscás, sosteniéndola con algo mientras se seca. Funciona a veces y no hace milagros: si la prenda quedó dura y apelmazada, el afieltrado es irreversible.',
+      },
+      { t: 'h2', text: 'Cada cuánto lavarla' },
+      {
+        t: 'p',
+        text: 'Mucho menos de lo que pensás. La lana se limpia sola bastante: airear un sweater una noche saca el olor en la mayoría de los casos. Lavala dos o tres veces por temporada, y siempre antes de guardarla al final del invierno. Para las bolitas que se forman con el uso, un peine para lana o una afeitadora de pilling las saca sin dañar la fibra.',
+      },
+      {
+        t: 'p',
+        text: 'Si es una prenda de lana fina, cashmere, un tapado de paño o algo que no querés arriesgar, traenosla y la tratamos con el proceso que le corresponde.',
+      },
+    ],
+    faqs: [
+      {
+        q: '¿La lana se puede poner en la secadora?',
+        a: 'No. El calor y el tambor giratorio son la combinación exacta que la afieltra. Secado en plano, siempre.',
+      },
+      {
+        q: '¿Por qué mi sweater quedó con los hombros estirados?',
+        a: 'Porque se secó colgado en percha. La lana mojada pesa mucho y se estira con su propio peso.',
+      },
+      {
+        q: '¿Qué hago con un tapado de paño?',
+        a: 'No lo laves en casa: tiene entretelas y forro que se deforman con el agua. Va a limpieza profesional.',
+      },
+    ],
+    services: ['limpieza-de-camperas', 'limpieza-de-prendas-delicadas', 'limpieza-de-trajes'],
+    related: ['como-guardar-la-ropa-de-invierno', 'simbolos-de-las-etiquetas-de-la-ropa'],
+  },
 ];
 
 export const getGuide = (slug: string) => GUIDES.find((g) => g.slug === slug);

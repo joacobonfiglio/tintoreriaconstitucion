@@ -196,9 +196,18 @@ export default function Home() {
               <span className="eyebrow">Empresas y alojamientos</span>
               <h2 className="h-m">Hoteles, temporarios, restaurantes y consultorios</h2>
               <p>Blanquería, mantelería y uniformes con retiro programado y facturación mensual.</p>
-              <WhatsAppLink message={`${GREETING} Quiero contratar el servicio para mi negocio.`} placement="empresas" className="btn">
-                Contratar para mi negocio
-              </WhatsAppLink>
+              <div className="hero-ctas">
+                <a href="/empresas" className="btn">
+                  Ver el servicio para empresas
+                </a>
+                <WhatsAppLink
+                  message={`${GREETING} Quiero el servicio para mi negocio.`}
+                  placement="empresas"
+                  className="btn btn-ghost"
+                >
+                  Pedir presupuesto
+                </WhatsAppLink>
+              </div>
             </div>
             <div className="biz-media">
               <Img name="entrega" alt="Repartidor entregando un pedido de ropa limpia en la puerta de una casa" sizes="(min-width: 900px) 380px, 100vw" />

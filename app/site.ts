@@ -72,13 +72,16 @@ export const GREETING = '¡Hola Tintorería Constitución!';
 export const NAV = [
   { href: '/servicios', label: 'Servicios' },
   { href: '/retiro-a-domicilio', label: 'Retiro a domicilio' },
+  { href: '/empresas', label: 'Empresas' },
   { href: '/guias', label: 'Guías' },
 ] as const;
 
-// Enlaces del footer: lo que salió del header sigue enlazado desde acá.
+// Enlaces del footer: lo que no entra en el header sigue enlazado desde acá.
 export const FOOTER_NAV = [
   { href: '/servicios', label: 'Servicios' },
   { href: '/retiro-a-domicilio', label: 'Retiro a domicilio' },
+  { href: '/zonas', label: 'Zonas de retiro' },
+  { href: '/empresas', label: 'Empresas y alojamientos' },
   { href: '/guias', label: 'Guías y consejos' },
   { href: '/#preguntas', label: 'Preguntas frecuentes' },
   { href: '/#contacto', label: 'Contacto' },

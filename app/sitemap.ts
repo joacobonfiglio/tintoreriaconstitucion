@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { GUIDES } from './guias/content';
+import { ZONES } from './zonas/content';
 import { SERVICES, absoluteUrl } from './site';
 
 // Cada página pública tiene que estar acá. tests/sitemap-coverage.test.mjs lo controla.
@@ -8,6 +9,9 @@ export const ROUTES = [
   '/retiro-a-domicilio',
   '/servicios',
   ...SERVICES.map((s) => `/servicios/${s.slug}`),
+  '/zonas',
+  ...ZONES.map((z) => `/zonas/${z.slug}`),
+  '/empresas',
   '/guias',
   ...GUIDES.map((g) => `/guias/${g.slug}`),
 ];

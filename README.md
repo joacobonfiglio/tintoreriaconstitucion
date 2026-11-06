@@ -26,8 +26,8 @@ Las vistas previas de Vercel (`VERCEL_ENV=preview`) salen con `noindex` y `robot
 
 - Dominio principal: `https://tintoreriaconstitucion.com` (constante `DOMAIN` en `app/site.ts`).
 - Metadatos de cada página con `pageMetadata()` en `app/seo.ts` (title, description, canonical, Open Graph, Twitter, robots).
-- Sitemap: `app/sitemap.ts` (home, `/retiro-a-domicilio`, `/servicios`, cada servicio, `/guias` y cada guía). Las legales y la 404 tienen `noindex` y no van en el sitemap.
-- Datos estructurados: `DryCleaningOrLaundry` + `WebSite` en todas las páginas, `FAQPage` en la home, `Service` + `BreadcrumbList` + `FAQPage` en cada servicio, `Blog` en `/guias` y `BlogPosting` + `BreadcrumbList` + `FAQPage` en cada guía.
+- Sitemap: `app/sitemap.ts`. Las legales y la 404 tienen `noindex` y no van en el sitemap.
+- Datos estructurados: `DryCleaningOrLaundry` + `WebSite` en todas las páginas; `FAQPage` en la home; `Service` + `BreadcrumbList` + `FAQPage` en servicios, zonas y empresas; `Blog` en `/guias` y `BlogPosting` en cada guía; `ItemList` en `/zonas`.
 - Imágenes para compartir: `shareImage()` en `app/imageUrl.ts`. Varias fotos del sitio son chicas (355–396 px) y por debajo de 1200 px WhatsApp y Facebook descartan la vista previa, así que en esos casos se comparte `camisas` (1376 px). **Pendiente: fotos originales más grandes** para que cada página comparta la suya.
 - Google Search Console: verificación por archivo en `public/googlef865543e27f831d4.html`. No borrar: si se borra, Google desverifica la propiedad.
 
@@ -41,8 +41,29 @@ No se usan frases del tipo "no tenés que venir al local".
 
 Los títulos y subtítulos van **sin punto final**.
 
-El menú del header es corto a propósito (`NAV`): Servicios, Retiro a domicilio y Guías, más el botón de
-WhatsApp. Preguntas y Contacto viven en el footer (`FOOTER_NAV`), que también usa la 404.
+El menú del header es corto a propósito (`NAV`): Servicios, Retiro a domicilio, Empresas y Guías, más el
+botón de WhatsApp. El resto vive en el footer (`FOOTER_NAV`), que también usa la 404.
+
+## Mapa de páginas
+
+| Sección | Para qué búsquedas | Dónde se edita |
+| --- | --- | --- |
+| `/` | "tintorería / lavandería en Mar del Plata" | `app/page.tsx` + `app/site.ts` |
+| `/servicios/<slug>` | "limpieza de trajes", "lavandería", … | `app/servicios/content.ts` |
+| `/zonas/<slug>` | "tintorería en \<barrio\>" | `app/zonas/content.ts` |
+| `/empresas` | "lavandería para hoteles", "blanquería alquileres temporarios" | `app/empresas/page.tsx` |
+| `/guias/<slug>` | búsquedas informativas ("cómo sacar una mancha") | `app/guias/content.ts` |
+| `/retiro-a-domicilio` | "tintorería con retiro a domicilio" | `app/retiro-a-domicilio/page.tsx` |
+
+## Zonas (`/zonas`)
+
+Una página por zona donde **realmente** retiramos. Las zonas viven en `app/zonas/content.ts` y tienen que
+coincidir con `DELIVERY.areas` de `app/site.ts`: hay un test que lo controla, porque una página de un barrio
+al que no llegamos es una promesa incumplida y Google la trata como página puerta.
+
+Para sumar una zona: agregá el barrio a `DELIVERY.areas`, copiá un objeto de `ZONES` y **escribí un `intro`
+propio**. Dos zonas con el mismo texto no sirven de nada: todo el valor está en lo que la página dice de
+ese barrio en particular.
 
 ## Guías y recursos (`/guias`)
 
@@ -72,6 +93,8 @@ Bloques disponibles para `body`: `p`, `h2`, `h3`, `ul`, `ol`, `steps`, `note` y 
 
 - **Datos del negocio** (WhatsApp, dirección, horario, zonas de retiro, servicios, preguntas): `app/site.ts`. Buscá `TODO`.
 - **Guías y notas**: `app/guias/content.ts`.
+- **Zonas de retiro**: `app/zonas/content.ts` (y `DELIVERY.areas` en `app/site.ts`).
+- **Empresas**: `app/empresas/page.tsx`.
 - **Colores y tipografía**: `app/brand.css` (tokens del manual de marca).
 - **Secciones**: `app/sections.css`, bloques en `app/Blocks.tsx`.
 - **Fotos**: poné el JPG en `assets/fotos/` y corré `npm run images`.
@@ -79,7 +102,7 @@ Bloques disponibles para `body`: `p`, `h2`, `h3`, `ul`, `ol`, `steps`, `note` y 
 
 ## Eventos de GA4
 
-- `whatsapp_click` con `placement` (hero, header, flotante, servicio_*, selector_*, retiro, retiro_faq, guia_*, empresas, contacto, footer, 404) y `service` (según la URL).
+- `whatsapp_click` con `placement` (hero, header, flotante, servicio_*, selector_*, retiro, retiro_faq, guia_*, zona_*, empresas, empresas_como, empresas_temporada, contacto, footer, 404) y `service` (según la URL).
 - `map_click` con `placement`.
 
 Consent Mode v2: todo arranca en `denied` hasta que la persona acepta.
