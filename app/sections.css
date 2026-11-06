@@ -1305,7 +1305,8 @@
   text-align: center;
   padding-block: 80px;
 }
-.notfound svg {
+/* Solo el isotipo: si se apunta a todos los svg, también se agranda el ícono de los botones. */
+.notfound > .wrap > svg {
   width: 160px;
   margin: 0 auto 28px;
 }
@@ -1319,6 +1320,42 @@
 }
 .notfound .hero-ctas {
   justify-content: center;
+}
+.notfound-code {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--orange-600);
+}
+.notfound-links {
+  margin-top: 56px;
+  padding-top: 32px;
+  border-top: 1px solid var(--gray-100);
+  text-align: left;
+}
+.notfound-links .footer-h {
+  color: var(--violet-900);
+}
+.notfound-links ul {
+  list-style: none;
+  margin: 0 0 28px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+}
+.notfound-links ul:last-child {
+  margin-bottom: 0;
+}
+.notfound-links a {
+  color: var(--violet);
+  font-weight: 600;
+  text-decoration: none;
+}
+.notfound-links a:hover {
+  text-decoration: underline;
 }
 
 /* <picture> que llena su contenedor */
@@ -1841,6 +1878,23 @@
 }
 .delivery-copy h2 {
   margin-block: 20px 16px;
+}
+/* Zonas donde llega el retiro: aclaración, no promesa para toda la ciudad. */
+.delivery-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 16px;
+  max-width: 54ch;
+  font-size: 0.95rem;
+  color: rgb(255 255 255 / 0.72);
+}
+.delivery-note svg {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  margin-top: 2px;
+  color: var(--orange);
 }
 .delivery-steps {
   list-style: none;

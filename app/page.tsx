@@ -11,12 +11,13 @@ import { TrackedLink } from './TrackedLink';
 import { WhatsAppLink } from './WhatsAppLink';
 
 export const metadata = pageMetadata({
-  title: 'Tintorería en Mar del Plata',
-  fullTitle: `${SITE.name} | Tintorería en Mar del Plata`,
+  title: 'Tintorería y lavandería en Mar del Plata',
+  // Título completo a mano: con la marca entera se pasa de 60 caracteres y Google lo corta.
+  fullTitle: 'Tintorería y lavandería en Mar del Plata | Constitución',
   description: SITE.description,
   path: '/',
-  image: 'clienta-celular',
-  imageAlt: 'Clienta pidiendo el retiro de su ropa desde el celular',
+  image: 'camisas',
+  imageAlt: 'Camisas limpias y planchadas colgadas en perchas de madera',
 });
 
 const faqLd = {
@@ -25,13 +26,15 @@ const faqLd = {
   mainEntity: FAQ.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
 };
 
-const ORDER = `${GREETING} Quiero pedir un retiro a domicilio.`;
+const ORDER = `${GREETING} Quiero hacer un pedido.`;
+const PICKUP = `${GREETING} Quiero consultar por el retiro a domicilio.`;
 
 const REASONS = [
-  'Retiro y entrega en tu casa o trabajo',
-  'Precio antes de empezar, sin sorpresas',
   'Cada prenda revisada antes y después',
+  'Precio antes de empezar, sin sorpresas',
   'Entrega planchada, en percha y con funda',
+  'Tintorería y lavandería en el mismo pedido',
+  'Opción de retiro a domicilio en algunas zonas',
 ];
 
 export default function Home() {
@@ -44,16 +47,17 @@ export default function Home() {
         <Waves id="hero" color="#fff" opacity={0.04} />
         <div className="wrap hero-grid">
           <div className="hero-copy">
-            <span className="eyebrow">Tintorería en Mar del Plata · Barrio Constitución</span>
+            <span className="eyebrow">Mar del Plata · Barrio Constitución</span>
             <h1 className="h-xl">
-              Tintorería con <span className="accent">retiro a domicilio.</span>
+              Tintorería y <span className="accent">lavandería</span> en Mar del Plata
             </h1>
             <p className="lead">
-              Pasamos a buscar tu ropa, la limpiamos y te la devolvemos lista para usar. Pedilo por WhatsApp en un minuto.
+              Trajes, acolchados, camisas, cortinas, prendas delicadas y la ropa de todos los días. Limpieza profesional y
+              entrega lista para usar. Pedilo por WhatsApp en un minuto.
             </p>
             <div className="hero-ctas">
               <WhatsAppLink message={ORDER} placement="hero">
-                Pedir retiro a domicilio
+                Pedir por WhatsApp
               </WhatsAppLink>
               <a href="#servicios" className="btn btn-ghost">
                 Ver servicios
@@ -61,30 +65,30 @@ export default function Home() {
             </div>
             <ul className="hero-proof">
               <li>
-                <Icon name="check" /> Retiro y entrega a domicilio
+                <Icon name="check" /> Tintorería y lavandería
               </li>
               <li>
                 <Icon name="check" /> Precio antes de empezar
               </li>
               <li>
-                <Icon name="check" /> Aviso cuando está lista
+                <Icon name="check" /> También retiramos a domicilio
               </li>
             </ul>
           </div>
 
           <div className="hero-media">
             <div className="hero-photo hero-photo-a">
-              <Img name="clienta-celular" alt="Clienta pidiendo el retiro de su ropa desde el celular" priority sizes="(min-width: 900px) 460px, 80vw" />
+              <Img name="percheros" alt="Prendas limpias en fundas colgadas en el perchero de la tintorería" priority sizes="(min-width: 900px) 460px, 80vw" />
             </div>
             <div className="hero-photo hero-photo-b">
-              <Img name="camisas" alt="Camisas limpias y planchadas colgadas en perchas" sizes="(min-width: 900px) 300px, 50vw" />
+              <Img name="camisas" alt="Camisas celestes y blancas limpias y planchadas en perchas de madera" sizes="(min-width: 900px) 300px, 50vw" />
             </div>
             <div className="hero-ticket" aria-hidden="true">
               <span className="ticket-hole" />
               <span className="ticket-k">Tu pedido</span>
-              <span className="ticket-v">Retirado</span>
+              <span className="ticket-v">Recibido</span>
               <span className="ticket-v">Limpio</span>
-              <span className="ticket-v ok">Entregado ✓</span>
+              <span className="ticket-v ok">Listo ✓</span>
             </div>
           </div>
         </div>
@@ -92,15 +96,14 @@ export default function Home() {
 
       <Ribbon
         items={[
-          'Retiro y entrega a domicilio',
+          'Tintorería y lavandería',
           'Precio antes de empezar',
           'Aviso por WhatsApp cuando está lista',
           'Planchado, en percha y con funda',
+          'Retiro a domicilio en algunas zonas',
           'Empresas, hoteles y temporarios',
         ]}
       />
-
-      <DeliveryBand id="retiro" />
 
       {/* ───────── SERVICIOS ───────── */}
       <section id="servicios" className="section">
@@ -112,7 +115,8 @@ export default function Home() {
             </h2>
           </Motion>
           <Motion as="p" className="lead" delay={100}>
-            Elegí el servicio y pedilo por WhatsApp. Lo retiramos de tu casa.
+            Tintorería para las prendas que necesitan cuidado y lavandería para la ropa de todos los días. Elegí el servicio
+            y pedilo por WhatsApp.
           </Motion>
         </div>
         <ScrollRail count={SERVICES.length}>
@@ -127,11 +131,11 @@ export default function Home() {
             <Motion>
               <span className="eyebrow">Pedido en un minuto</span>
               <h2 className="h-l">
-                Elegí, enviá <span className="thin">y listo.</span>
+                Elegí, enviá <span className="thin">y listo</span>
               </h2>
             </Motion>
             <Motion as="p" className="lead" delay={100}>
-              El mensaje ya está armado. Solo sumá tu dirección y coordinamos el retiro.
+              El mensaje ya está armado. Solo contanos qué prendas son y te pasamos el precio antes de empezar.
             </Motion>
           </div>
           <Motion variant="fade">
@@ -159,7 +163,7 @@ export default function Home() {
             <Motion>
               <span className="eyebrow">Por qué elegirnos</span>
               <h2 className="h-l">
-                Tu ropa, <span className="thin">en buenas manos.</span>
+                Tu ropa, <span className="thin">en buenas manos</span>
               </h2>
             </Motion>
             <ul className="checklist">
@@ -174,12 +178,15 @@ export default function Home() {
             </ul>
             <div className="hero-ctas">
               <WhatsAppLink message={ORDER} placement="por_que">
-                Pedir retiro a domicilio
+                Pedir por WhatsApp
               </WhatsAppLink>
             </div>
           </div>
         </div>
       </section>
+
+      {/* ───────── RETIRO A DOMICILIO (opción) ───────── */}
+      <DeliveryBand id="retiro" message={PICKUP} />
 
       {/* ───────── EMPRESAS ───────── */}
       <section className="section">
@@ -187,14 +194,14 @@ export default function Home() {
           <Motion className="biz">
             <div className="biz-copy">
               <span className="eyebrow">Empresas y alojamientos</span>
-              <h2 className="h-m">Hoteles, temporarios, restaurantes y consultorios.</h2>
+              <h2 className="h-m">Hoteles, temporarios, restaurantes y consultorios</h2>
               <p>Blanquería, mantelería y uniformes con retiro programado y facturación mensual.</p>
               <WhatsAppLink message={`${GREETING} Quiero contratar el servicio para mi negocio.`} placement="empresas" className="btn">
                 Contratar para mi negocio
               </WhatsAppLink>
             </div>
             <div className="biz-media">
-              <Img name="entrega" alt="Repartidor entregando un pedido de ropa limpia en la puerta" sizes="(min-width: 900px) 380px, 100vw" />
+              <Img name="entrega" alt="Repartidor entregando un pedido de ropa limpia en la puerta de una casa" sizes="(min-width: 900px) 380px, 100vw" />
             </div>
           </Motion>
         </div>
@@ -206,7 +213,7 @@ export default function Home() {
           <Motion>
             <span className="eyebrow">Preguntas frecuentes</span>
             <h2 className="h-l">
-              Lo que <span className="thin">tenés que saber.</span>
+              Lo que <span className="thin">tenés que saber</span>
             </h2>
           </Motion>
           <div className="faq">
@@ -228,9 +235,9 @@ export default function Home() {
         <div className="wrap">
           <Motion className="contact-card">
             <div className="contact-copy">
-              <span className="eyebrow">Local y retiro</span>
+              <span className="eyebrow">Dónde estamos</span>
               <h2 className="h-l">
-                Pedí tu retiro <span className="thin">o traela al local.</span>
+                Visitanos <span className="thin">en el barrio Constitución</span>
               </h2>
               <ul className="contact-list">
                 <li>
@@ -254,8 +261,8 @@ export default function Home() {
                 </li>
               </ul>
               <div className="hero-ctas">
-                <WhatsAppLink message={`${GREETING} Quiero pedir un retiro a domicilio.`} placement="contacto">
-                  Pedir retiro
+                <WhatsAppLink message={ORDER} placement="contacto">
+                  Pedir por WhatsApp
                 </WhatsAppLink>
                 <TrackedLink href={SITE.mapsUrl} target="_blank" rel="noopener" className="btn btn-ghost" event="map_click" params={{ placement: 'contacto' }}>
                   <Icon name="pin" /> Cómo llegar
@@ -263,7 +270,7 @@ export default function Home() {
               </div>
             </div>
             <div className="contact-media">
-              <Img name="local" alt="Mostrador de atención luminoso con prendas en percheros" sizes="(min-width: 900px) 480px, 100vw" />
+              <Img name="local" alt="Mostrador de atención de la tintorería con prendas en los percheros del fondo" sizes="(min-width: 900px) 480px, 100vw" />
             </div>
           </Motion>
         </div>

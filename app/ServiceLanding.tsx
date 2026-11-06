@@ -1,7 +1,7 @@
 import { DeliveryBand, PageHero } from './Blocks';
 import { Icon } from './Icon';
 import { Img } from './Img';
-import { imageUrl } from './imageUrl';
+import { shareImage } from './imageUrl';
 import { Motion } from './Motion';
 import { DELIVERY, SERVICES, SITE, absoluteUrl } from './site';
 import type { ServiceContent } from './servicios/content';
@@ -23,7 +23,7 @@ export function ServiceLanding({ content: c }: { content: ServiceContent }) {
         serviceType: c.keyword,
         description: c.metaDescription,
         url,
-        image: absoluteUrl(imageUrl(c.image, 1200)),
+        image: absoluteUrl(shareImage(c.image, service.imageAlt).url),
         provider: { '@id': absoluteUrl('/#negocio') },
         areaServed: { '@type': 'City', name: SITE.city },
       },
@@ -67,7 +67,7 @@ export function ServiceLanding({ content: c }: { content: ServiceContent }) {
         }
         lead={c.lead}
         image={c.image}
-        imageAlt={c.imageAlt}
+        imageAlt={service.imageAlt}
         message={service.message}
         cta="Pedir por WhatsApp"
       >
@@ -98,13 +98,13 @@ export function ServiceLanding({ content: c }: { content: ServiceContent }) {
             <h2 className="h-m">Hacé tu pedido</h2>
             <ul>
               <li>
-                <Icon name="truck" /> Retiro y entrega a domicilio
-              </li>
-              <li>
                 <Icon name="tag" /> Precio antes de empezar
               </li>
               <li>
                 <Icon name="bell" /> Aviso por WhatsApp cuando está lista
+              </li>
+              <li>
+                <Icon name="truck" /> Opción de retiro a domicilio
               </li>
             </ul>
             <WhatsAppLink message={service.message} placement={`pedido_${c.slug}`}>
@@ -122,7 +122,7 @@ export function ServiceLanding({ content: c }: { content: ServiceContent }) {
           <Motion>
             <span className="eyebrow">Preguntas frecuentes</span>
             <h2 className="h-l">
-              {service.name} <span className="thin">en {SITE.city}.</span>
+              Dudas sobre <span className="thin">{service.name.toLowerCase()}</span>
             </h2>
           </Motion>
           <div className="faq">
@@ -146,7 +146,7 @@ export function ServiceLanding({ content: c }: { content: ServiceContent }) {
             <Motion>
               <span className="eyebrow">Otros servicios</span>
               <h2 className="h-l">
-                Sumalo <span className="thin">al mismo retiro.</span>
+                Sumalo <span className="thin">al mismo pedido</span>
               </h2>
             </Motion>
           </div>

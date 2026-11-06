@@ -24,7 +24,7 @@ const sora = Sora({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: `${SITE.name} | Tintorería en Mar del Plata`,
+    default: `${SITE.name} | Tintorería y lavandería en Mar del Plata`,
     template: `%s | ${SITE.name}`,
   },
   description: SITE.description,
@@ -33,9 +33,16 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'es_AR',
     siteName: SITE.name,
-    title: `${SITE.name} | Tintorería en Mar del Plata`,
+    title: `${SITE.name} | Tintorería y lavandería en Mar del Plata`,
     description: SITE.description,
-    images: [{ url: imageUrl('camisas', 1376), width: 1376, height: 768, alt: 'Camisas limpias y planchadas en percha' }],
+    images: [
+      {
+        url: imageUrl('camisas', 1376),
+        width: 1376,
+        height: 768,
+        alt: 'Camisas limpias y planchadas colgadas en perchas de madera',
+      },
+    ],
   },
   twitter: { card: 'summary_large_image' },
   // Las vistas previas de Vercel no se indexan.
@@ -66,6 +73,7 @@ const jsonLd = {
       '@type': 'DryCleaningOrLaundry',
       '@id': absoluteUrl('/#negocio'),
       name: SITE.name,
+      alternateName: 'Tintorería y lavandería Constitución',
       description: SITE.description,
       url: SITE.url,
       logo: absoluteUrl('/brand/logo.svg'),
@@ -96,7 +104,7 @@ const jsonLd = {
       sameAs: Object.values(SITE.social).filter(Boolean),
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
-        name: 'Servicios de tintorería',
+        name: 'Servicios de tintorería y lavandería',
         itemListElement: SERVICES.map((s) => ({
           '@type': 'Offer',
           itemOffered: { '@type': 'Service', name: s.name, description: s.short, areaServed: 'Mar del Plata' },
@@ -157,8 +165,8 @@ function Header() {
             ))}
           </ul>
         </nav>
-        <PageWhatsAppLink placement="header" className="btn btn-wa header-cta" label="Pedir retiro por WhatsApp">
-          <span className="header-cta-long">Pedir retiro</span>
+        <PageWhatsAppLink placement="header" className="btn btn-wa header-cta" label="Hacer un pedido por WhatsApp">
+          <span className="header-cta-long">Pedir por WhatsApp</span>
         </PageWhatsAppLink>
         <details className="menu">
           <summary aria-label="Abrir menú">

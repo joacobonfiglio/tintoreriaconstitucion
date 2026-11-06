@@ -70,23 +70,44 @@ export function PageHero({
   );
 }
 
-/* ───────── DeliveryBand: retiro y entrega a domicilio (lo que más se destaca) ───────── */
-export function DeliveryBand({ id, message, link = true }: { id?: string; message?: string; link?: boolean }) {
+/* ───────── DeliveryBand: el retiro a domicilio como opción, no como el servicio principal ───────── */
+export function DeliveryBand({
+  id,
+  message,
+  link = true,
+  badge = 'Opción de retiro a domicilio',
+  title,
+}: {
+  id?: string;
+  message?: string;
+  link?: boolean;
+  /** Texto de la chapita naranja. */
+  badge?: string;
+  /** Título de la banda. Se cambia en /retiro-a-domicilio para no repetir el H1. */
+  title?: ReactNode;
+}) {
   return (
     <section id={id} className="delivery on-dark">
       <Waves id={`dv-${id ?? 'b'}`} color="#fff" opacity={0.06} />
       <div className="wrap delivery-grid">
         <div className="delivery-copy">
           <span className="delivery-badge">
-            <Icon name="truck" /> Retiro y entrega a domicilio
+            <Icon name="truck" /> {badge}
           </span>
           <h2 className="h-l">
-            No tenés que venir. <span className="thin">Pasamos a buscarla.</span>
+            {title ?? (
+              <>
+                También <span className="thin">pasamos a buscarla</span>
+              </>
+            )}
           </h2>
           <p className="lead">{DELIVERY.short}</p>
+          <p className="delivery-note">
+            <Icon name="pin" /> {DELIVERY.zones}
+          </p>
           <div className="hero-ctas">
-            <WhatsAppLink message={message ?? `${GREETING} Quiero pedir un retiro a domicilio.`} placement="retiro">
-              Pedir retiro a domicilio
+            <WhatsAppLink message={message ?? `${GREETING} Quiero consultar por el retiro a domicilio.`} placement="retiro">
+              Consultar el retiro
             </WhatsAppLink>
             {link && (
               <a href={DELIVERY.href} className="btn btn-ghost">
@@ -149,7 +170,7 @@ export function Clothesline({ services }: { services: Service[] }) {
             </svg>
             <article className="garment" id={s.slug}>
               <div className="garment-media">
-                <Img name={s.image} alt={s.name} sizes="(min-width: 700px) 340px, 78vw" />
+                <Img name={s.image} alt={s.imageAlt} sizes="(min-width: 700px) 340px, 78vw" />
                 <span className="garment-icon">
                   <Icon name={s.icon} />
                 </span>

@@ -7,12 +7,12 @@ import { GREETING, SERVICES, absoluteUrl } from '../site';
 import { pageMetadata } from '../seo';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Servicios de tintorería en Mar del Plata',
+  title: 'Servicios de tintorería y lavandería',
   description:
-    'Limpieza de trajes, acolchados, camisas, camperas, cortinas, prendas delicadas y valet de ropa en Mar del Plata. Con retiro a domicilio. Pedí por WhatsApp.',
+    'Limpieza de trajes, acolchados, camisas, camperas, cortinas y prendas delicadas, y lavandería de la ropa de todos los días en Mar del Plata.',
   path: '/servicios',
   image: 'percheros',
-  imageAlt: 'Perchero con prendas limpias en fundas',
+  imageAlt: 'Prendas limpias en fundas colgadas en el perchero de la tintorería',
 });
 
 const jsonLd = {
@@ -40,12 +40,12 @@ export default function Servicios() {
         eyebrow="Servicios · Mar del Plata"
         title={
           <>
-            Servicios de tintorería <span className="thin">en Mar del Plata.</span>
+            Servicios de tintorería <span className="thin">y lavandería</span>
           </>
         }
-        lead="Elegí el servicio y pedilo por WhatsApp. Retiramos y entregamos a domicilio."
+        lead="Tintorería para las prendas que necesitan cuidado y lavandería para la ropa de todos los días. Elegí el servicio y pedilo por WhatsApp."
         image="percheros"
-        imageAlt="Perchero con prendas limpias en fundas"
+        imageAlt="Prendas limpias en fundas colgadas en el perchero de la tintorería"
         message={`${GREETING} Quiero hacer un pedido.`}
         cta="Hacer un pedido"
       />

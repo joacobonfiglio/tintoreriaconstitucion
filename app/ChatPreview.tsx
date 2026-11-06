@@ -55,12 +55,12 @@ export function ChatPreview({ services }: { services: Service[] }) {
               <div key={s.slug} className="bubble out" data-svc={s.slug}>
                 <p>{s.message}</p>
                 <p className="bubble-hint">
-                  <Icon name="truck" /> Sumá tu dirección para el retiro
+                  <Icon name="camera" /> Sumá una foto y te pasamos el precio
                 </p>
               </div>
             ))}
             <div className="bubble in">
-              <p>¡Hola! Pasanos tu dirección y coordinamos el retiro.</p>
+              <p>¡Hola! Contanos qué prendas son y te pasamos el precio.</p>
             </div>
           </div>
           <div className="phone-send">

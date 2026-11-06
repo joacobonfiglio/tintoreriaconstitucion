@@ -7,22 +7,26 @@ import { DELIVERY, GREETING, SERVICES, SITE, absoluteUrl } from '../site';
 import { WhatsAppLink } from '../WhatsAppLink';
 
 export const metadata = pageMetadata({
-  title: 'Tintorería con retiro a domicilio en Mar del Plata',
+  title: 'Retiro y entrega a domicilio',
   description:
-    'Retiramos tu ropa en tu casa o trabajo, la limpiamos y te la devolvemos lista. Trajes, acolchados, camisas, cortinas y más. Pedí por WhatsApp.',
+    'Retiro y entrega de tintorería y lavandería a domicilio en zonas seleccionadas de Mar del Plata. Pasanos tu dirección por WhatsApp y te confirmamos.',
   path: DELIVERY.href,
   image: 'entrega',
-  imageAlt: 'Repartidor entregando un pedido de ropa limpia en la puerta',
+  imageAlt: 'Repartidor entregando un pedido de ropa limpia en la puerta de una casa',
 });
 
-const ORDER = `${GREETING} Quiero pedir un retiro a domicilio.`;
+const ORDER = `${GREETING} Quiero consultar por el retiro a domicilio.`;
 
-// TODO: confirmar zonas, horarios de retiro y costo del servicio.
+// TODO: confirmar las zonas exactas, horarios de retiro y costo del servicio.
 const FAQS = [
-  { q: '¿En qué zonas retiran?', a: `En ${SITE.city}. Pasanos tu dirección por WhatsApp y te confirmamos el día de retiro.` },
+  {
+    q: '¿En qué zonas retiran?',
+    a: `En zonas seleccionadas de ${SITE.city}. Pasanos tu dirección por WhatsApp y te confirmamos si llegamos y en qué día y horario.`,
+  },
+  { q: '¿Y si no llegan a mi zona?', a: `Podés acercar tus prendas al local, en ${SITE.address.street}, barrio ${SITE.address.neighborhood}.` },
   { q: '¿Cómo pago?', a: 'Te pasamos el precio antes de empezar y pagás al recibir tu ropa.' },
   { q: '¿Tengo que estar en casa?', a: 'Sí, o dejá a alguien que entregue y reciba. Coordinamos el horario que te quede cómodo.' },
-  { q: '¿Puedo mezclar servicios en un mismo retiro?', a: 'Sí. Trajes, camisas, acolchados o cortinas van en el mismo pedido.' },
+  { q: '¿Puedo mezclar servicios en un mismo retiro?', a: 'Sí. Trajes, camisas, acolchados, cortinas o la ropa de lavandería van en el mismo pedido.' },
 ];
 
 const jsonLd = {
@@ -32,7 +36,7 @@ const jsonLd = {
       '@type': 'Service',
       name: DELIVERY.title,
       serviceType: 'Tintorería con retiro a domicilio',
-      description: DELIVERY.short,
+      description: `${DELIVERY.short} ${DELIVERY.zones}`,
       url: absoluteUrl(DELIVERY.href),
       provider: { '@id': absoluteUrl('/#negocio') },
       areaServed: { '@type': 'City', name: SITE.city },
@@ -64,17 +68,30 @@ export default function Retiro() {
         eyebrow={`Retiro a domicilio · ${SITE.city}`}
         title={
           <>
-            Tintorería con retiro a domicilio <span className="thin">en {SITE.city}.</span>
+            Retiro y entrega <span className="thin">a domicilio</span>
           </>
         }
-        lead="Pasamos a buscar tu ropa, la limpiamos y te la devolvemos lista, en tu casa o tu trabajo. Sin moverte."
+        lead={`Si te queda más cómodo, pasamos a buscar tu ropa y te la devolvemos limpia en tu casa o tu trabajo. Disponible en zonas seleccionadas de ${SITE.city}.`}
         image="entrega"
-        imageAlt="Repartidor entregando un pedido de ropa limpia en la puerta"
+        imageAlt="Repartidor entregando un pedido de ropa limpia en la puerta de una casa"
         message={ORDER}
-        cta="Pedir retiro a domicilio"
-      />
+        cta="Consultar el retiro"
+      >
+        <a href="/servicios" className="btn btn-ghost">
+          Ver servicios
+        </a>
+      </PageHero>
 
-      <DeliveryBand id="como-funciona" link={false} />
+      <DeliveryBand
+        id="como-funciona"
+        link={false}
+        badge="Paso a paso"
+        title={
+          <>
+            Cómo <span className="thin">funciona</span>
+          </>
+        }
+      />
 
       {/* Qué podés mandar */}
       <section className="section">
@@ -83,7 +100,7 @@ export default function Retiro() {
             <Motion>
               <span className="eyebrow">En el mismo retiro</span>
               <h2 className="h-l">
-                Todo lo que <span className="thin">podés mandar.</span>
+                Todo lo que <span className="thin">podés mandar</span>
               </h2>
             </Motion>
           </div>
@@ -113,11 +130,11 @@ export default function Retiro() {
           <Motion>
             <span className="eyebrow">Preguntas frecuentes</span>
             <h2 className="h-l">
-              Retiro a domicilio, <span className="thin">simple.</span>
+              Zonas, pagos <span className="thin">y horarios</span>
             </h2>
             <div className="hero-ctas">
               <WhatsAppLink message={ORDER} placement="retiro_faq">
-                Pedir retiro
+                Consultar mi zona
               </WhatsAppLink>
             </div>
           </Motion>
