@@ -96,23 +96,40 @@ export const FOOTER_NAV = [
   { href: '/#contacto', label: 'Contacto' },
 ] as const;
 
+// Zonas donde llega el retiro. ÚNICA fuente: de acá salen el JSON-LD, los textos de
+// cobertura y el test que controla que cada página de /zonas corresponda a una zona real.
+// Cada entrada necesita además su página en app/zonas/content.ts.
+// `name` va a los datos estructurados; `short`, a los textos corridos.
+// TODO: confirmar días y horarios de retiro por zona, y si tiene costo.
+const AREAS = [
+  { name: 'Barrio Constitución', short: 'Constitución' },
+  { name: 'Centro de Mar del Plata', short: 'el centro' },
+  { name: 'Los Troncos', short: 'Los Troncos' },
+  { name: 'Stella Maris', short: 'Stella Maris' },
+  { name: 'Playa Grande', short: 'Playa Grande' },
+  { name: 'Chauvín', short: 'Chauvín' },
+  { name: 'La Perla', short: 'La Perla' },
+  { name: 'Güemes', short: 'Güemes' },
+] as const;
+
+/** ['a','b','c'] → "a, b y c" */
+const enumerar = (xs: readonly string[]) => (xs.length < 2 ? (xs[0] ?? '') : `${xs.slice(0, -1).join(', ')} y ${xs[xs.length - 1]}`);
+
 // Retiro y entrega a domicilio: una opción más del servicio, disponible en algunas zonas.
-// TODO: confirmar las zonas exactas, días/horarios de retiro y si tiene costo.
 export const DELIVERY = {
   href: '/retiro-a-domicilio',
   title: 'Retiro y entrega a domicilio',
   short: 'Si te queda más cómodo, pasamos a buscar tu ropa y te la devolvemos limpia en tu casa o tu trabajo.',
   area: 'Mar del Plata',
-  /** Barrios donde llega el retiro. También van al JSON-LD como areaServed. */
-  areas: ['Barrio Constitución', 'Centro de Mar del Plata'],
-  /** Frase corta de cobertura. Se repite en la banda, la página de retiro y las preguntas. */
-  zones: 'Retiramos y entregamos en el barrio Constitución y el centro de Mar del Plata.',
-  /** Versión larga, para los textos donde hay lugar para invitar a consultar. */
-  zonesLong:
-    'Retiramos y entregamos en el barrio Constitución y el centro de Mar del Plata. Si estás cerca, pasanos tu dirección por WhatsApp y te confirmamos.',
+  /** Barrios donde llega el retiro. Van al JSON-LD como areaServed. */
+  areas: AREAS.map((a) => a.name),
+  /** Frase corta. Va en la banda de retiro, que aparece en muchas páginas. */
+  zones: `Retiramos y entregamos en ${AREAS.length} zonas de Mar del Plata.`,
+  /** Lista completa, para las páginas donde la cobertura es el tema. */
+  zonesLong: `Retiramos y entregamos en ${enumerar(AREAS.map((a) => a.short))}. Si no ves tu barrio, pasanos tu dirección por WhatsApp y te confirmamos.`,
   steps: [
     { icon: 'whatsapp', title: 'Pedilo por WhatsApp', text: 'Decinos qué prendas y tu dirección.' },
-    { icon: 'truck', title: 'Confirmamos la zona', text: 'Constitución y centro: coordinamos día y horario.' },
+    { icon: 'truck', title: 'Confirmamos la zona', text: 'Si llegamos, coordinamos día y horario.' },
     { icon: 'check', title: 'Te la devolvemos lista', text: 'Limpia, planchada y en percha.' },
   ],
 } as const;
@@ -259,7 +276,7 @@ export const FAQ = [
   },
   {
     q: '¿Hacen retiro y entrega a domicilio?',
-    a: 'Sí, en el barrio Constitución y el centro de Mar del Plata. Pasanos tu dirección por WhatsApp y coordinamos el día y el horario.',
+    a: `Sí, en varias zonas de ${SITE.city}: ${enumerar(AREAS.map((a) => a.short))}. Pasanos tu dirección por WhatsApp y coordinamos el día y el horario.`,
   },
   {
     q: '¿Trabajan con empresas y alojamientos?',

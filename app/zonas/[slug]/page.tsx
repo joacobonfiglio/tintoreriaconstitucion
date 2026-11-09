@@ -33,7 +33,11 @@ export default async function ZonePage({ params }: { params: Promise<{ slug: str
   if (!z) notFound();
 
   const url = absoluteUrl(`/zonas/${z.slug}`);
-  const others = ZONES.filter((o) => o.slug !== z.slug);
+  // Las tres siguientes en la lista, rotando: así cada zona enlaza a otras distintas
+  // y ninguna queda sin enlaces entrantes.
+  const rest = ZONES.filter((o) => o.slug !== z.slug);
+  const from = ZONES.findIndex((o) => o.slug === z.slug);
+  const others = [...rest.slice(from), ...rest.slice(0, from)].slice(0, 3);
   const ORDER = `${GREETING} Quiero hacer un pedido en ${z.name}.`;
 
   const jsonLd = {

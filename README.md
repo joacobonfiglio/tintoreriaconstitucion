@@ -86,13 +86,29 @@ También pendiente, pero de diseño y no de contenido:
 
 ## Zonas (`/zonas`)
 
-Una página por zona donde **realmente** retiramos. Las zonas viven en `app/zonas/content.ts` y tienen que
-coincidir con `DELIVERY.areas` de `app/site.ts`: hay un test que lo controla, porque una página de un barrio
-al que no llegamos es una promesa incumplida y Google la trata como página puerta.
+Una página por zona donde **realmente** retiramos. Hoy son ocho: Constitución, centro, Los Troncos,
+Stella Maris, Playa Grande, Chauvín, La Perla y Güemes.
 
-Para sumar una zona: agregá el barrio a `DELIVERY.areas`, copiá un objeto de `ZONES` y **escribí un `intro`
-propio**. Dos zonas con el mismo texto no sirven de nada: todo el valor está en lo que la página dice de
-ese barrio en particular.
+La lista vive en **un solo lugar**: la constante `AREAS` de `app/site.ts`. De ahí salen el `areaServed`
+del JSON-LD y las frases de cobertura (`DELIVERY.zones` y `zonesLong`), así que no hay que tocar textos
+sueltos cuando cambia.
+
+Dos tests lo mantienen consistente en las dos direcciones: cada página de `/zonas` tiene que estar en
+`AREAS`, y cada entrada de `AREAS` tiene que tener su página. Una página de un barrio al que no llegamos
+es una promesa incumplida, y Google además la trata como página puerta.
+
+**Para sumar una zona:**
+
+1. Agregá `{ name, short }` a `AREAS` en `app/site.ts`.
+2. Copiá un objeto de `ZONES` en `app/zonas/content.ts` con el mismo `name`.
+3. Escribí un `intro`, `highlights` y `faqs` **propios**. Dos zonas con el mismo texto no sirven: todo el
+   valor está en lo que la página dice de ese barrio en particular.
+
+El `h1` + `h1Thin` no puede quedar igual a "Tintorería y lavandería en \<name\>", que es el H2 que arma la
+plantilla. `npm test` no lo detecta; se ve recorriendo las páginas.
+
+**Pendiente:** no hay ninguna foto de los barrios. Cada zona usa una foto de prendas, elegida por
+afinidad con el tipo de pedido. Fotos reales de cada zona ayudarían bastante.
 
 ## Guías y recursos (`/guias`)
 

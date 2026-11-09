@@ -132,6 +132,255 @@ export const ZONES: Zone[] = [
       },
     ],
   },
+  {
+    slug: 'los-troncos',
+    name: 'Los Troncos',
+    shortName: 'Los Troncos',
+    keyword: 'tintorería en Los Troncos',
+    metaTitle: 'Tintorería en Los Troncos, Mar del Plata',
+    metaDescription:
+      'Retiro y entrega de tintorería y lavandería en Los Troncos, Mar del Plata. Trajes, abrigos de paño, cortinas y blanquería. Coordinalo por WhatsApp.',
+    h1: 'Tintorería con retiro',
+    h1Thin: 'en Los Troncos',
+    lead: 'Pasamos a buscar tu ropa por Los Troncos y te la devolvemos limpia, planchada y en percha. Lo coordinás por WhatsApp, sin moverte de casa.',
+    intro: [
+      'Los Troncos es un barrio de casas grandes y calles arboladas, y eso se traduce en mucha tela: cortinas de ventanal, manteles, acolchados y blanquería que no entran en un lavarropas común. Todo eso va en el mismo retiro.',
+      'También está la ropa que pide tintorería de verdad: trajes, tapados de paño, prendas de lana fina y vestidos de ceremonia. Los limpiamos, los planchamos y te los devolvemos en percha y con funda.',
+    ],
+    highlights: [
+      {
+        title: 'Cortinas y blanquería de casa',
+        text: 'Cortinas, visillos, manteles, acolchados y fundas de sillón entran en un solo pedido.',
+      },
+      {
+        title: 'Trajes y abrigos de paño',
+        text: 'Sin brillos, con la forma original y entregados en percha con funda.',
+      },
+      {
+        title: 'Todo junto, sin separar',
+        text: 'La tintorería y la ropa de todos los días van en el mismo retiro. De separarlas nos ocupamos nosotros.',
+      },
+    ],
+    image: 'traje',
+    imageAlt: 'Detalle de un saco de traje azul oscuro con botón',
+    faqs: [
+      { q: '¿Retiran en todo Los Troncos?', a: 'Sí. Pasanos tu dirección por WhatsApp y coordinamos el día y el horario.' },
+      {
+        q: '¿Se pueden llevar las cortinas de toda la casa?',
+        a: 'Sí. Descolgalas y contanos cuántas son y de qué tela; te pasamos el precio antes de empezar.',
+      },
+      { q: '¿Y si prefiero acercarme?', a: 'El local está en Av. Constitución 5491, barrio Constitución.' },
+    ],
+  },
+  {
+    slug: 'stella-maris',
+    name: 'Stella Maris',
+    shortName: 'Stella Maris',
+    keyword: 'tintorería en Stella Maris',
+    metaTitle: 'Tintorería en Stella Maris, Mar del Plata',
+    metaDescription:
+      'Retiro y entrega de tintorería y lavandería en Stella Maris, Mar del Plata. Prendas delicadas, abrigos y ropa de guardar. Pedilo por WhatsApp.',
+    h1: 'Tintorería con retiro',
+    h1Thin: 'en Stella Maris',
+    lead: 'Uno de los barrios más antiguos de la ciudad, sobre la loma. Pasamos a buscar tu ropa y te la devolvemos lista para usar o para guardar.',
+    intro: [
+      'Stella Maris mezcla casonas históricas con edificios, y en los dos casos aparece el mismo tipo de prenda: la que se usa poco y se guarda mucho. Abrigos de paño, vestidos de ceremonia, prendas de lana fina y ropa de temporada que pasa meses en un placard.',
+      'Esa ropa necesita entrar limpia al placard, porque las manchas que no se ven se oxidan con los meses y aparecen marcadas al sacarla. Te la devolvemos en funda, lista para guardar.',
+    ],
+    highlights: [
+      {
+        title: 'Prendas delicadas y de ceremonia',
+        text: 'Seda, encaje, bordados y pedrería, revisados detalle por detalle y entregados en funda.',
+      },
+      {
+        title: 'Ropa de guardar entre temporadas',
+        text: 'Abrigos, tapados y acolchados limpios y secos antes de que pasen el verano en el placard.',
+      },
+      {
+        title: 'Casas y edificios por igual',
+        text: 'Coordinamos el retiro en la puerta, sea una casa o un departamento.',
+      },
+    ],
+    image: 'percheros',
+    imageAlt: 'Prendas limpias en fundas colgadas en el perchero de la tintorería',
+    faqs: [
+      { q: '¿Retiran en todo Stella Maris?', a: 'Sí. Pasanos tu dirección por WhatsApp y coordinamos el día y el horario.' },
+      {
+        q: '¿Limpian vestidos de fiesta y de novia?',
+        a: 'Sí, y te los entregamos en funda. Si algún aplique viene flojo, te lo avisamos al recibirlo.',
+      },
+      {
+        q: '¿Conviene limpiar la ropa antes de guardarla?',
+        a: 'Sí. Las manchas de transpiración y perfume no se ven, pero se oxidan durante el verano y aparecen al sacar la prenda.',
+      },
+    ],
+  },
+  {
+    slug: 'playa-grande',
+    name: 'Playa Grande',
+    shortName: 'Playa Grande',
+    keyword: 'lavandería en Playa Grande',
+    metaTitle: 'Tintorería y lavandería en Playa Grande',
+    metaDescription:
+      'Retiro y entrega en Playa Grande, Mar del Plata. Lavandería para departamentos y blanquería para alquileres temporarios. Coordinalo por WhatsApp.',
+    h1: 'Lavandería con retiro',
+    h1Thin: 'en Playa Grande',
+    lead: 'Departamentos sin lugar para tender y alquileres temporarios que necesitan la blanquería lista. Pasamos a buscarla y te la devolvemos limpia.',
+    intro: [
+      'Playa Grande es zona de edificios, y en un departamento el problema casi nunca es lavar: es tender. El valet de ropa resuelve justo eso, porque te devolvemos la ropa de la semana limpia, seca y doblada, lista para guardar.',
+      'La otra mitad del barrio son los alquileres temporarios. Si manejás uno o varios, los juegos de sábanas y toallas entre huésped y huésped son un pedido más, y si el volumen lo justifica lo vemos como cuenta de empresa.',
+    ],
+    highlights: [
+      {
+        title: 'Departamentos sin lugar para tender',
+        text: 'Te devolvemos la ropa de todos los días limpia, seca y doblada.',
+      },
+      {
+        title: 'Alquileres temporarios',
+        text: 'Sábanas, toallas y cubrecamas entre un huésped y el siguiente.',
+      },
+      {
+        title: 'Ropa de verano y de playa',
+        text: 'Lo que vuelve con arena, protector solar o agua salada también entra en el pedido.',
+      },
+    ],
+    image: 'blanqueria',
+    imageAlt: 'Toallas y blanquería blanca dobladas y apiladas junto a una planta',
+    faqs: [
+      { q: '¿Retiran en todo Playa Grande?', a: 'Sí. Pasanos tu dirección por WhatsApp y coordinamos el día y el horario.' },
+      {
+        q: '¿Trabajan con alquileres temporarios?',
+        a: 'Sí. Si manejás varios departamentos, consultanos por el servicio para empresas, con retiro programado y facturación mensual.',
+      },
+      {
+        q: '¿Puedo mandar tintorería y ropa de todos los días juntas?',
+        a: 'Sí, en el mismo pedido. Las separamos nosotros.',
+      },
+    ],
+  },
+  {
+    slug: 'chauvin',
+    name: 'Chauvín',
+    shortName: 'Chauvín',
+    keyword: 'tintorería en Chauvín',
+    metaTitle: 'Tintorería en Chauvín, Mar del Plata',
+    metaDescription:
+      'Retiro y entrega de tintorería y lavandería en Chauvín, Mar del Plata. Acolchados, cortinas y la ropa de toda la familia. Pedilo por WhatsApp.',
+    h1: 'Tintorería con retiro',
+    h1Thin: 'en Chauvín',
+    lead: 'Barrio de chalets, a pocas cuadras de La Perla. Pasamos a buscar la ropa de la casa y te la devolvemos limpia y planchada.',
+    intro: [
+      'Chauvín es un barrio de chalets de piedra y techos de tejas, de casas de familia. Lo que más espacio ocupa en una casa así no es la ropa: son los acolchados, las frazadas y las cortinas, que se lavan pocas veces al año y nunca entran bien en un lavarropas de casa.',
+      'Al estar a pocas cuadras del centro, el retiro se coordina sin vueltas. Lo pedís por WhatsApp, pasamos, y te devolvemos todo seco y listo para volver a su lugar.',
+    ],
+    highlights: [
+      {
+        title: 'Acolchados y frazadas',
+        text: 'Cuando termina el invierno van todos juntos, en un solo retiro, y vuelven secos y esponjosos.',
+      },
+      {
+        title: 'Cortinas de toda la casa',
+        text: 'Descolgalas y las retiramos junto con el resto del pedido.',
+      },
+      {
+        title: 'La ropa de la familia',
+        text: 'Lavandería para la ropa de todos los días y tintorería para lo que necesita otro cuidado.',
+      },
+    ],
+    image: 'acolchados',
+    imageAlt: 'Tres acolchados enrollados en gris, celeste y rosa',
+    faqs: [
+      { q: '¿Retiran en todo Chauvín?', a: 'Sí. Pasanos tu dirección por WhatsApp y coordinamos el día y el horario.' },
+      {
+        q: '¿Cuántos acolchados puedo mandar juntos?',
+        a: 'Los que necesites. Contanos cuántos son y de qué tipo de relleno y te pasamos el precio antes de empezar.',
+      },
+      {
+        q: '¿Los acolchados vuelven secos?',
+        a: 'Sí, completamente. El secado es la parte crítica: con humedad en el relleno aparece el olor a los pocos días.',
+      },
+    ],
+  },
+  {
+    slug: 'la-perla',
+    name: 'La Perla',
+    shortName: 'La Perla',
+    keyword: 'tintorería en La Perla',
+    metaTitle: 'Tintorería en La Perla, Mar del Plata',
+    metaDescription:
+      'Retiro y entrega de tintorería y lavandería en La Perla y La Perla Norte, Mar del Plata. Departamentos y casas. Coordinalo por WhatsApp.',
+    h1: 'Tintorería con retiro',
+    h1Thin: 'en La Perla',
+    lead: 'La Perla y La Perla Norte, la zona de playa de barrio. Pasamos a buscar tu ropa y te la devolvemos limpia donde estés.',
+    intro: [
+      'La Perla es una de las zonas más antiguas de la ciudad y mezcla chalecitos con edificios, así que acá entra de todo: desde la ropa de la semana de un departamento hasta los acolchados y las cortinas de una casa.',
+      'La Perla Norte nos queda especialmente cerca, sobre nuestro lado de la ciudad. Si estás por ahí, podés pedir el retiro o acercarte al local, lo que te resulte más práctico.',
+    ],
+    highlights: [
+      {
+        title: 'Cerca del local',
+        text: 'La Perla Norte queda de nuestro lado: podés pedir el retiro o acercar las prendas vos.',
+      },
+      {
+        title: 'Departamentos y casas',
+        text: 'Ropa de todos los días doblada, o acolchados y cortinas si tenés casa.',
+      },
+      {
+        title: 'Un solo pedido',
+        text: 'Tintorería y lavandería van juntas y vuelven juntas.',
+      },
+    ],
+    image: 'toallas',
+    imageAlt: 'Ropa limpia doblada y apilada: jeans, remeras y toallas',
+    faqs: [
+      {
+        q: '¿Retiran en La Perla y en La Perla Norte?',
+        a: 'En las dos. Pasanos tu dirección por WhatsApp y coordinamos el día y el horario.',
+      },
+      { q: '¿Qué es el valet de ropa?', a: 'Es la ropa de todos los días: la lavamos, la secamos y te la devolvemos doblada y lista para guardar.' },
+      { q: '¿Y si prefiero acercarme?', a: 'El local está en Av. Constitución 5491, barrio Constitución.' },
+    ],
+  },
+  {
+    slug: 'guemes',
+    name: 'Güemes',
+    shortName: 'Güemes',
+    keyword: 'tintorería en la zona de Güemes',
+    metaTitle: 'Tintorería y lavandería en Güemes, Mar del Plata',
+    metaDescription:
+      'Retiro y entrega en la zona de Güemes, Mar del Plata. Mantelería y uniformes para comercios y gastronomía, y tintorería para tu casa.',
+    h1: 'Tintorería y lavandería',
+    h1Thin: 'en la zona de Güemes',
+    lead: 'El corredor comercial de la ciudad: cafés, restaurantes y locales. Retiramos mantelería y uniformes, y también la ropa de tu casa.',
+    intro: [
+      'Güemes y Olavarría son el corredor de tiendas, cafés y restaurantes de Mar del Plata, así que acá el retiro tiene dos caras. Por un lado los comercios: manteles, servilletas, repasadores, delantales y uniformes, que se ensucian todos los días y no pueden faltar.',
+      'Por el otro, los vecinos: la misma tintorería y lavandería de siempre, con retiro en la puerta. Trajes, camisas, acolchados, cortinas y la ropa de todos los días.',
+    ],
+    highlights: [
+      {
+        title: 'Mantelería y delantales',
+        text: 'Manteles, servilletas y repasadores sin manchas de vino ni de grasa.',
+      },
+      {
+        title: 'Uniformes de local',
+        text: 'Ropa de trabajo de bares, cafés y comercios, limpia y planchada.',
+      },
+      {
+        title: 'También para tu casa',
+        text: 'Si vivís en la zona, el retiro funciona igual que en el resto de los barrios.',
+      },
+    ],
+    image: 'vaporizado',
+    imageAlt: 'Vaporizadora de mano pasando sobre una prenda oscura',
+    faqs: [
+      { q: '¿Retiran en toda la zona de Güemes?', a: 'Sí. Pasanos tu dirección por WhatsApp y coordinamos el día y el horario.' },
+      {
+        q: '¿Tienen servicio para comercios?',
+        a: 'Sí. Mantelería, uniformes y blanquería con retiro programado y facturación mensual. Mirá la página de empresas o escribinos.',
+      },
+      { q: '¿Atienden también a particulares?', a: 'Claro. El retiro es el mismo, vivas o trabajes en la zona.' },
+    ],
+  },
 ];
 
 export const getZone = (slug: string) => ZONES.find((z) => z.slug === slug);

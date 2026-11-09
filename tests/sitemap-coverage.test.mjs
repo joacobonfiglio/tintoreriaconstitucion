@@ -81,19 +81,30 @@ test('el sitemap no lista páginas que no existen', async () => {
   for (const r of await sitemapRoutes()) assert.ok(existing.includes(r), `${r} está en el sitemap pero no existe`);
 });
 
-test('cada zona publicada está declarada en DELIVERY.areas', async () => {
-  // Una página de zona promete que retiramos ahí: tiene que coincidir con las zonas reales.
-  const site = await read('app/site.ts');
-  const areas = [...(site.match(/areas: \[([^\]]*)\]/)?.[1] ?? '').matchAll(/'([^']+)'/g)].map((m) => m[1].toLowerCase());
-  assert.ok(areas.length > 0, 'no se encontró DELIVERY.areas en site.ts');
-  const zones = await read('app/zonas/content.ts');
-  for (const [, name] of zones.matchAll(/\n    name: '([^']+)'/g)) {
-    const key = name.toLowerCase().replace(/^barrio /, '').replace(/ de mar del plata$/, '');
-    assert.ok(
-      areas.some((a) => a.includes(key)),
-      `la zona "${name}" no figura en DELIVERY.areas`,
-    );
-  }
+/** Los `name` de la constante AREAS de site.ts: las zonas donde realmente retiramos. */
+async function deliveryAreas() {
+  const block = (await read('app/site.ts')).match(/const AREAS = \[([\s\S]*?)\n\] as const;/);
+  assert.ok(block, 'no se encontró la constante AREAS en app/site.ts');
+  return [...block[1].matchAll(/name: '([^']+)'/g)].map((m) => m[1]);
+}
+
+/** Los `name` de cada zona publicada en /zonas. */
+async function zoneNames() {
+  return [...(await read('app/zonas/content.ts')).matchAll(/\n    name: '([^']+)'/g)].map((m) => m[1]);
+}
+
+test('cada zona publicada está declarada como área de retiro', async () => {
+  // Una página de zona promete que retiramos ahí: tiene que existir en AREAS.
+  const areas = await deliveryAreas();
+  const zones = await zoneNames();
+  assert.ok(areas.length > 0 && zones.length > 0);
+  for (const name of zones) assert.ok(areas.includes(name), `la zona "${name}" no figura en AREAS de site.ts`);
+});
+
+test('cada área de retiro tiene su página de zona', async () => {
+  // Al revés: si decimos que retiramos en un barrio, que se pueda leer sobre él.
+  const zones = await zoneNames();
+  for (const name of await deliveryAreas()) assert.ok(zones.includes(name), `el área "${name}" no tiene página en /zonas`);
 });
 
 test('no se publican plazos ni horarios sin confirmar', async () => {
