@@ -33,6 +33,12 @@ export type Zone = {
   highlights: { title: string; text: string }[];
   /** true solo en la zona donde está el local. */
   hasLocal?: boolean;
+  /**
+   * Otros barrios que cubre esta misma página, tal cual figuran en AREAS de site.ts.
+   * Se usa cuando son chicos y linderos: una página con contenido real sirve más que
+   * cuatro casi iguales. Van al areaServed del JSON-LD junto con el barrio principal.
+   */
+  covers?: string[];
   image: string;
   imageAlt: string;
   faqs: { q: string; a: string }[];
@@ -379,6 +385,164 @@ export const ZONES: Zone[] = [
         a: 'Sí. Mantelería, uniformes y blanquería con retiro programado y facturación mensual. Mirá la página de empresas o escribinos.',
       },
       { q: '¿Atienden también a particulares?', a: 'Claro. El retiro es el mismo, vivas o trabajes en la zona.' },
+    ],
+  },
+  {
+    slug: 'caisamar',
+    name: 'Caisamar',
+    shortName: 'Caisamar',
+    keyword: 'tintorería en Caisamar',
+    metaTitle: 'Tintorería en Caisamar, Mar del Plata',
+    metaDescription:
+      'Tintorería y lavandería en Caisamar, Mar del Plata. Estamos a pocas cuadras, sobre Av. Constitución. Retiro a domicilio o traela al local.',
+    h1: 'Tintorería y lavandería',
+    h1Thin: 'en Caisamar',
+    lead: 'Caisamar es de los barrios que más cerca nos quedan: el local está sobre Av. Constitución, a pocas cuadras. Podés acercarte o pedir el retiro.',
+    intro: [
+      'Caisamar es un barrio residencial y tranquilo, de casas, y queda a pocas cuadras de Av. Constitución, que es justamente donde estamos. Esa cercanía es toda la ventaja: no hay que cruzar la ciudad ni para dejar ni para retirar.',
+      'Hacemos los dos servicios. Tintorería para lo que necesita cuidado especial —trajes, abrigos, acolchados, cortinas y prendas delicadas— y lavandería para la ropa de todos los días, que vuelve limpia, seca y doblada.',
+    ],
+    highlights: [
+      {
+        title: 'Somos el barrio de al lado',
+        text: 'El local está sobre Av. Constitución, a pocas cuadras. Podés traer la ropa cuando te quede de paso.',
+      },
+      {
+        title: 'O pedís el retiro',
+        text: 'Si preferís no moverte, lo coordinás por WhatsApp y pasamos por tu casa.',
+      },
+      {
+        title: 'Acolchados y cortinas de casa',
+        text: 'Lo que no entra en un lavarropas común va en el mismo pedido y vuelve seco.',
+      },
+    ],
+    image: 'camisas',
+    imageAlt: 'Camisas celestes y blancas colgadas en perchas de madera',
+    faqs: [
+      { q: '¿Dónde queda el local?', a: 'En Av. Constitución 5491, a pocas cuadras de Caisamar.' },
+      { q: '¿Retiran igual si estoy cerca?', a: 'Sí. Podés elegir lo que te resulte más cómodo: acercarte o pedir el retiro.' },
+      { q: '¿Qué puedo mandar?', a: 'Todo junto: trajes, camisas, acolchados, cortinas, zapatillas y la ropa de todos los días.' },
+    ],
+  },
+  {
+    slug: 'parque-luro',
+    name: 'Parque Luro',
+    shortName: 'Parque Luro',
+    keyword: 'tintorería en Parque Luro',
+    metaTitle: 'Tintorería en Parque Luro, Mar del Plata',
+    metaDescription:
+      'Retiro y entrega de tintorería y lavandería en Parque Luro, Mar del Plata. Casas y PH, acolchados y ropa de todos los días. Pedilo por WhatsApp.',
+    h1: 'Tintorería con retiro',
+    h1Thin: 'en Parque Luro',
+    lead: 'Pasamos a buscar tu ropa por Parque Luro y te la devolvemos limpia y planchada. Lo coordinás por WhatsApp en un minuto.',
+    intro: [
+      'Parque Luro es un barrio residencial de casas y PH, de los que tienen patio chico y poco lugar para tender. Ahí la lavandería resuelve más de lo que parece: te devolvemos la ropa de la semana limpia, seca y doblada, sin que tengas que colgar nada.',
+      'Y cuando aparece lo grande —un acolchado al final del invierno, las cortinas de la casa, un traje para un evento— va en el mismo retiro. No hace falta hacer dos pedidos.',
+    ],
+    highlights: [
+      {
+        title: 'Poco lugar para tender',
+        text: 'El valet de ropa es para eso: la lavamos, la secamos y te la devolvemos doblada.',
+      },
+      {
+        title: 'Acolchados y cortinas',
+        text: 'Lo que no entra en el lavarropas de casa entra en el mismo pedido.',
+      },
+      {
+        title: 'Un solo retiro',
+        text: 'Tintorería y lavandería van juntas. De separarlas nos ocupamos nosotros.',
+      },
+    ],
+    image: 'perchas',
+    imageAlt: 'Prendas en fundas plásticas colgadas en perchas de madera',
+    faqs: [
+      { q: '¿Retiran en todo Parque Luro?', a: 'Sí. Pasanos tu dirección por WhatsApp y coordinamos el día y el horario.' },
+      { q: '¿Qué es el valet de ropa?', a: 'Es la ropa de todos los días: la lavamos, la secamos y te la devolvemos doblada y lista para guardar.' },
+      { q: '¿Y si prefiero acercarme?', a: 'El local está en Av. Constitución 5491, barrio Constitución.' },
+    ],
+  },
+  {
+    slug: 'santa-monica',
+    name: 'Santa Mónica',
+    shortName: 'Santa Mónica',
+    keyword: 'tintorería en Santa Mónica',
+    metaTitle: 'Tintorería en Santa Mónica, Mar del Plata',
+    metaDescription:
+      'Retiro y entrega de tintorería y lavandería en Santa Mónica, Mar del Plata. Acolchados, ropa de cama y la ropa de la casa. Pedilo por WhatsApp.',
+    h1: 'Tintorería con retiro',
+    h1Thin: 'en Santa Mónica',
+    lead: 'Barrio residencial de casas, sobre el límite con Pinos de Anchorena. Pasamos a buscar la ropa de la casa y te la devolvemos lista.',
+    intro: [
+      'Santa Mónica es un barrio de casas, tranquilo y bien conectado con el resto de la ciudad. En una casa con varios dormitorios lo que más se acumula no son las prendas sueltas: son los acolchados, las frazadas y la ropa de cama, que se lavan pocas veces al año y nunca entran bien en un lavarropas familiar.',
+      'Todo eso lo retiramos junto con la ropa de todos los días, y te lo devolvemos seco y listo para volver a la cama o al placard.',
+    ],
+    highlights: [
+      {
+        title: 'Acolchados y ropa de cama',
+        text: 'De varios dormitorios, en un solo retiro, y vuelven secos y esponjosos.',
+      },
+      {
+        title: 'La ropa de toda la casa',
+        text: 'Lavandería para lo de todos los días y tintorería para lo que necesita otro cuidado.',
+      },
+      {
+        title: 'Coordinado por WhatsApp',
+        text: 'Pasanos tu dirección y arreglamos el día y el horario que te quede cómodo.',
+      },
+    ],
+    image: 'saco-lana',
+    imageAlt: 'Detalle de un abrigo de paño color camel',
+    faqs: [
+      { q: '¿Retiran en todo Santa Mónica?', a: 'Sí. Pasanos tu dirección por WhatsApp y coordinamos el día y el horario.' },
+      {
+        q: '¿Cuántos acolchados puedo mandar juntos?',
+        a: 'Los que necesites. Contanos cuántos son y de qué relleno y te pasamos el precio antes de empezar.',
+      },
+      { q: '¿Y si prefiero acercarme?', a: 'El local está en Av. Constitución 5491, barrio Constitución.' },
+    ],
+  },
+  {
+    slug: 'camet',
+    name: 'Félix U. Camet',
+    shortName: 'Camet',
+    covers: ['Jardín de Alto Camet', 'Las Dalias', 'Parque Peña'],
+    keyword: 'tintorería en Camet',
+    metaTitle: 'Tintorería en Camet y la zona norte, Mar del Plata',
+    metaDescription:
+      'Retiro y entrega de tintorería y lavandería en Camet, Alto Camet, Las Dalias y Parque Peña. No hace falta bajar al centro. Pedilo por WhatsApp.',
+    h1: 'Tintorería con retiro',
+    h1Thin: 'en Camet y la zona norte',
+    lead: 'Camet, Jardín de Alto Camet, Las Dalias y Parque Peña. Pasamos a buscar tu ropa por la zona norte costera y te la devolvemos limpia.',
+    intro: [
+      'La zona norte costera —Félix U. Camet, Jardín de Alto Camet, Las Dalias y Parque Peña— tiene un problema conocido: casi todo lo que necesitás resolver queda más cerca del centro que de tu casa. Una tintorería no debería ser uno de esos viajes.',
+      'Por eso el retiro llega hasta acá. Coordinás el día por WhatsApp, pasamos a buscar la ropa y te la devolvemos limpia, planchada y en percha, sin que tengas que bajar a la ciudad por una prenda.',
+    ],
+    highlights: [
+      {
+        title: 'Sin bajar al centro',
+        text: 'El retiro y la entrega son en tu puerta: no hace falta hacer el viaje dos veces.',
+      },
+      {
+        title: 'Cuatro barrios, un mismo recorrido',
+        text: 'Camet, Alto Camet, Las Dalias y Parque Peña entran en la misma zona de retiro.',
+      },
+      {
+        title: 'Conviene juntar varias cosas',
+        text: 'Acolchados, cortinas, trajes y la ropa de la semana en un solo pedido.',
+      },
+    ],
+    image: 'entrega',
+    imageAlt: 'Repartidor entregando un pedido de ropa limpia en la puerta de una casa',
+    faqs: [
+      {
+        q: '¿A qué barrios de la zona norte llegan?',
+        a: 'A Félix U. Camet, Jardín de Alto Camet, Las Dalias y Parque Peña. Si estás cerca y no ves tu barrio, escribinos igual.',
+      },
+      { q: '¿Cómo coordinamos?', a: 'Pasanos tu dirección por WhatsApp y arreglamos el día y el horario.' },
+      {
+        q: '¿Puedo mandar varias cosas de una vez?',
+        a: 'Sí, y conviene: acolchados, cortinas, trajes y la ropa de todos los días van en el mismo retiro.',
+      },
     ],
   },
 ];

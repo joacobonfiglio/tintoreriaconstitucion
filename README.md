@@ -86,16 +86,24 @@ También pendiente, pero de diseño y no de contenido:
 
 ## Zonas (`/zonas`)
 
-Una página por zona donde **realmente** retiramos. Hoy son ocho: Constitución, centro, Los Troncos,
-Stella Maris, Playa Grande, Chauvín, La Perla y Güemes.
+Una página por zona donde **realmente** retiramos. Hoy son 15 barrios en 12 páginas: Constitución,
+centro, Los Troncos, Stella Maris, Playa Grande, Chauvín, La Perla, Güemes, Caisamar, Parque Luro,
+Santa Mónica, y la zona norte costera (Félix U. Camet, Jardín de Alto Camet, Las Dalias y Parque Peña),
+que comparte una sola página.
 
 La lista vive en **un solo lugar**: la constante `AREAS` de `app/site.ts`. De ahí salen el `areaServed`
 del JSON-LD y las frases de cobertura (`DELIVERY.zones` y `zonesLong`), así que no hay que tocar textos
 sueltos cuando cambia.
 
-Dos tests lo mantienen consistente en las dos direcciones: cada página de `/zonas` tiene que estar en
-`AREAS`, y cada entrada de `AREAS` tiene que tener su página. Una página de un barrio al que no llegamos
-es una promesa incumplida, y Google además la trata como página puerta.
+Tres tests lo mantienen consistente: cada página de `/zonas` tiene que estar en `AREAS`, cada entrada de
+`AREAS` tiene que tener página (propia o dentro del `covers` de otra), y todo `covers` tiene que nombrar
+áreas reales. Una página de un barrio al que no llegamos es una promesa incumplida, y Google además la
+trata como página puerta.
+
+**Barrios chicos y linderos:** una zona puede cubrir varios con el campo `covers`. Es lo que hace
+`/zonas/camet` con Alto Camet, Las Dalias y Parque Peña. Los cuatro van al `areaServed` del JSON-LD, pero
+comparten una página con contenido real en vez de tener cuatro casi iguales. Si alguno despega, se le
+hace página propia.
 
 **Para sumar una zona:**
 
@@ -104,8 +112,8 @@ es una promesa incumplida, y Google además la trata como página puerta.
 3. Escribí un `intro`, `highlights` y `faqs` **propios**. Dos zonas con el mismo texto no sirven: todo el
    valor está en lo que la página dice de ese barrio en particular.
 
-El `h1` + `h1Thin` no puede quedar igual a "Tintorería y lavandería en \<name\>", que es el H2 que arma la
-plantilla. `npm test` no lo detecta; se ve recorriendo las páginas.
+Si el `h1` + `h1Thin` de una zona coincide con el H2 que arma la plantilla, la plantilla usa otro H2 sola:
+no hay que acordarse.
 
 **Pendiente:** no hay ninguna foto de los barrios. Cada zona usa una foto de prendas, elegida por
 afinidad con el tipo de pedido. Fotos reales de cada zona ayudarían bastante.

@@ -110,6 +110,15 @@ const AREAS = [
   { name: 'Chauvín', short: 'Chauvín' },
   { name: 'La Perla', short: 'La Perla' },
   { name: 'Güemes', short: 'Güemes' },
+  { name: 'Caisamar', short: 'Caisamar' },
+  { name: 'Parque Luro', short: 'Parque Luro' },
+  { name: 'Santa Mónica', short: 'Santa Mónica' },
+  // La zona norte costera comparte una sola página (/zonas/camet), que las declara
+  // en su campo `covers`. Acá van igual, una por una, para el JSON-LD.
+  { name: 'Félix U. Camet', short: 'Camet' },
+  { name: 'Jardín de Alto Camet', short: 'Alto Camet' },
+  { name: 'Las Dalias', short: 'Las Dalias' },
+  { name: 'Parque Peña', short: 'Parque Peña' },
 ] as const;
 
 /** ['a','b','c'] → "a, b y c" */
@@ -124,9 +133,9 @@ export const DELIVERY = {
   /** Barrios donde llega el retiro. Van al JSON-LD como areaServed. */
   areas: AREAS.map((a) => a.name),
   /** Frase corta. Va en la banda de retiro, que aparece en muchas páginas. */
-  zones: `Retiramos y entregamos en ${AREAS.length} zonas de Mar del Plata.`,
-  /** Lista completa, para las páginas donde la cobertura es el tema. */
-  zonesLong: `Retiramos y entregamos en ${enumerar(AREAS.map((a) => a.short))}. Si no ves tu barrio, pasanos tu dirección por WhatsApp y te confirmamos.`,
+  zones: `Retiramos y entregamos en ${AREAS.length} barrios de Mar del Plata.`,
+  /** Para las páginas donde la cobertura es el tema y la lista completa está a la vista. */
+  zonesLong: `Retiramos y entregamos en ${AREAS.length} barrios de Mar del Plata. Si no ves el tuyo, pasanos tu dirección por WhatsApp y te confirmamos.`,
   steps: [
     { icon: 'whatsapp', title: 'Pedilo por WhatsApp', text: 'Decinos qué prendas y tu dirección.' },
     { icon: 'truck', title: 'Confirmamos la zona', text: 'Si llegamos, coordinamos día y horario.' },

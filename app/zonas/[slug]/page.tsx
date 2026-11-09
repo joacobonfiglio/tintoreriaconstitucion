@@ -35,6 +35,13 @@ export default async function ZonePage({ params }: { params: Promise<{ slug: str
   const url = absoluteUrl(`/zonas/${z.slug}`);
   // Las tres siguientes en la lista, rotando: así cada zona enlaza a otras distintas
   // y ninguna queda sin enlaces entrantes.
+  // El H2 de la intro no puede repetir el H1 de la zona: si coinciden, se usa otro.
+  // Pasa cuando el h1 de la zona ya es "Tintorería y lavandería".
+  const introH2 =
+    `${z.h1} ${z.h1Thin}`.trim() === `Tintorería y lavandería en ${z.name}`
+      ? `Qué hacemos en ${z.name}`
+      : `Tintorería y lavandería en ${z.name}`;
+
   const rest = ZONES.filter((o) => o.slug !== z.slug);
   const from = ZONES.findIndex((o) => o.slug === z.slug);
   const others = [...rest.slice(from), ...rest.slice(0, from)].slice(0, 3);
@@ -51,7 +58,7 @@ export default async function ZonePage({ params }: { params: Promise<{ slug: str
         description: z.metaDescription,
         url,
         provider: { '@id': absoluteUrl('/#negocio') },
-        areaServed: { '@type': 'Place', name: placeName(z.name) },
+        areaServed: [z.name, ...(z.covers ?? [])].map((n) => ({ '@type': 'Place', name: placeName(n) })),
         hasOfferCatalog: {
           '@type': 'OfferCatalog',
           name: `Servicios en ${z.name}`,
@@ -114,7 +121,7 @@ export default async function ZonePage({ params }: { params: Promise<{ slug: str
       <section className="section">
         <div className="wrap zone-intro">
           <Motion className="prose">
-            <h2 className="h-m">Tintorería y lavandería en {z.name}</h2>
+            <h2 className="h-m">{introH2}</h2>
             {z.intro.map((p) => (
               <p key={p}>{p}</p>
             ))}

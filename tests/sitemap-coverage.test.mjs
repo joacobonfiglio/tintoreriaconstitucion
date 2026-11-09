@@ -93,6 +93,12 @@ async function zoneNames() {
   return [...(await read('app/zonas/content.ts')).matchAll(/\n    name: '([^']+)'/g)].map((m) => m[1]);
 }
 
+/** Barrios que una página de zona declara cubrir además del propio (campo `covers`). */
+async function zoneCovers() {
+  const src = await read('app/zonas/content.ts');
+  return [...src.matchAll(/\n    covers: \[([^\]]*)\]/g)].flatMap((m) => [...m[1].matchAll(/'([^']+)'/g)].map((x) => x[1]));
+}
+
 test('cada zona publicada está declarada como área de retiro', async () => {
   // Una página de zona promete que retiramos ahí: tiene que existir en AREAS.
   const areas = await deliveryAreas();
@@ -102,9 +108,17 @@ test('cada zona publicada está declarada como área de retiro', async () => {
 });
 
 test('cada área de retiro tiene su página de zona', async () => {
-  // Al revés: si decimos que retiramos en un barrio, que se pueda leer sobre él.
-  const zones = await zoneNames();
-  for (const name of await deliveryAreas()) assert.ok(zones.includes(name), `el área "${name}" no tiene página en /zonas`);
+  // Al revés: si decimos que retiramos en un barrio, que se pueda leer sobre él,
+  // sea con página propia o dentro del `covers` de una página que lo incluya.
+  const cubiertos = [...(await zoneNames()), ...(await zoneCovers())];
+  for (const name of await deliveryAreas()) {
+    assert.ok(cubiertos.includes(name), `el área "${name}" no tiene página en /zonas ni figura en el covers de ninguna`);
+  }
+});
+
+test('los covers nombran áreas de retiro reales', async () => {
+  const areas = await deliveryAreas();
+  for (const name of await zoneCovers()) assert.ok(areas.includes(name), `"${name}" está en un covers pero no en AREAS`);
 });
 
 test('no se publican plazos ni horarios sin confirmar', async () => {
