@@ -4,6 +4,7 @@ import { Img } from '../Img';
 import { Motion } from '../Motion';
 import { pageMetadata } from '../seo';
 import { DELIVERY, GREETING, SERVICES, SITE, absoluteUrl, placeName } from '../site';
+import { ZONES } from '../zonas/content';
 import { WhatsAppLink } from '../WhatsAppLink';
 
 export const metadata = pageMetadata({
@@ -80,8 +81,8 @@ export default function Retiro() {
         message={ORDER}
         cta="Consultar el retiro"
       >
-        <a href="/servicios" className="btn btn-ghost">
-          Ver servicios
+        <a href="#zonas" className="btn btn-ghost">
+          Ver las zonas
         </a>
       </PageHero>
 
@@ -95,6 +96,40 @@ export default function Retiro() {
           </>
         }
       />
+
+      {/* Zonas: la duda principal de quien llega a esta página */}
+      <section id="zonas" className="section">
+        <div className="wrap">
+          <div className="section-head">
+            <Motion>
+              <span className="eyebrow">Dónde llegamos</span>
+              <h2 className="h-l">
+                Las zonas <span className="thin">de retiro</span>
+              </h2>
+            </Motion>
+            <Motion as="p" className="lead" delay={100}>
+              {DELIVERY.zonesLong}
+            </Motion>
+          </div>
+          <div className="guide-grid">
+            {ZONES.map((z, i) => (
+              <Motion as="article" key={z.slug} className="guide-card" delay={i * 90}>
+                <a href={`/zonas/${z.slug}`} className="guide-card-media" tabIndex={-1} aria-hidden="true">
+                  <Img name={z.image} alt="" sizes="(min-width: 900px) 420px, 100vw" />
+                </a>
+                <div className="guide-card-body">
+                  <span className="guide-tag">{z.hasLocal ? 'Local y retiro' : 'Retiro a domicilio'}</span>
+                  <h3>
+                    <a href={`/zonas/${z.slug}`}>{z.name}</a>
+                  </h3>
+                  <p>{z.lead}</p>
+                  <span className="link-arrow">Ver la zona</span>
+                </div>
+              </Motion>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Qué podés mandar */}
       <section className="section">
