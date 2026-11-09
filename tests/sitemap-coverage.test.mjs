@@ -71,6 +71,21 @@ test('los enlaces internos de las guías apuntan a páginas que existen', async 
   }
 });
 
+test('ninguna guía queda sin enlaces entrantes', async () => {
+  // Una guía que solo cuelga del índice casi no recibe peso. Cada una tiene que estar
+  // en el `related` de otra guía y en el `services` de algún servicio, que es lo que
+  // hace que la página del servicio la enlace.
+  const src = await read('app/guias/content.ts');
+  const relacionadas = new Set([...src.matchAll(/related: \[([^\]]*)\]/g)].flatMap((m) => [...m[1].matchAll(/'([^']+)'/g)].map((x) => x[1])));
+  const conServicio = new Set(
+    [...src.matchAll(/slug: '([a-z0-9-]+)',[\s\S]*?services: \[([^\]]+)\]/g)].filter((m) => m[2].trim()).map((m) => m[1]),
+  );
+  for (const slug of guideSlugs) {
+    assert.ok(relacionadas.has(slug), `la guía "${slug}" no está en el related de ninguna otra`);
+    assert.ok(conServicio.has(slug), `la guía "${slug}" no declara servicios, así que ninguno la enlaza`);
+  }
+});
+
 test('el sitemap cubre todas las páginas', async () => {
   const routes = await sitemapRoutes();
   for (const p of await publicPages()) assert.ok(routes.includes(p), `Falta ${p} en el sitemap`);

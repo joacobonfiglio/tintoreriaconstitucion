@@ -55,6 +55,25 @@ botón de WhatsApp. El resto vive en el footer (`FOOTER_NAV`), que también usa 
 | `/guias/<slug>` | búsquedas informativas ("cómo sacar una mancha") | `app/guias/content.ts` |
 | `/retiro-a-domicilio` | "tintorería con retiro a domicilio" | `app/retiro-a-domicilio/page.tsx` |
 
+## Enlazado interno
+
+Google reparte el peso por los enlaces del contenido; los del header y el footer, al estar en todas las
+páginas, pesan mucho menos. Por eso cada sección enlaza a las otras desde el cuerpo:
+
+- **Servicio → guías.** Cada página de servicio muestra las guías que la mencionan. La relación se lee
+  al revés del campo `services` de cada guía, así que no hay una segunda lista que mantener.
+- **Guía → servicios.** La columna lateral de cada guía enlaza sus servicios relacionados.
+- **Zonas y `/servicios` → `/empresas`.** Una línea en cada una, porque es el camino natural del
+  alquiler temporario y del comercio.
+- **`/retiro-a-domicilio` → cada zona**, y la banda de retiro → `/zonas`.
+
+Para medirlo, hay un script de apoyo que recorre el sitio y cuenta enlaces entrantes del contenido y
+profundidad de clic. No está en el repo: se arma cuando hace falta. Las legales quedan fuera a
+propósito (son `noindex` y cuelgan solo del footer).
+
+Dos tests cuidan lo que se puede automatizar: ninguna guía puede quedar sin figurar en el `related` de
+otra ni sin declarar `services`, que es lo que la deja sin enlaces entrantes.
+
 ## Regla: lo que no está confirmado no se publica
 
 La web no afirma nada que el cliente no haya confirmado. Un dato vacío no rompe nada: la sección que

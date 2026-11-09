@@ -5,6 +5,7 @@ import { shareImage } from './imageUrl';
 import { Motion } from './Motion';
 import { DELIVERY, SERVICES, SITE, absoluteUrl } from './site';
 import type { ServiceContent } from './servicios/content';
+import { GUIDES } from './guias/content';
 import { WhatsAppLink } from './WhatsAppLink';
 
 /** Plantilla de página de servicio: qué incluye, retiro a domicilio y pedido. Texto en servicios/content.ts. */
@@ -12,6 +13,9 @@ export function ServiceLanding({ content: c }: { content: ServiceContent }) {
   const service = SERVICES.find((s) => s.slug === c.slug)!;
   const url = absoluteUrl(`/servicios/${c.slug}`);
   const related = c.related.map((slug) => SERVICES.find((s) => s.slug === slug)!).filter(Boolean);
+  // Las guías declaran a qué servicios aplican: desde acá se lee al revés, así que
+  // no hay una segunda lista que mantener ni se puede desincronizar.
+  const guides = GUIDES.filter((g) => g.services.includes(c.slug)).slice(0, 3);
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -138,6 +142,44 @@ export function ServiceLanding({ content: c }: { content: ServiceContent }) {
           </div>
         </div>
       </section>
+
+      {/* Guías sobre este servicio */}
+      {guides.length > 0 && (
+        <section className="section">
+          <div className="wrap">
+            <div className="section-head">
+              <Motion>
+                <span className="eyebrow">Guías</span>
+                <h2 className="h-l">
+                  Antes de traerla, <span className="thin">mirá esto</span>
+                </h2>
+              </Motion>
+              <Motion as="p" className="lead" delay={100}>
+                Lo que se puede hacer en casa y lo que conviene dejarnos a nosotros.
+              </Motion>
+            </div>
+            <div className="guide-grid">
+              {guides.map((g, i) => (
+                <Motion as="article" key={g.slug} className="guide-card" delay={i * 90}>
+                  <a href={`/guias/${g.slug}`} className="guide-card-media" tabIndex={-1} aria-hidden="true">
+                    <Img name={g.image} alt="" sizes="(min-width: 900px) 380px, 100vw" />
+                  </a>
+                  <div className="guide-card-body">
+                    <span className="guide-tag">{g.category}</span>
+                    <h3>
+                      <a href={`/guias/${g.slug}`}>{g.title}</a>
+                    </h3>
+                    <p>{g.excerpt}</p>
+                  </div>
+                </Motion>
+              ))}
+            </div>
+            <Motion as="p" className="zones-note" delay={180}>
+              <Icon name="check" strokeWidth={2.2} /> <a href="/guias">Ver todas las guías y consejos</a>
+            </Motion>
+          </div>
+        </section>
+      )}
 
       {/* Relacionados */}
       <section className="section section-tint">

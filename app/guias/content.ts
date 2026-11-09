@@ -167,7 +167,7 @@ export const GUIDES: Guide[] = [
       },
     ],
     services: ['limpieza-de-acolchados', 'limpieza-de-cortinas'],
-    related: ['como-guardar-la-ropa-de-invierno', 'simbolos-de-las-etiquetas-de-la-ropa'],
+    related: ['como-sacar-el-olor-a-humedad-de-la-ropa', 'como-guardar-la-ropa-de-invierno'],
   },
 
   {
@@ -286,7 +286,7 @@ export const GUIDES: Guide[] = [
       },
     ],
     services: ['limpieza-de-prendas-delicadas', 'limpieza-de-camisas', 'limpieza-de-trajes'],
-    related: ['cada-cuanto-limpiar-un-traje', 'simbolos-de-las-etiquetas-de-la-ropa'],
+    related: ['como-planchar-una-camisa', 'simbolos-de-las-etiquetas-de-la-ropa'],
   },
 
   {
@@ -391,7 +391,7 @@ export const GUIDES: Guide[] = [
       },
     ],
     services: ['limpieza-de-trajes', 'limpieza-de-camisas'],
-    related: ['como-guardar-la-ropa-de-invierno', 'como-sacar-manchas-de-la-ropa'],
+    related: ['como-planchar-una-camisa', 'como-sacar-manchas-de-la-ropa'],
   },
 
   {
@@ -483,7 +483,7 @@ export const GUIDES: Guide[] = [
       },
     ],
     services: ['limpieza-de-camperas', 'limpieza-de-acolchados', 'limpieza-de-trajes'],
-    related: ['como-lavar-un-acolchado-de-plumas', 'cada-cuanto-limpiar-un-traje'],
+    related: ['como-lavar-lana-sin-que-encoja', 'como-lavar-un-acolchado-de-plumas'],
   },
 
   {
@@ -584,7 +584,7 @@ export const GUIDES: Guide[] = [
       },
     ],
     services: ['limpieza-de-prendas-delicadas', 'limpieza-de-trajes', 'valet-de-ropa'],
-    related: ['como-sacar-manchas-de-la-ropa', 'como-lavar-un-acolchado-de-plumas'],
+    related: ['como-lavar-lana-sin-que-encoja', 'como-sacar-manchas-de-la-ropa'],
   },
 
   {
@@ -886,7 +886,7 @@ export const GUIDES: Guide[] = [
       },
     ],
     services: ['limpieza-de-camperas', 'limpieza-de-prendas-delicadas', 'limpieza-de-trajes'],
-    related: ['como-guardar-la-ropa-de-invierno', 'simbolos-de-las-etiquetas-de-la-ropa'],
+    related: ['como-guardar-la-ropa-de-invierno', 'como-sacar-el-olor-a-humedad-de-la-ropa'],
   },
 ];
 

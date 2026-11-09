@@ -2613,6 +2613,10 @@
   color: var(--ink-soft);
   font-size: 0.96rem;
 }
+.zones-note a {
+  color: var(--violet);
+  font-weight: 600;
+}
 .zones-note {
   display: flex;
   gap: 12px;

@@ -219,6 +219,11 @@ export default async function ZonePage({ params }: { params: Promise<{ slug: str
         </div>
       </section>
 
+      <Motion as="p" className="zones-note">
+        <Icon name="building" /> ¿Es para un alquiler temporario, un hotel o un comercio?{' '}
+        <a href="/empresas">Mirá el servicio para empresas</a>
+      </Motion>
+
       <DeliveryBand
         id="retiro"
         message={ORDER}

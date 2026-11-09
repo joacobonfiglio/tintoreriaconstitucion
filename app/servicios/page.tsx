@@ -50,6 +50,12 @@ export default function Servicios() {
         cta="Hacer un pedido"
       />
       <section className="section">
+        <div className="wrap">
+          <Motion as="p" className="zones-note">
+            <Icon name="building" /> ¿Es para un hotel, un alquiler temporario o un restaurante?{' '}
+            <a href="/empresas">Mirá el servicio para empresas</a>
+          </Motion>
+        </div>
         <div className="wrap svc-related svc-index">
           {SERVICES.map((s, i) => (
             <Motion as="a" key={s.slug} href={`/servicios/${s.slug}`} className="svc-card" delay={(i % 3) * 90}>
