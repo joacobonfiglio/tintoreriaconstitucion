@@ -35,6 +35,11 @@ ${ZONES.map((z) => `- [${z.name}](${absoluteUrl(`/zonas/${z.slug}`)}): ${z.lead}
 Blanquería, mantelería y uniformes para hoteles, alquileres temporarios, restaurantes y consultorios,
 con retiro programado y facturación mensual: ${absoluteUrl('/empresas')}
 
+## Abonos mensuales
+
+Abonos de camisas, trajes y pantalones para quien usa la misma ropa de trabajo todas las
+semanas. Se arman según el caso: ${absoluteUrl('/abonos')}
+
 ## Guías y consejos
 
 ${GUIDES.map((g) => `- [${g.title}](${absoluteUrl(`/guias/${g.slug}`)}): ${g.excerpt}`).join('\n')}

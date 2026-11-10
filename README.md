@@ -31,6 +31,20 @@ Las vistas previas de Vercel (`VERCEL_ENV=preview`) salen con `noindex` y `robot
 - Imágenes para compartir: `shareImage()` en `app/imageUrl.ts`. Varias fotos del sitio son chicas (355–396 px) y por debajo de 1200 px WhatsApp y Facebook descartan la vista previa, así que en esos casos se comparte `camisas` (1376 px). **Pendiente: fotos originales más grandes** para que cada página comparta la suya.
 - Google Search Console: verificación por archivo en `public/googlef865543e27f831d4.html`. No borrar: si se borra, Google desverifica la propiedad.
 
+## Segmento profesional
+
+Abogados, contadores, médicos y cualquiera que use la misma ropa de trabajo todas las semanas. **No hay
+una página por profesión**: nadie busca "tintorería para abogados", busca por prenda. El segmento se
+cubre con dos piezas, una de búsqueda y otra de conversión:
+
+- `/servicios/limpieza-de-ambos-y-uniformes` capta la búsqueda por prenda (ambos, guardapolvos,
+  uniformes), y sirve tanto al profesional suelto como al consultorio.
+- `/abonos` es el cierre: dice que los abonos existen y manda a WhatsApp. No publica precios ni
+  condiciones porque no están confirmados.
+
+Si alguna vez se hace publicidad paga apuntada a una profesión, ahí sí conviene una landing por
+segmento. Para SEO, no.
+
 ## Mensaje de la web
 
 La web vende **tintorería y lavandería**. El retiro y entrega a domicilio es **una opción más**, no el eje:
@@ -52,6 +66,7 @@ botón de WhatsApp. El resto vive en el footer (`FOOTER_NAV`), que también usa 
 | `/servicios/<slug>` | "limpieza de trajes", "lavandería", "arreglos de ropa", … | `app/servicios/content.ts` + `SERVICES` en `app/site.ts` |
 | `/zonas/<slug>` | "tintorería en \<barrio\>" | `app/zonas/content.ts` |
 | `/empresas` | "lavandería para hoteles", "blanquería alquileres temporarios" | `app/empresas/page.tsx` |
+| `/abonos` | "abono de camisas", y el cierre del segmento profesional | `app/abonos/page.tsx` |
 | `/guias/<slug>` | búsquedas informativas ("cómo sacar una mancha") | `app/guias/content.ts` |
 | `/retiro-a-domicilio` | "tintorería con retiro a domicilio" | `app/retiro-a-domicilio/page.tsx` |
 
@@ -65,6 +80,8 @@ páginas, pesan mucho menos. Por eso cada sección enlaza a las otras desde el c
 - **Guía → servicios.** La columna lateral de cada guía enlaza sus servicios relacionados.
 - **Zonas y `/servicios` → `/empresas`.** Una línea en cada una, porque es el camino natural del
   alquiler temporario y del comercio.
+- **Servicios con abono → `/abonos`.** Se marca con `hasAbono: true` en `app/servicios/content.ts` y la
+  plantilla pone la línea sola. Hoy lo tienen camisas y trajes.
 - **`/retiro-a-domicilio` → cada zona**, y la banda de retiro → `/zonas`.
 
 Para medirlo, hay un script de apoyo que recorre el sitio y cuenta enlaces entrantes del contenido y
@@ -96,6 +113,8 @@ Al completarlos, aparecen solos donde corresponde. Buscá `TODO` en el código.
 | `SITE.email`, `geo`, `social`, `foundingYear` | JSON-LD y footer | se omiten |
 | `LEGAL.holder`, `LEGAL.cuit` | Páginas legales | se omiten |
 | Esquema de empresas | `/empresas`: mínimos, frecuencia, cobro | "contanos tu caso" |
+| Condiciones de los abonos | `/abonos`: qué incluye cada uno, frecuencia, precio | "se arma sobre tu caso" |
+| Abono de ambos y uniformes | Si existe, `hasAbono: true` en ese servicio | no se menciona |
 | Alcance de los servicios nuevos | Gamuza y cuero en zapatillas, sillones grandes en tapizados | "consultanos" |
 
 También pendiente, pero de diseño y no de contenido:

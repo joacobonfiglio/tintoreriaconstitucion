@@ -12,6 +12,7 @@ export const ROUTES = [
   '/zonas',
   ...ZONES.map((z) => `/zonas/${z.slug}`),
   '/empresas',
+  '/abonos',
   '/guias',
   ...GUIDES.map((g) => `/guias/${g.slug}`),
 ];

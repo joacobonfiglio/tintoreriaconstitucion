@@ -17,6 +17,8 @@ export type ServiceContent = {
   image: string;
   /** descripción breve para la página (ayuda al SEO): qué es, para quién, con retiro a domicilio */
   description: string;
+  /** true si este servicio tiene abono mensual: la página lo enlaza a /abonos. */
+  hasAbono?: boolean;
   /** qué se limpia, en frases cortas */
   items: string[];
   faqs: { q: string; a: string }[];
@@ -29,6 +31,7 @@ export type ServiceContent = {
 export const SERVICE_CONTENT: ServiceContent[] = [
   {
     slug: 'limpieza-de-trajes',
+    hasAbono: true,
     keyword: 'limpieza de trajes en Mar del Plata',
     metaTitle: 'Limpieza de trajes en Mar del Plata',
     metaDescription:
@@ -71,6 +74,7 @@ export const SERVICE_CONTENT: ServiceContent[] = [
   },
   {
     slug: 'limpieza-de-camisas',
+    hasAbono: true,
     keyword: 'limpieza y planchado de camisas en Mar del Plata',
     metaTitle: 'Limpieza y planchado de camisas en Mar del Plata',
     metaDescription:
@@ -176,6 +180,38 @@ export const SERVICE_CONTENT: ServiceContent[] = [
       { q: '¿La pueden retirar de mi casa?', a: 'Sí, en el barrio Constitución y el centro de Mar del Plata. Pasanos tu dirección por WhatsApp y coordinamos.' },
     ],
     related: ['limpieza-de-camisas', 'limpieza-de-acolchados', 'limpieza-de-cortinas'],
+  },
+  {
+    slug: 'limpieza-de-ambos-y-uniformes',
+    keyword: 'limpieza de ambos médicos en Mar del Plata',
+    metaTitle: 'Limpieza de ambos y uniformes en Mar del Plata',
+    metaDescription:
+      'Limpieza de ambos médicos, chaquetas, guardapolvos y uniformes de trabajo en Mar del Plata. Para profesionales y consultorios. Pedí por WhatsApp.',
+    eyebrow: 'Ambos y uniformes · Mar del Plata',
+    h1: 'Limpieza de ambos',
+    h1Thin: 'y uniformes de trabajo',
+    lead: 'La ropa con la que trabajás todos los días: ambos, chaquetas, guardapolvos y uniformes. Limpios, planchados y listos para la próxima jornada.',
+    image: 'vaporizado',
+    description:
+      'El ambo y el uniforme son ropa de trabajo: se usan todos los días, se manchan con cosas que la ropa común no ve y tienen que estar presentables sin excepción. Los limpiamos y los planchamos para que vuelvan listos para usar. Atendemos tanto al profesional que trae los suyos como al consultorio que manda los de todo el equipo.',
+    items: ['Ambos médicos y de enfermería', 'Chaquetas y casacas', 'Guardapolvos', 'Uniformes de trabajo', 'Chombas y remeras de uniforme', 'Ropa de consultorio'],
+    // TODO: confirmar si hay abono también para ambos y uniformes (hoy el abono es
+    // de camisas, trajes y pantalones) y si se toman telas técnicas o antifluido.
+    faqs: [
+      {
+        q: '¿Le toman el ambo a un profesional que viene solo?',
+        a: 'Sí. No hace falta ser un consultorio ni mandar volumen: podés traer los tuyos y listo.',
+      },
+      {
+        q: '¿Y si somos varios en el consultorio?',
+        a: 'También. Si son varios equipos y querés retiro programado y facturación mensual, mirá el servicio para empresas.',
+      },
+      {
+        q: '¿Cuánto tarda?',
+        a: 'Te damos el plazo al recibir las prendas y te avisamos por WhatsApp apenas están listas.',
+      },
+    ],
+    related: ['limpieza-de-camisas', 'limpieza-de-trajes', 'valet-de-ropa'],
   },
   {
     slug: 'limpieza-de-alfombras',

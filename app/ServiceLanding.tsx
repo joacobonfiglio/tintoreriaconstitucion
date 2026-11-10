@@ -143,6 +143,17 @@ export function ServiceLanding({ content: c }: { content: ServiceContent }) {
         </div>
       </section>
 
+      {c.hasAbono && (
+        <section className="section">
+          <div className="wrap">
+            <Motion as="p" className="zones-note">
+              <Icon name="tag" /> ¿Lo usás todas las semanas? Tenemos abono mensual.{' '}
+              <a href="/abonos">Ver cómo funciona</a>
+            </Motion>
+          </div>
+        </section>
+      )}
+
       {/* Guías sobre este servicio */}
       {guides.length > 0 && (
         <section className="section">

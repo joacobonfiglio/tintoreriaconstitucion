@@ -52,6 +52,10 @@ export default function Servicios() {
       <section className="section">
         <div className="wrap">
           <Motion as="p" className="zones-note">
+            <Icon name="tag" /> ¿Usás la misma ropa de trabajo todas las semanas?{' '}
+            <a href="/abonos">Mirá los abonos mensuales</a>
+          </Motion>
+          <Motion as="p" className="zones-note" delay={90}>
             <Icon name="building" /> ¿Es para un hotel, un alquiler temporario o un restaurante?{' '}
             <a href="/empresas">Mirá el servicio para empresas</a>
           </Motion>

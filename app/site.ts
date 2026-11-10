@@ -91,6 +91,7 @@ export const FOOTER_NAV = [
   { href: '/retiro-a-domicilio', label: 'Retiro a domicilio' },
   { href: '/zonas', label: 'Zonas de retiro' },
   { href: '/empresas', label: 'Empresas y alojamientos' },
+  { href: '/abonos', label: 'Abonos mensuales' },
   { href: '/guias', label: 'Guías y consejos' },
   { href: '/#preguntas', label: 'Preguntas frecuentes' },
   { href: '/#contacto', label: 'Contacto' },
@@ -234,6 +235,15 @@ export const SERVICES: Service[] = [
     imageAlt: 'Ropa limpia doblada y apilada: jeans, remeras y toallas',
     icon: 'washer',
     message: `${GREETING} Quiero pedir el servicio de lavandería y valet de ropa.`,
+  },
+  {
+    slug: 'limpieza-de-ambos-y-uniformes',
+    name: 'Limpieza de ambos y uniformes',
+    short: 'Ambos médicos, chaquetas, guardapolvos y ropa de trabajo. Limpios y planchados.',
+    image: 'vaporizado',
+    imageAlt: 'Vaporizadora de mano pasando sobre una prenda oscura',
+    icon: 'iron',
+    message: `${GREETING} Quiero pedir la limpieza de ambos o uniformes.`,
   },
   {
     slug: 'limpieza-de-alfombras',

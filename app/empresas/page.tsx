@@ -189,6 +189,9 @@ export default function Empresas() {
               <WhatsAppLink message={ORDER} placement="empresas_como">
                 Pedir presupuesto
               </WhatsAppLink>
+              <a href="/abonos" className="btn btn-ghost">
+                <Icon name="tag" /> Abonos para una persona
+              </a>
             </div>
           </Motion>
           <Motion variant="scale" className="biz-split-media" delay={100}>
